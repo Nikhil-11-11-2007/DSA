@@ -63,12 +63,12 @@
 
 // que 6
 
-function calculateCircleProperties(r) {
-    // Write your logic here
-    let circum = (2*Math.PI*r).toFixed(2)
-    let areaOfCircle = (Math.PI*r*r).toFixed(2)
+// function calculateCircleProperties(r) {
+//     // Write your logic here
+//     let circum = (2*Math.PI*r).toFixed(2)
+//     let areaOfCircle = (Math.PI*r*r).toFixed(2)
 
-    return [circum, areaOfCircle]
-}
+//     return [circum, areaOfCircle]
+// }
 
-console.log(calculateCircleProperties(5.2))
+// console.log(calculateCircleProperties(5.2))
