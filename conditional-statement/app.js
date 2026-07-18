@@ -114,11 +114,39 @@ let prompt = require("prompt-sync")()
 
 // que 13
 
-function findGreatest(a, b, c) {
-    // Write your logic here
-    if(a >= b) return a
-    else if(b >= a && b >= c) return b
-    else return c
-}
+// function findGreatest(a, b, c) {
+//     // Write your logic here
+//     if(a >= b) return a
+//     else if(b >= a && b >= c) return b
+//     else return c
+// }
 
-console.log(findGreatest(3,7,5))
+// console.log(findGreatest(3,7,5))
+
+// que 14
+
+// let day = +prompt("Enter number between 1 to 7 ")
+
+// function printDayName(day) {
+//  //write your code here
+//  switch(day) {
+//     case 1:
+//     return "Monday";
+//     case 2:
+//     return "Tuesday";
+//     case 3:
+//     return "Wednesday";
+//     case 4:
+//     return "Thursday";
+//     case 5:
+//     return "Friday";
+//     case 6:
+//     return "Saturday";
+//     case 7:
+//     return "Sunday"
+//     default:
+//     return "Invalid day number"
+//  }
+// }
+
+// console.log(printDayName(day))
