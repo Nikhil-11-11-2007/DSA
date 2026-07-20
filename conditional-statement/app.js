@@ -23,7 +23,7 @@ let prompt = require("prompt-sync")()
 //     // Write your logic here
 //     if (num % 2 === 0) return console.log("Even")
 //     else return console.log("Odd")
-    
+
 // }
 
 // checkEvenOrOdd(num)
@@ -37,7 +37,7 @@ let prompt = require("prompt-sync")()
 //     // Write your logic here
 //     if(age >= 18) return `${name} is a valid voter.`
 //     else return `${name} is not a valid voter.`
-    
+
 // }
 
 // console.log(checkVoterEligibility(name,age))
@@ -50,7 +50,7 @@ let prompt = require("prompt-sync")()
 //     // Write your logic here
 //     if((year%100 !== 0 && year%4 === 0) || year%400 === 0) return "Leap Year"
 //     else return "Not a Leap Year"
-    
+
 // }
 
 // console.log(isLeapYear(year))
@@ -150,3 +150,71 @@ let prompt = require("prompt-sync")()
 // }
 
 // console.log(printDayName(day))
+
+// que 15 
+
+// const ratingStr = prompt("Enter movi rating ")
+
+// class Solution {
+//     get_movie_status(ratingStr) {
+//         // Write your code here
+//         if(ratingStr >= 0 && ratingStr <= 2.0) return "Flop"
+//         else if(ratingStr >= 2.1 && ratingStr <= 3.4) return "Semi-hit"
+//         else if(ratingStr >= 3.5 && ratingStr <= 4.5) return "Hit"
+//         else if(ratingStr >= 4.6 && ratingStr <= 5.0) return "Super Hit"
+
+//     }
+// }
+
+// let moviRateObj = new Solution();
+
+// moviRateObj.get_movie_status(ratingStr)
+
+//  que 16
+
+// const ch = prompt("Enter charactoe A to B ")
+
+// function checkChar(ch) {
+//     //write your code here
+//     if (ch === "a" || ch === "e" || ch === "i" || ch === "o" || ch === "u" || ch === "A" || ch === "E" || ch === "I" || ch === "O" || ch === "U") {
+//         return "Vowel"
+//     }
+//     else if ((ch >= "a" && ch <= "z") || (ch >= "A" && ch <= "Z")) {
+//         return "Consonant"
+//     }
+//     else {
+//         return "Invalid input"
+//     }
+// }
+
+
+// // second method 
+
+// class Solution {
+//     check_char(ch) {
+//         // Write your code here
+//         if (!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))) {
+//             return "Invalid input"
+//         }
+
+
+//         switch (ch) {
+//             case 'a':
+//             case 'e':
+//             case 'i':
+//             case 'o':
+//             case 'u':
+//             case 'A':
+//             case 'E':
+//             case 'I':
+//             case 'O':
+//             case 'U':
+//                 return "Vowel"
+//             default:
+//                 return "Consonant"
+//         }
+//     }
+// }
+
+
+// console.log(checkChar(ch))
