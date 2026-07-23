@@ -54,6 +54,17 @@ let prompt = require("prompt-sync")()
 
 // }
 
+// function sumUpToN(n) {
+//     // Write your logic here
+//     let count = 0
+//     for(let i = 0; i<=n; i++){
+//         count += i
+//     }
+
+//     return count
+    
+// }
+
 // console.log(sumUpToN(n))
 
 // que 19
@@ -109,3 +120,31 @@ let prompt = require("prompt-sync")()
 // }
 
 // console.log(sumEvenOddInRange(start, end))
+
+// que 22 
+
+// let tabel = +prompt("Enter a num to a table of an number ")
+
+// function printTable(table) {
+//     for(let i = 1; i<=10; i++){
+//         console.log(`${tabel} * ${i} = ${i*tabel}`)
+//     }
+// }
+
+// printTable(tabel)
+
+// que 23
+
+let n = +prompt("Enter number to check wheather is prime or not ")
+
+function isPrime(n) {
+    // Write your logic here
+    if (n <= 1) return "Not Prime"
+    for (let i = 2; i < n; i++) {
+        if (n % i === 0) return "Not Prime"
+    }
+    return "Prime"
+
+}
+
+console.log(isPrime(n))
