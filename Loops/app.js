@@ -62,7 +62,7 @@ let prompt = require("prompt-sync")()
 //     }
 
 //     return count
-    
+
 // }
 
 // console.log(sumUpToN(n))
@@ -135,16 +135,48 @@ let prompt = require("prompt-sync")()
 
 // que 23
 
-let n = +prompt("Enter number to check wheather is prime or not ")
+// let n = +prompt("Enter number to check wheather is prime or not ")
 
-function isPrime(n) {
-    // Write your logic here
-    if (n <= 1) return "Not Prime"
-    for (let i = 2; i < n; i++) {
-        if (n % i === 0) return "Not Prime"
-    }
-    return "Prime"
+// function isPrime(n) {
+//     // Write your logic here
 
-}
+//      this one methon is best
 
-console.log(isPrime(n))
+//     if (n <= 1) return "Not Prime"
+//     for (let i = 2; i < n; i++) {
+//         if (n % i === 0) return "Not Prime"
+//     }
+//     return "Prime"
+
+// 2nd method 
+
+    // let count = 0;
+    // for(let i = 1; i<=n; i++) {
+    //     if(n%i === 0) count++
+    // }
+
+    // if(count === 2) return "Prime"
+    // return "Not Prime"
+
+// }
+
+// console.log(isPrime(n))
+
+// que 24
+
+// let a = +prompt("Enter Number: ")
+// let b = +prompt("Enter power of an Number: ")
+
+// function calculatePower(a, b) {
+
+//     let pow = 1;
+//     for(let i = 1; i<=b; i++) {
+//         pow *= a
+//     }
+
+//     return pow
+    
+// }
+
+// console.log(calculatePower(a,b))
+
