@@ -150,13 +150,13 @@ let prompt = require("prompt-sync")()
 
 // 2nd method 
 
-    // let count = 0;
-    // for(let i = 1; i<=n; i++) {
-    //     if(n%i === 0) count++
-    // }
+// let count = 0;
+// for(let i = 1; i<=n; i++) {
+//     if(n%i === 0) count++
+// }
 
-    // if(count === 2) return "Prime"
-    // return "Not Prime"
+// if(count === 2) return "Prime"
+// return "Not Prime"
 
 // }
 
@@ -175,8 +175,29 @@ let prompt = require("prompt-sync")()
 //     }
 
 //     return pow
-    
+
 // }
 
 // console.log(calculatePower(a,b))
 
+// while loop 
+
+
+// que 25
+
+let n = +prompt("Enter number to gave sum ")
+
+function sumOfDigits(n) {
+    // Write your logic here
+    let sum = 0
+    while (n > 0) {
+        let rem = n % 10
+        let divident = Math.floor(n / 10)
+        sum += rem
+        n = divident
+    }
+    return sum
+
+}
+
+console.log(sumOfDigits(n))
