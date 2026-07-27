@@ -185,19 +185,86 @@ let prompt = require("prompt-sync")()
 
 // que 25
 
-let n = +prompt("Enter number to gave sum ")
+// let n = +prompt("Enter number to gave sum ")
 
-function sumOfDigits(n) {
+// function sumOfDigits(n) {
+//     // Write your logic here
+//     let sum = 0
+//     while (n > 0) {
+//         let rem = n % 10
+//         let divident = Math.floor(n / 10)
+//         sum += rem
+//         n = divident
+//     }
+//     return sum
+
+// }
+
+// console.log(sumOfDigits(n))
+
+// que27 
+
+// let n = +prompt("Enter Number to check is Automorphic or not ")
+
+// function isAutomorphic(n) {
+//     // Write your logic here
+//     let count = 0, copy = n, sq = Math.pow(n,2)
+
+//     while(n > 0) {
+//         count++
+//         n = Math.floor(n/10)
+//     }
+
+//     if(copy === sq%Math.pow(10,count)) return "Yes"
+//     else return "No"
+
+// }
+
+// console.log(isAutomorphic(n))
+
+// que 28
+
+// let n = +prompt("Enter Number to Reverse ")
+
+// function reverseNumber(n) {
+//     // Write your logic here
+//     let reverse = 0
+//     while (n > 0) {
+//         let rem = n%10
+//         reverse = (reverse * 10) + rem 
+//         n = Math.floor(n/10)
+//     }
+
+//     return reverse
+// }
+
+// console.log(reverseNumber(n))
+
+// que 29
+
+let n = +prompt("Enter number ")
+
+function isStrongNumber(n) {
     // Write your logic here
-    let sum = 0
-    while (n > 0) {
-        let rem = n % 10
-        let divident = Math.floor(n / 10)
-        sum += rem
-        n = divident
+    let copy = n, sum = 0
+
+    while(n > 0) {
+        let rem = n%10
+        let fact = 1
+        let value = rem
+
+        while(value > 0) {
+            fact *= value
+            value--
+        }
+
+        sum += fact
+        n = Math.floor(n/10)
     }
-    return sum
+
+    if(sum === copy) return "Strong Number"
+    else return "Not a Strong Number"
 
 }
 
-console.log(sumOfDigits(n))
+console.log(isStrongNumber(n))
