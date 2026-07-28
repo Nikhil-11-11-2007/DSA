@@ -242,29 +242,66 @@ let prompt = require("prompt-sync")()
 
 // que 29
 
+// let n = +prompt("Enter number ")
+
+// function isStrongNumber(n) {
+//     // Write your logic here
+//     let copy = n, sum = 0
+
+//     while(n > 0) {
+//         let rem = n%10
+//         let fact = 1
+//         let value = rem
+
+//         while(value > 0) {
+//             fact *= value
+//             value--
+//         }
+
+//         sum += fact
+//         n = Math.floor(n/10)
+//     }
+
+//     if(sum === copy) return "Strong Number"
+//     else return "Not a Strong Number"
+
+// }
+
+// console.log(isStrongNumber(n))
+
+
 let n = +prompt("Enter number ")
 
-function isStrongNumber(n) {
-    // Write your logic here
-    let copy = n, sum = 0
+function isIsbnNumber(n) {
 
-    while(n > 0) {
-        let rem = n%10
-        let fact = 1
-        let value = rem
+    let count = 0, copy = n
 
-        while(value > 0) {
-            fact *= value
-            value--
-        }
-
-        sum += fact
-        n = Math.floor(n/10)
+    while (n > 0) {
+        count++
+        n = Math.floor(n / 10)
     }
 
-    if(sum === copy) return "Strong Number"
-    else return "Not a Strong Number"
+    console.log(count)
+
+    if (count !== 10) return "Not ISBN"
+    else {
+        let sum = 0
+        while (copy > 0) {
+            let rem = copy % 10
+            sum += count * rem
+            count--
+            copy = Math.floor(copy/10)
+        }
+
+        if (sum % 11 === 0) return "ISBN Number"
+        else return "Not ISBN"
+    }
 
 }
 
-console.log(isStrongNumber(n))
+console.log(isIsbnNumber(n))
+
+// console.log(Math.floor(12345/10000))
+
+// 0131103628
+// 8177583891
