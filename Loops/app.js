@@ -270,38 +270,75 @@ let prompt = require("prompt-sync")()
 // console.log(isStrongNumber(n))
 
 
-let n = +prompt("Enter number ")
+// que 30
 
-function isIsbnNumber(n) {
+// let n = prompt("Enter number ")
 
-    let count = 0, copy = n
+//  method 1
+// function isIsbnNumber(n) {
 
-    while (n > 0) {
-        count++
-        n = Math.floor(n / 10)
-    }
+//     let count = 0, copy = n
 
-    console.log(count)
+//     while (n > 0) {
+//         count++
+//         n = Math.floor(n / 10)
+//     }
 
-    if (count !== 10) return "Not ISBN"
-    else {
-        let sum = 0
-        while (copy > 0) {
-            let rem = copy % 10
-            sum += count * rem
-            count--
-            copy = Math.floor(copy/10)
-        }
+//     console.log(count)
 
-        if (sum % 11 === 0) return "ISBN Number"
-        else return "Not ISBN"
-    }
+//     if (count !== 10) return "Not ISBN"
+//     else {
+//         let sum = 0
+//         while (copy > 0) {
+//             let rem = copy % 10
+//             sum += count * rem
+//             count--
+//             copy = Math.floor(copy/10)
+//         }
 
-}
+//         if (sum % 11 === 0) return "ISBN Number"
+//         else return "Not ISBN"
+//     }
 
-console.log(isIsbnNumber(n))
+// }
 
-// console.log(Math.floor(12345/10000))
+// method 2 this one is used for industry level
 
-// 0131103628
-// 8177583891
+// function isIsbnNumber(n) {
+
+//     if(n.length !== 10) return "Not ISBN"
+//     let count = 0, sum = 0
+//     while(count < 10){
+//         if(isNaN(n[count])) return "Not ISBN"
+
+//         sum += Number(n[count]) * (count + 1) 
+//         console.log(sum)
+//         count++
+//     }
+
+//     if(sum%11 === 0) return "ISBN Number"
+//     else return "Not ISBN"
+
+// }
+
+// console.log(isIsbnNumber(n))
+
+
+// do-while loop
+
+// que 31
+// guess the correct number
+
+let computer = Math.floor((Math.random() * 100) + 1)
+console.log(computer)
+let user, attempts = 0
+
+do {
+    attempts++
+    user = +prompt(`Enter a number between 1 to 100 You have 5 Attempts ${attempts}:  `)
+    if (user > 100 || user < 1) console.log("Please Enter number between 1 to 100")
+    else if (user > computer) console.log("Too large")
+    else if (user < computer) console.log("Too small")
+    else if (user == computer) console.log("Congurates! ", "You guess correct number", `Attempts ${attempts}`)
+    else console.log("Invalid number")
+} while (user != computer && attempts !== 5)
