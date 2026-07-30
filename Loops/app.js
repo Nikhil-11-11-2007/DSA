@@ -329,16 +329,97 @@ let prompt = require("prompt-sync")()
 // que 31
 // guess the correct number
 
-let computer = Math.floor((Math.random() * 100) + 1)
-console.log(computer)
-let user, attempts = 0
+// let computer = Math.floor((Math.random() * 100) + 1)
+// console.log(computer)
+// let user, attempts = 0
 
-do {
-    attempts++
-    user = +prompt(`Enter a number between 1 to 100 You have 5 Attempts ${attempts}:  `)
-    if (user > 100 || user < 1) console.log("Please Enter number between 1 to 100")
-    else if (user > computer) console.log("Too large")
-    else if (user < computer) console.log("Too small")
-    else if (user == computer) console.log("Congurates! ", "You guess correct number", `Attempts ${attempts}`)
-    else console.log("Invalid number")
-} while (user != computer && attempts !== 5)
+// do {
+//     attempts++
+//     user = +prompt(`Enter a number between 1 to 100 You have 5 Attempts ${attempts}:  `)
+//     if (user > 100 || user < 1) console.log("Please Enter number between 1 to 100")
+//     else if (user > computer) console.log("Too large")
+//     else if (user < computer) console.log("Too small")
+//     else if (user == computer) console.log("Congurates! ", "You guess correct number", `Attempts ${attempts}`)
+//     else console.log("Invalid number")
+// } while (user != computer && attempts !== 5)
+
+// Assignment of loops
+// que 32
+
+// let n = +prompt("Enter Harshad number ")
+
+// class Solution {
+
+//     checkHarshad(n) {
+
+//         // write your code here
+
+//         let copy = n
+//         let sum = 0
+//         while (n > 0) {
+//             let rem = n%10
+//             sum += rem
+//             n = Math.floor(n/10)
+//         }
+
+//         if(copy%sum === 0) return "Harshad Number"
+//         else return "Not Harshad Number"
+
+//     }
+
+// }
+
+// let checkHar = new Solution()
+
+// console.log(checkHar.checkHarshad(n))
+
+// que 33
+
+// let n = +prompt("Enter Number ")
+
+// class Solution {
+
+//     checkAbundant(n) {
+
+//         // write your code here
+//         let sum = 0
+//         for (let i = 1; i <= n / 2; i++) {
+//             if (n % i === 0) sum += i
+//         }
+
+//         if (sum > n) return "Yes"
+//         else return "No"
+
+//     }
+
+// }
+
+// let abundant = new Solution()
+
+// console.log(abundant.checkAbundant(n))
+
+// que 34
+
+let n = +prompt("Enter Number ")
+
+class Solution {
+
+    primeFactors(n) {
+
+        // write your code here
+        if (n === 0 || n === 1) return "No prime factors"
+        for (let i = 2; i <= n; i++) {
+            while (n % i === 0) {
+                process.stdout.write(i + " ")
+                n = Math.floor(n / i)
+            }
+        }
+
+        return ""
+    }
+
+}
+
+let primefac = new Solution()
+
+console.log(primefac.primeFactors(n))
