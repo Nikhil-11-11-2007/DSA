@@ -400,26 +400,90 @@ let prompt = require("prompt-sync")()
 
 // que 34
 
+// let n = +prompt("Enter Number ")
+
+// class Solution {
+
+//     primeFactors(n) {
+
+//         // write your code here
+//         if (n === 0 || n === 1) return "No prime factors"
+//         for (let i = 2; i <= n; i++) {
+//             while (n % i === 0) {
+//                 process.stdout.write(i + " ")
+//                 n = Math.floor(n / i)
+//             }
+//         }
+
+//         return ""
+//     }
+
+// }
+
+// let primefac = new Solution()
+
+// console.log(primefac.primeFactors(n))
+
+// que 35
+
+// let n = +prompt("Enter Number ")
+
+// class Solution {
+
+//     checkNeon(n) {
+
+//         // write your code here
+//         let squ = n * n
+//         let sum = 0
+//         while (squ > 0) {
+//             let rem = squ % 10
+//             sum += rem
+//             squ = Math.floor(squ / 10)
+//         }
+
+//         if (sum === n) return "Yes"
+//         else return "No"
+
+//     }
+
+// }
+
+// let neon = new Solution()
+
+// console.log(neon.checkNeon(n))
+
+// que 36
+
 let n = +prompt("Enter Number ")
 
 class Solution {
 
-    primeFactors(n) {
+    checkArmstrong(n) {
 
         // write your code here
-        if (n === 0 || n === 1) return "No prime factors"
-        for (let i = 2; i <= n; i++) {
-            while (n % i === 0) {
-                process.stdout.write(i + " ")
-                n = Math.floor(n / i)
-            }
+        let temp = n
+        let copy = n
+        let count = 0
+        while (n > 0) {
+            count++
+            n = Math.floor(n / 10)
         }
 
-        return ""
+        let sum = 0
+
+        while (copy > 0) {
+            let rem = copy % 10
+            sum += Math.pow(rem, count)
+            copy = Math.floor(copy / 10)
+        }
+
+        if (temp === sum) return "Armstrong"
+        else return "Not Armstrong"
+
     }
 
 }
 
-let primefac = new Solution()
+let armStrong = new Solution()
 
-console.log(primefac.primeFactors(n))
+console.log(armStrong.checkArmstrong(n))
