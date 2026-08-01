@@ -454,36 +454,50 @@ let prompt = require("prompt-sync")()
 
 // que 36
 
-let n = +prompt("Enter Number ")
+// let n = +prompt("Enter Number ")
 
-class Solution {
+// class Solution {
 
-    checkArmstrong(n) {
+//     checkArmstrong(n) {
 
-        // write your code here
-        let temp = n
-        let copy = n
-        let count = 0
-        while (n > 0) {
-            count++
-            n = Math.floor(n / 10)
+//         // write your code here
+//         let temp = n
+//         let copy = n
+//         let count = 0
+//         while (n > 0) {
+//             count++
+//             n = Math.floor(n / 10)
+//         }
+
+//         let sum = 0
+
+//         while (copy > 0) {
+//             let rem = copy % 10
+//             sum += Math.pow(rem, count)
+//             copy = Math.floor(copy / 10)
+//         }
+
+//         if (temp === sum) return "Armstrong"
+//         else return "Not Armstrong"
+
+//     }
+
+// }
+
+// let armStrong = new Solution()
+
+// console.log(armStrong.checkArmstrong(n))
+
+let n = +prompt("Enter number")
+
+function printPattern(n) {
+    // Write your code here
+    for(let i = 1; i<=n; i++){
+        for(let j = 1; j<=i; j++){
+            process.stdout.write("* ")
         }
-
-        let sum = 0
-
-        while (copy > 0) {
-            let rem = copy % 10
-            sum += Math.pow(rem, count)
-            copy = Math.floor(copy / 10)
-        }
-
-        if (temp === sum) return "Armstrong"
-        else return "Not Armstrong"
-
+        console.log()
     }
-
 }
 
-let armStrong = new Solution()
-
-console.log(armStrong.checkArmstrong(n))
+printPattern(n)
