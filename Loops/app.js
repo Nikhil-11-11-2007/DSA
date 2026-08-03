@@ -488,16 +488,87 @@ let prompt = require("prompt-sync")()
 
 // console.log(armStrong.checkArmstrong(n))
 
-let n = +prompt("Enter number")
+// que 37
 
-function printPattern(n) {
-    // Write your code here
-    for(let i = 1; i<=n; i++){
-        for(let j = 1; j<=i; j++){
-            process.stdout.write("* ")
-        }
-        console.log()
-    }
-}
+// let n = +prompt("Enter number")
 
-printPattern(n)
+// function printPattern(n) {
+//     // Write your code here
+//     for(let i = 1; i<=n; i++){
+//         for(let j = 1; j<=i; j++){
+//             process.stdout.write("* ")
+//         }
+//         console.log()
+//     }
+// }
+
+// printPattern(n)
+
+// que 38
+
+// let n = +prompt("Enter number ")
+
+// function printRightTriangleNumbers(n) {
+//     // Write your logic here
+//     for (let i = 1; i <= n; i++) {
+//         for (let j = 1; j <= i; j++) {
+//             process.stdout.write(j + " ")
+//         }
+//         console.log()
+//     }
+// }
+
+// printRightTriangleNumbers(n)
+
+// que 39
+
+// let n = +prompt("Enter number ")
+
+// function printRightTriangleAlphabets(n) {
+//     // Write your logic here
+//     for (let i = 1; i <= n; i++) {
+//         for (let j = 1; j <= i; j++) {
+//             let ch = String.fromCharCode(64 + j)
+//             process.stdout.write(ch + " ")
+//         }
+//         console.log()
+//     }
+// }
+
+// printRightTriangleAlphabets(n)
+
+// que 40
+
+// let n = +prompt("Enter number ")
+
+// function printPattern(n) {
+//     // Write your code here
+//     for(let i = 1; i<=n; i++){
+//         for(let j = i; j<=n; j++){
+//             process.stdout.write(" *")
+//         }
+//         console.log()
+//     }
+
+// }
+
+// printPattern(n)
+
+// let n = +prompt("Enter number ")
+
+// function printMirroredRightTriangle(n) {
+//     // Write your logic here
+//     // inverted triangle
+//     for (let i = 1; i <= n; i++) {
+//         for(let k = i; k<=n-1; k++){
+//             process.stdout.write("  ")
+//         }
+//         // right angle tringle
+//         for (let j = 1; j <= i; j++) {
+//             process.stdout.write(" *")
+//         }
+//         console.log()
+//     }
+// }
+
+// printMirroredRightTriangle(n)
