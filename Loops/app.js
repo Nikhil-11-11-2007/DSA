@@ -554,6 +554,8 @@ let prompt = require("prompt-sync")()
 
 // printPattern(n)
 
+// que 41
+
 // let n = +prompt("Enter number ")
 
 // function printMirroredRightTriangle(n) {
@@ -569,6 +571,56 @@ let prompt = require("prompt-sync")()
 //         }
 //         console.log()
 //     }
+
+// other method
+
+//     for(let i = 1; i<=n; i++){
+//     for(let j = 1; j<=n-i; j++){
+//         process.stdout.write("  ")
+//     }
+//     for(let k = 1; k<=i; k++){
+//         process.stdout.write("* ")
+//     }
+//     console.log()
+// }
+
 // }
 
 // printMirroredRightTriangle(n)
+
+// que 42
+
+// let n = +prompt("Enter number ")
+
+// function printXShapePattern(n) {
+//     // Write your logic here
+//     for (let i = 1; i <= n; i++) {
+//         for (let j = 1; j <= n; j++) {
+//             if ((i === j) || (i + j === n + 1)) process.stdout.write("* ")
+//             else process.stdout.write("  ")
+//         }
+//         console.log()
+//     }
+
+// }
+
+// printXShapePattern(n)
+
+// que 43
+
+let n = +prompt("Enter number ")
+
+function printVShapePattern(n) {
+    // Write your logic here
+
+    for (let i = 1; i <= n; i++) {
+        for (let j = 1; j <= n / 2 + 1; j++) {
+            if ((i === j) || (i + j === n + 1)) process.stdout.write("* ")
+            else process.stdout.write("  ")
+        }
+        console.log()
+    }
+
+}
+
+printVShapePattern(n)
