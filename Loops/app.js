@@ -613,10 +613,37 @@ let n = +prompt("Enter number ")
 function printVShapePattern(n) {
     // Write your logic here
 
-    for (let i = 1; i <= n; i++) {
-        for (let j = 1; j <= n / 2 + 1; j++) {
-            if ((i === j) || (i + j === n + 1)) process.stdout.write("* ")
-            else process.stdout.write("  ")
+    // for (let i = 1; i <= n; i++) {
+    //     for (let j = 1; j <= n; j++) {
+    //         if (i === j) {
+    //             process.stdout.write(" *")
+    //         }
+    //         else {
+    //             process.stdout.write(" ")
+    //         }
+    //     }
+
+    //     for (let k = 1; k <= n - 1; k++) {
+    //         if (i + k === n) {
+    //             process.stdout.write("*")
+    //         }
+    //         else {
+    //             process.stdout.write(" ")
+    //         }
+    //     }
+    //     console.log()
+    // }
+
+    // 2nd method this one is optmized
+
+    for(let i = 1; i<=n; i++){
+        for(let j = 1; j<= 2*n-1; j++){
+            if((i === j) || (i+j === 2*n)){
+                process.stdout.write("*")
+            }
+            else{
+                process.stdout.write(" ")
+            }
         }
         console.log()
     }
@@ -624,3 +651,4 @@ function printVShapePattern(n) {
 }
 
 printVShapePattern(n)
+
