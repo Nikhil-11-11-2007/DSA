@@ -53,3 +53,26 @@ let prompt = require("prompt-sync")()
 // console.log(findGreatestElementAndIndex(arr))
 
 // que 46
+
+// let arr = [2, 96, 69, 77, 145, 20]
+
+// function findSecondGreatestElement(arr) {
+//     // Write your logic here
+//     let greatEl = Math.max(arr[0], arr[1])
+//     let secGreat = Math.min(arr[0],arr[1])
+
+//     for(let i = 2; i<arr.length; i++){
+//         if(arr[i] > greatEl){
+//             secGreat = greatEl
+//             greatEl = arr[i]
+//         }
+//         else if(arr[i] > secGreat && arr[i] !== greatEl ){
+//             secGreat = arr[i]
+//         }
+//     }
+
+//     return secGreat
+
+// }
+// console.log(findSecondGreatestElement(arr))
+
