@@ -132,42 +132,51 @@ function copyAndReverseArray(arr) {
 
 // que 49
 
+// let arr = [0, 1, 0, 1, 1]
+
+// function moveZerosToEnd(arr) {
+//     // Write Your Code Here
+//     let arr2 = []
+
+//     for(let i = 0; i< arr.length; i++){
+//         if(arr[i] === 1){
+//             arr2.push(1)
+//         }
+//     }
+
+//     while(arr2.length < arr.length){
+//         arr2.push(0)
+//     }
+
+//     return arr2
+// }
+
+// console.log(moveZerosToEnd(arr))
+
+// que 50
+
 let arr = [0, 1, 0, 1, 1]
 
-function moveZerosToEnd(arr) {
-    // Write Your Code Here
-    // let arr2 = []
+class Solution {
 
-    // for(let i = 0; i<arr.length; i++){
-    //     if(arr[i] === 1){
-    //         arr2.push(1)
-    //     }
-    // }
+    moveZeros(arr) {
 
-    // while(arr2.length < arr.length){
-    //     arr2.push(0)
-    // }
+        // write your code here
+        let i = 0, j = 0
+        while(i < arr.length){
+            if(arr[i] === 1){
+                [arr[i],arr[j]] = [arr[j],arr[i]]
+                j++;
+            }
+            i++;
+        }
 
-    // return arr2
+        return arr
 
-    // let n = arr.length
-
-    // let arr2 = new Array(n)
-
-    // let i = 0, j = 0
-
-    // while(arr2.length < arr.length){
-
-    //     if(arr[i] === 0){
-    //         arr2[j] === arr[i]
-    //         i++;
-    //         j++;
-    //     }
-
-    // }
-
-    // return arr2
+    }
 
 }
 
-console.log(moveZerosToEnd(arr))
+let moveZero = new Solution()
+
+console.log(moveZero.moveZeros(arr))
