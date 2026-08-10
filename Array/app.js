@@ -155,28 +155,78 @@ function copyAndReverseArray(arr) {
 
 // que 50
 
-let arr = [0, 1, 0, 1, 1]
+// let arr = [0, 1, 0, 1, 1]
 
-class Solution {
+// class Solution {
 
-    moveZeros(arr) {
+//     moveZeros(arr) {
+//         // write your code here
+//         let i = 0, j = 0
+//         while(i < arr.length){
+//             if(arr[i] === 1){
+//                 [arr[i],arr[j]] = [arr[j],arr[i]]
+//                 j++;
+//             }
+//             i++;
+//         }
+//         return arr
+//     }
 
-        // write your code here
-        let i = 0, j = 0
-        while(i < arr.length){
-            if(arr[i] === 1){
-                [arr[i],arr[j]] = [arr[j],arr[i]]
-                j++;
-            }
-            i++;
-        }
+// }
 
-        return arr
+// let moveZero = new Solution()
+// console.log(moveZero.moveZeros(arr))
 
-    }
+// que 51
 
-}
+// let arr = [1, 2, 3, 4, 5]
 
-let moveZero = new Solution()
+// function leftRotateByOne(arr) {
+//     // Write your logic here
+//     // let i = 1, j = 0
 
-console.log(moveZero.moveZeros(arr))
+//     // while (i < arr.length) {
+//     //     [arr[j], arr[i]] = [arr[i], arr[j]]
+//     //     j++;
+//     //     i++;
+//     // }
+
+//     // return arr
+
+//     // 2nd method for interview
+
+//     let temp = arr[0]
+
+//     for(let i = 1; i<arr.length; i++){
+//         arr[i-1] = arr[i]
+//     }
+//     arr[arr.length - 1] = temp
+
+//     return arr
+// }
+
+// console.log(leftRotateByOne(arr))
+
+// que 52
+
+// let arr = [1, 2, 3, 4, 5]
+// let k = +prompt("Enter number ")
+
+// function leftRotateByK(arr, k) {
+
+//     k = k % 10
+
+//     for (let i = 0; i < k; i++) {
+//         let temp = arr[0]
+//         for (let j = 1; j < arr.length; j++) {
+//             arr[j - 1] = arr[j]
+//         }
+
+//         arr[arr.length - 1] = temp
+//     }
+
+//     return arr
+
+// }
+
+// console.log(leftRotateByK(arr, k))
