@@ -230,3 +230,75 @@ function copyAndReverseArray(arr) {
 // }
 
 // console.log(leftRotateByK(arr, k))
+
+// que 53
+
+// let arr = [1, 2, 3, 4, 5]
+
+// function rightRotateByOne(arr) {
+//     // Write your logic here
+//     // let temp = arr[arr.length - 1]
+
+//     // for(let i = arr.length - 2; i>=0; i--){
+//     //     arr[i+1] = arr[i]
+//     // }
+//     // arr[0] = temp
+
+//     // return arr
+
+//     let i = arr.length - 2;
+//     let j = arr.length - 1;
+
+//     while (i >= 0) {
+//         [arr[i], arr[j]] = [arr[j], arr[i]]
+//         i--;
+//         j--;
+//     }
+
+//     return arr
+// }
+
+// console.log(rightRotateByOne(arr))
+
+// que 54
+
+let arr = [-2, 3, -2, 5]
+
+class Solution {
+    /**
+     * @param {bigint[]} arr - array of integers as BigInt
+     * @return {bigint} sum of absolute differences across all unordered pairs
+     */
+    sumOfAbsDiff(arr) {
+        // Write your code here
+        let sum = 0n;
+        for (let i = 0; i < arr.length; i++) {
+            // let count = 0
+            for (let j = i; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    arr[i] = arr[j]
+                }
+                    
+            }
+        }
+
+        return sum
+    }
+
+//     sumOfAbsDiff(arr) {
+//     // Write your code here
+//     let sum = 0n;
+//     for (let i = 0; i < arr.length; i++) {
+//       for (let j = i+1; j < arr.length; j++) {
+//         sum += arr[i] > arr[j] ? arr[i] - arr[j] : arr[j] - arr[i]
+//       }
+//     }
+
+//     return sum
+//   }
+}
+
+let absNumSum = new Solution()
+
+console.log(absNumSum.sumOfAbsDiff(arr))
+
