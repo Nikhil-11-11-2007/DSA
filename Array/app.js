@@ -262,43 +262,131 @@ function copyAndReverseArray(arr) {
 
 // que 54
 
-let arr = [-2, 3, -2, 5]
+// let arr = [-1n, 3n, -2n, 5n]
+
+// class Solution {
+//     /**
+//      * @param {bigint[]} arr - array of integers as BigInt
+//      * @return {bigint} sum of absolute differences across all unordered pairs
+//      */
+//     sumOfAbsDiff(arr) {
+//         // Write your code here
+//         let sum = 0n;
+//         for(let i = 0; i<arr.length; i++){
+//             for(let j = i; j<arr.length; j++){
+//                 sum += arr[i] > arr[j] ? arr[i] - arr[j] : arr[j] - arr[i]
+//             }
+//         }
+
+//         return sum
+//     }
+// }
+
+// let absNumSum = new Solution()
+
+// console.log(absNumSum.sumOfAbsDiff(arr))
+
+// que 55
+
+// let arr = [1,2,3,4,5]
+
+// class Solution {
+//   /**
+//    * @param {number[]} arr
+//    * @returns {number[]} updated array
+//    */
+//   multiplyPrevNext(arr) {
+//     // Write your logic here
+//     let arr2 = []
+//     for(let i = 0; i<arr.length; i++){
+//         if(i === 0 ){
+//             arr2.push(arr[i]*arr[i+1])
+//         }
+//         else if(i === arr.length - 1){
+//             arr2.push(arr[i]*arr[arr.length - 2])
+//         }
+//         else{
+//             arr2.push(arr[i-1]*arr[i+1])
+//         }
+//     }
+//     return arr2
+//   }
+// }
+
+// let multiplyPrev = new Solution()
+
+// console.log(multiplyPrev.multiplyPrevNext(arr))
+
+// que 56
+
+// class Solution {
+//     minAddForBalance(arr) {
+//         // Write your code here
+//         let rightSum = 0
+//         let leftSum = 0
+//         for(let i = 0; i<arr.length/2; i++){
+//             leftSum += arr[i]
+//         }
+//         for(let i = arr.length/2; i<arr.length; i++){
+//             rightSum += arr[i]
+//         }
+
+//         return (rightSum > leftSum) ? rightSum - leftSum : leftSum - rightSum
+//     }
+// }
+
+// let balance = new Solution()
+
+// console.log(balance.minAddForBalance([2,2,2,2]))
+
+// que 57
 
 class Solution {
-    /**
-     * @param {bigint[]} arr - array of integers as BigInt
-     * @return {bigint} sum of absolute differences across all unordered pairs
-     */
-    sumOfAbsDiff(arr) {
-        // Write your code here
-        let sum = 0n;
-        for (let i = 0; i < arr.length; i++) {
-            // let count = 0
-            for (let j = i; j < arr.length; j++) {
-                if (arr[i] > arr[j]) {
-                    arr[i] = arr[j]
-                }
-                    
+    sortHalves(arr) {
+        // write your code here
+        let n = Math.floor(arr.length / 2)
+        for (let i = 0; i < n - 1; i++) {
+            if (arr[i + 1] < arr[i]) {
+                [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+            }
+        }
+        for (let i = n; i < arr.length-1; i++) {
+            if (arr[i] < arr[i + 1]) {
+                [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
             }
         }
 
-        return sum
+        return arr
     }
-
-//     sumOfAbsDiff(arr) {
-//     // Write your code here
-//     let sum = 0n;
-//     for (let i = 0; i < arr.length; i++) {
-//       for (let j = i+1; j < arr.length; j++) {
-//         sum += arr[i] > arr[j] ? arr[i] - arr[j] : arr[j] - arr[i]
-//       }
-//     }
-
-//     return sum
-//   }
 }
+let halfSort = new Solution()
+console.log(halfSort.sortHalves([-4, -1, 3, 2, 10, 0]))
 
-let absNumSum = new Solution()
 
-console.log(absNumSum.sumOfAbsDiff(arr))
+// class Solution {
+//     sortHalf(arr) {
+//         // Write your code here
+//         let n = arr.length;
+//         let mid = Math.floor(n / 2);
 
+//         for(let i = mid; i < n - 1; i++){
+//             for(let j = i + 1; j < n; j++){
+//                 if(arr[i] < arr[j]){
+//                     [arr[i], arr[j]] = [arr[j], arr[i]];
+//                 }
+//             }
+//         }
+
+//         for(let i = 0; i < mid - 1; i++){
+//             for(let j = i + 1; j < mid; j++){
+//                 if(arr[i] > arr[j]){
+//                     [arr[i], arr[j]] = [arr[j], arr[i]];
+//                 }
+//             }
+//         }
+
+//         return arr;
+//     }
+// }
+
+// module.exports = { Solution };
