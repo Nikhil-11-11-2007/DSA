@@ -311,6 +311,22 @@ function copyAndReverseArray(arr) {
 //     }
 //     return arr2
 //   }
+
+// //   let arr2 = new Array(arr.length)
+// //     for(let i = 0; i<arr.length; i++){
+// //         if(i === 0){
+// //             arr2[0] = arr[i]*arr[1]
+// //         }
+// //         else if (i === arr.length - 1){
+// //             arr2[i] = arr[arr.length - 2]*arr[i]
+// //         }
+// //         else{
+// //             arr2[i] = arr[i-1]*arr[i+1]
+// //         }
+
+// //     }
+// //     return arr2
+
 // }
 
 // let multiplyPrev = new Solution()
@@ -341,31 +357,47 @@ function copyAndReverseArray(arr) {
 
 // que 57
 
-class Solution {
-    sortHalves(arr) {
-        // write your code here
-        let n = Math.floor(arr.length / 2)
-        for (let i = 0; i < n - 1; i++) {
-            for (let j = i + 1; j < n; j++) {
-                if (arr[i] > arr[j]) {
-                    [arr[i],arr[j]] = [arr[j],arr[i]]
-                }
+// class Solution {
+//     sortHalves(arr) {
+//         // write your code here
+//         let n = Math.floor(arr.length / 2)
+//         for (let i = 0; i < n - 1; i++) {
+//             for (let j = i + 1; j < n; j++) {
+//                 if (arr[i] > arr[j]) {
+//                     [arr[i],arr[j]] = [arr[j],arr[i]]
+//                 }
 
-            }
-        }
+//             }
+//         }
 
-        for(let i = n; i<arr.length-1; i++){
-            for(let j = i+1; j<arr.length; j++){
-                if(arr[i]<arr[j]){
-                    [arr[i],arr[j]] = [arr[j],arr[i]]
-                }
-            }
-        }
+//         for(let i = n; i<arr.length-1; i++){
+//             for(let j = i+1; j<arr.length; j++){
+//                 if(arr[i]<arr[j]){
+//                     [arr[i],arr[j]] = [arr[j],arr[i]]
+//                 }
+//             }
+//         }
 
 
-        return arr
+//         return arr
+//     }
+// }
+// let halfSort = new Solution()
+// console.log(halfSort.sortHalves([-4, -1, 3, 2, 10, 0]))
+
+// searching Alogrithem
+
+// que 58
+
+let target = +prompt("Enter search elelment ")
+let arr = [12, 34, 6, 78, 89, 45, 69]
+
+let idx = -1
+for(let i = 0; i<arr.length; i++){
+    if(arr[i] === target){
+        idx = i
+        break
     }
 }
-let halfSort = new Solution()
-console.log(halfSort.sortHalves([-4, -1, 3, 2, 10, 0]))
 
+console.log(idx === -1 ? "not found": `found at ${idx} index`)
