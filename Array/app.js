@@ -389,15 +389,34 @@ function copyAndReverseArray(arr) {
 
 // que 58
 
-let target = +prompt("Enter search elelment ")
-let arr = [12, 34, 6, 78, 89, 45, 69]
+// let target = +prompt("Enter search elelment ")
+// let arr = [12, 34, 6, 78, 89, 45, 69]
 
-let idx = -1
-for(let i = 0; i<arr.length; i++){
-    if(arr[i] === target){
-        idx = i
+// let idx = -1
+// for(let i = 0; i<arr.length; i++){
+//     if(arr[i] === target){
+//         idx = i
+//         break
+//     }
+// }
+
+// console.log(idx === -1 ? "not found": `found at ${idx} index`)
+
+// que 59 binary search
+
+let arr = [1, 10, 78, 81, 93, 99, 1000]
+let target = +prompt("Enter Search element ")
+let idx = -1, start = 0, end = arr.length - 1
+
+while (start <= end) {
+    let mid = Math.floor((start + end)/2);
+    if (target === arr[mid]) {
+        idx = mid
         break
     }
+    else if (target < arr[mid]) end = mid - 1
+    else start = mid + 1
 }
 
-console.log(idx === -1 ? "not found": `found at ${idx} index`)
+console.log(idx === -1 ? "Element not found" : `Element found at ${idx} index`)
+
