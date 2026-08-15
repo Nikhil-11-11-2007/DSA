@@ -404,19 +404,62 @@ function copyAndReverseArray(arr) {
 
 // que 59 binary search
 
-let arr = [1, 10, 78, 81, 93, 99, 1000]
-let target = +prompt("Enter Search element ")
-let idx = -1, start = 0, end = arr.length - 1
+// let arr = [1, 10, 78, 81, 93, 99, 1000]
+// let target = +prompt("Enter Search element ")
+// let idx = -1, start = 0, end = arr.length - 1
 
-while (start <= end) {
-    let mid = Math.floor((start + end)/2);
-    if (target === arr[mid]) {
-        idx = mid
-        break
+// while (start <= end) {
+//     let mid = Math.floor((start + end)/2);
+//     if (target === arr[mid]) {
+//         idx = mid
+//         break
+//     }
+//     else if (target < arr[mid]) end = mid - 1
+//     else start = mid + 1
+// }
+
+// console.log(idx === -1 ? "Element not found" : `Element found at ${idx} index`)
+
+// Sorting algorithems 
+
+// que 60 bubble sort
+
+// function bubbleSort(arr) {
+//     // Write your logic here
+//     let n = arr.length
+//     for (let i = 0; i < n - 1; i++) {
+//         for (let j = 0; j < n - 1 - i; j++) {
+//             if (arr[j] > arr[j + 1]) {
+//                 [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+//             }
+//         }
+//     }
+
+//     return arr
+// }
+
+// console.log(bubbleSort([3, 2, 9, 10, 5, 6, 7, 3, 4]))
+
+// que 61 selection sort
+
+function selectionSort(arr) {
+    // Write your logic here
+    let n = arr.length
+    for(let i = 0; i<n-1; i++){
+        let min = i
+        for(let j = i+1; j<n; j++){
+            if(arr[j]<arr[min]){
+                min = j
+            }
+        }
+
+        if(min !== i){
+            [arr[i],arr[min]] = [arr[min],arr[i]]
+        }
     }
-    else if (target < arr[mid]) end = mid - 1
-    else start = mid + 1
+
+    return arr
+
 }
 
-console.log(idx === -1 ? "Element not found" : `Element found at ${idx} index`)
-
+console.log(selectionSort([3, 2, 9, 10, 5, 6, 7, 3, 4]))
