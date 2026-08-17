@@ -420,7 +420,7 @@ function copyAndReverseArray(arr) {
 
 // console.log(idx === -1 ? "Element not found" : `Element found at ${idx} index`)
 
-// Sorting algorithems 
+// Sorting algorithems
 
 // que 60 bubble sort
 
@@ -442,24 +442,49 @@ function copyAndReverseArray(arr) {
 
 // que 61 selection sort
 
-function selectionSort(arr) {
+// function selectionSort(arr) {
+//     // Write your logic here
+//     let n = arr.length
+//     for(let i = 0; i<n-1; i++){
+//         let min = i
+//         for(let j = i+1; j<n; j++){
+//             if(arr[j]<arr[min]){
+//                 min = j
+//             }
+//         }
+
+//         if(min !== i){
+//             [arr[i],arr[min]] = [arr[min],arr[i]]
+//         }
+//     }
+
+//     return arr
+
+// }
+
+// console.log(selectionSort([3, 2, 9, 10, 5, 6, 7, 3, 4]))
+
+// insertion sort que 62
+
+function insertionSort(arr) {
     // Write your logic here
+
     let n = arr.length
-    for(let i = 0; i<n-1; i++){
-        let min = i
-        for(let j = i+1; j<n; j++){
-            if(arr[j]<arr[min]){
-                min = j
-            }
+
+    for (let i = 1; i < n; i++) {
+        let key = arr[i]
+        let j = i - 1
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j]
+            j--;
         }
 
-        if(min !== i){
-            [arr[i],arr[min]] = [arr[min],arr[i]]
-        }
+        arr[j + 1] = key
+
     }
 
     return arr
 
 }
 
-console.log(selectionSort([3, 2, 9, 10, 5, 6, 7, 3, 4]))
+console.log(insertionSort([3, 2, 9, 10, 5, 6, 7, 3, 4]))
