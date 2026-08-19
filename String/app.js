@@ -25,14 +25,106 @@ let prompt = require("prompt-sync")()
 
 // que 63
 
-let str = prompt("enter your name")
+// let str = prompt("enter your name")
 
-function printEachChar(str) {
-    // Write your logic here
-    for(let i = 0; i<str.length; i++){
-        console.log(str.charAt(i))
+// function printEachChar(str) {
+//     // Write your logic here
+//     for(let i = 0; i<str.length; i++){
+//         console.log(str.charAt(i))
+//     }
+
+// }
+
+// printEachChar(str)
+
+// que 64
+
+// let str = prompt("enter your name ")
+
+// function reverseString(str) {
+//     // Write your logic here
+//     let string = ""
+//     for (let i = str.length - 1; i >= 0; i--) {
+//         string += str[i]
+//     }
+
+//     return string
+
+
+// }
+// console.log(reverseString(str))
+
+// que 65 
+
+// let str = prompt("enter your name ")
+
+// function isPalindromeInPlace(str) {
+//     // Write your code here
+//     // let copy = str
+//     // let string = ""
+//     // for(let i = str.length - 1; i>= 0; i--){
+//     //     string += str[i]
+//     // }
+
+//     // return copy === string ? "Yes" : "No"
+
+//     // two pointer algoritem se  ye best hai uper wale se
+
+//     let i = 0
+//     let j = str.length - 1
+//     let ispalindrom = true
+//     while (i < j) {
+//         if (str[i] !== str[j]) {
+//             ispalindrom = false
+//             break
+//         }
+//         i++;
+//         j--;
+//     }
+
+//     return ispalindrom ? "Yes" : "No"
+
+// }
+
+// console.log(isPalindromeInPlace(str))
+
+// que 66
+
+let str = prompt("enter your name ")
+
+// str.toLowerCase
+
+function toggleCase(str) {
+    // Write your code here
+    // let string = ""
+    // for (let i = 0; i < str.length; i++) {
+    //     let ascii = str.charCodeAt(i);
+    //     if (ascii >= 65 && ascii <= 90) {
+    //         string += str[i].toLowerCase()
+    //     }
+    //     else {
+    //         string += str[i].toUpperCase()
+    //     }
+    // }
+
+    // return string
+
+    // method 2 this one is best
+
+    let string = ""
+    for (let i = 0; i < str.length; i++) {
+        let ascii = str.charCodeAt(i);
+        if (ascii >= 65 && ascii <= 90) {
+            string += String.fromCharCode(ascii + 32)
+        }
+        else if (ascii >= 97 && ascii <= 122) {
+            string += String.fromCharCode(ascii - 32)
+        }
+        else string += str[i]
     }
+
+    return string
 
 }
 
-printEachChar(str)
+console.log(toggleCase(str))
