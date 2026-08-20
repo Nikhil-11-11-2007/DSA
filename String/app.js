@@ -70,19 +70,17 @@ let prompt = require("prompt-sync")()
 
 //     // two pointer algoritem se  ye best hai uper wale se
 
-//     let i = 0
-//     let j = str.length - 1
-//     let ispalindrom = true
-//     while (i < j) {
-//         if (str[i] !== str[j]) {
-//             ispalindrom = false
-//             break
-//         }
-//         i++;
-//         j--;
+// let i = 0;
+// let j = str.length - 1
+// while (i < j) {
+//     if (str[i] !== str[j]) {
+//         return "No"
 //     }
+//     i++;
+//     j--;
+// }
 
-//     return ispalindrom ? "Yes" : "No"
+// return "Yes"
 
 // }
 
@@ -90,41 +88,98 @@ let prompt = require("prompt-sync")()
 
 // que 66
 
-let str = prompt("enter your name ")
+// let str = prompt("enter your name ")
 
-// str.toLowerCase
+// // str.toLowerCase
 
-function toggleCase(str) {
+// function toggleCase(str) {
+//     // Write your code here
+//     // let string = ""
+//     // for (let i = 0; i < str.length; i++) {
+//     //     let ascii = str.charCodeAt(i);
+//     //     if (ascii >= 65 && ascii <= 90) {
+//     //         string += str[i].toLowerCase()
+//     //     }
+//     //     else {
+//     //         string += str[i].toUpperCase()
+//     //     }
+//     // }
+
+//     // return string
+
+//     // method 2 this one is best
+
+//     let string = ""
+//     for (let i = 0; i < str.length; i++) {
+//         let ascii = str.charCodeAt(i);
+//         if (ascii >= 65 && ascii <= 90) {
+//             string += String.fromCharCode(ascii + 32)
+//         }
+//         else if (ascii >= 97 && ascii <= 122) {
+//             string += String.fromCharCode(ascii - 32)
+//         }
+//         else string += str[i]
+//     }
+
+//     return string
+
+// }
+
+// console.log(toggleCase(str))
+
+// que 67
+
+// let words = ["pay", "attention", "practice", "attend"]
+// let pref = "at"
+
+
+// function countPrefixMatch(words, pref) {
+//     // Write your code here
+
+//     // this one is best 
+//     // let count = 0
+//     // for (let i = 0; i < words.length; i++) {
+//     //     if (words[i].startsWith(pref)) count++
+//     // }
+
+//     // return count
+
+//     // method 2
+
+//     let count = 0
+//     for (let i = 0; i < words.length; i++) {
+//         if (words[i].slice(0,pref.length) == pref) count++
+//     }
+
+//     return count
+// }
+
+// console.log(countPrefixMatch(words,pref))
+
+// que 68
+
+function capitalizeEnds(str) {
     // Write your code here
-    // let string = ""
-    // for (let i = 0; i < str.length; i++) {
-    //     let ascii = str.charCodeAt(i);
-    //     if (ascii >= 65 && ascii <= 90) {
-    //         string += str[i].toLowerCase()
-    //     }
-    //     else {
-    //         string += str[i].toUpperCase()
-    //     }
-    // }
+    let arr = str.split(" ")
+    let ans = ""
+    for (let i = 0; i < arr.length; i++) {
+        let word = arr[i]
+        if (word.length === 1) {
+            ans += word.toUpperCase()
+        } else {
+            let first = word[0].toUpperCase()
+            let mid = word.substring(1, word.length - 1)
+            let end = word[word.length - 1].toUpperCase()
 
-    // return string
-
-    // method 2 this one is best
-
-    let string = ""
-    for (let i = 0; i < str.length; i++) {
-        let ascii = str.charCodeAt(i);
-        if (ascii >= 65 && ascii <= 90) {
-            string += String.fromCharCode(ascii + 32)
+            ans += (first + mid + end)
         }
-        else if (ascii >= 97 && ascii <= 122) {
-            string += String.fromCharCode(ascii - 32)
-        }
-        else string += str[i]
+
+        if (i < arr.length - 1) ans += " "
+
     }
 
-    return string
+    return ans
 
 }
 
-console.log(toggleCase(str))
+console.log(capitalizeEnds("hello bhai kaise ho"))
