@@ -158,28 +158,52 @@ let prompt = require("prompt-sync")()
 
 // que 68
 
-function capitalizeEnds(str) {
+// function capitalizeEnds(str) {
+//     // Write your code here
+//     let arr = str.split(" ")
+//     let ans = ""
+//     for (let i = 0; i < arr.length; i++) {
+//         let word = arr[i]
+//         if (word.length === 1) {
+//             ans += word.toUpperCase()
+//         }
+//         else {
+//             let first = word[0].toUpperCase()
+//             let mid = word.substring(1, word.length - 1)
+//             let end = word[word.length - 1].toUpperCase()
+//             ans += (first + mid + end)
+//         }
+//         if(i < arr.length - 1){
+//             ans += " "
+//         }
+//     }
+
+//     return ans
+
+// }
+
+// console.log(capitalizeEnds("hello b kaise ho"))
+
+// que 69
+
+let str = "hello world is me"
+
+
+
+function characterFrequency(str) {
     // Write your code here
-    let arr = str.split(" ")
-    let ans = ""
-    for (let i = 0; i < arr.length; i++) {
-        let word = arr[i]
-        if (word.length === 1) {
-            ans += word.toUpperCase()
-        } else {
-            let first = word[0].toUpperCase()
-            let mid = word.substring(1, word.length - 1)
-            let end = word[word.length - 1].toUpperCase()
-
-            ans += (first + mid + end)
+    let arr = new Array(26).fill(0)
+    for (let i = 0; i < str.length; i++) {
+        if (arr[i] !== " ") {
+            let ascii = str[i].charCodeAt()
+            arr[ascii - 97] = arr[ascii - 97] + 1
         }
-
-        if (i < arr.length - 1) ans += " "
-
     }
-
-    return ans
-
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 0) {
+            console.log(String.fromCharCode(i + 97) + ": " + arr[i])
+        }
+    }
 }
 
-console.log(capitalizeEnds("hello bhai kaise ho"))
+characterFrequency(str)
