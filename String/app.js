@@ -186,24 +186,108 @@ let prompt = require("prompt-sync")()
 
 // que 69
 
-let str = "hello world is me"
+// let str = "hello world is me"
 
 
 
-function characterFrequency(str) {
-    // Write your code here
-    let arr = new Array(26).fill(0)
-    for (let i = 0; i < str.length; i++) {
-        if (arr[i] !== " ") {
-            let ascii = str[i].charCodeAt()
-            arr[ascii - 97] = arr[ascii - 97] + 1
+// function characterFrequency(str) {
+//     // Write your code here
+//     let arr = new Array(26).fill(0)
+//     for (let i = 0; i < str.length; i++) {
+//         if (arr[i] !== " ") {
+//             let ascii = str[i].charCodeAt()
+//             arr[ascii - 97] = arr[ascii - 97] + 1
+//         }
+//     }
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] > 0) {
+//             console.log(String.fromCharCode(i + 97) + ": " + arr[i])
+//         }
+//     }
+// }
+
+// characterFrequency(str)
+
+// que 70
+
+// function isAnagram(s1, s2) {
+//     // Your code here
+//     // if (s1.length !== s2.length) {
+//     //     return false
+//     // }
+//     // let arr = new Array(26).fill(0)
+//     // let arr2 = new Array(26).fill(0)
+//     // for (let i = 0; i < s1.length; i++) {
+//     //     let ascii = s1.charCodeAt(i)
+//     //     arr[ascii - 97] = arr[ascii - 97] + 1
+//     //     let ascii2 = s2.charCodeAt(i)
+//     //     arr2[ascii2 - 97] = arr2[ascii2 - 97] + 1
+//     // }
+//     // for (let i = 0; i < arr.length; i++) {
+//     //     if (arr2[i] !== arr[i]) return false
+//     // }
+//     // return true
+
+//     // this one is optmized
+
+//     if (s1.length !== s2.length) {
+//         return false
+//     }
+//     let arr = new Array(26).fill(0)
+//     for (let i = 0; i < s1.length; i++) {
+//         let ascii = s1.charCodeAt(i)
+//         arr[ascii - 97] = arr[ascii - 97] + 1
+//         let ascii2 = s2.charCodeAt(i)
+//         arr[ascii2 - 97] = arr[ascii2 - 97] - 1
+//     }
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] !== 0) return false
+//     }
+//     return true
+// }
+
+// console.log(isAnagram("taste", "state"))
+
+// que 71
+
+// let sentences = ["coding is fun", "practice makes perfect", "consistency is the key to success"]
+
+// // console.log(sentences[1].split(" "))
+
+// function mostWordsFound(sentences) {
+//     // Write your logic here
+//     let maxWords = 0
+//     for (let i = 0; i < sentences.length; i++) {
+//         let snt = sentences[i].split(" ")
+//         if (snt.length > maxWords) {
+//             maxWords = snt.length
+//         }
+//     }
+
+//     return maxWords
+// }
+
+// console.log(mostWordsFound(sentences))
+
+// que 72
+
+class Solution {
+    sort(s) {
+        //write your code here
+        let arr = s.split(" ")
+        for(let i = 0; i<arr.length-1; i++){
+            for(let j = 0; j<arr.length-1-i; j++){
+                if(arr[j]>arr[j+1]){
+                    [arr[j],arr[j+1]] = [arr[j+1],arr[j]]
+                }
+            }
         }
-    }
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > 0) {
-            console.log(String.fromCharCode(i + 97) + ": " + arr[i])
-        }
+
+        return arr.join(" ")
+
     }
 }
 
-characterFrequency(str)
+let srt = new Solution()
+
+console.log(srt.sort("sorting words in a sentence"))
