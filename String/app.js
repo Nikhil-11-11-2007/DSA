@@ -188,8 +188,6 @@ let prompt = require("prompt-sync")()
 
 // let str = "hello world is me"
 
-
-
 // function characterFrequency(str) {
 //     // Write your code here
 //     let arr = new Array(26).fill(0)
@@ -252,8 +250,6 @@ let prompt = require("prompt-sync")()
 
 // let sentences = ["coding is fun", "practice makes perfect", "consistency is the key to success"]
 
-// // console.log(sentences[1].split(" "))
-
 // function mostWordsFound(sentences) {
 //     // Write your logic here
 //     let maxWords = 0
@@ -263,31 +259,48 @@ let prompt = require("prompt-sync")()
 //             maxWords = snt.length
 //         }
 //     }
-
 //     return maxWords
 // }
-
 // console.log(mostWordsFound(sentences))
 
-// que 72
+// // que 72
 
-class Solution {
-    sort(s) {
-        //write your code here
-        let arr = s.split(" ")
-        for(let i = 0; i<arr.length-1; i++){
-            for(let j = 0; j<arr.length-1-i; j++){
-                if(arr[j]>arr[j+1]){
-                    [arr[j],arr[j+1]] = [arr[j+1],arr[j]]
-                }
-            }
+// class Solution {
+//     sort(s) {
+//         //write your code here
+//         let arr = s.split(" ")
+//         for(let i = 0; i<arr.length-1; i++){
+//             for(let j = 0; j<arr.length-1-i; j++){
+//                 if(arr[j]>arr[j+1]){
+//                     [arr[j],arr[j+1]] = [arr[j+1],arr[j]]
+//                 }
+//             }
+//         }
+//         return arr.join(" ")
+//     }
+// }
+
+// let srt = new Solution()
+// console.log(srt.sort("sorting words in a sentence"))
+
+// que 73
+
+function countAsterisks(s) {
+    let count = 0
+    let inside = false
+
+    for (let i = 0; i < s.length; i++) {
+
+        if (s[i] === "|") {
+            inside = !inside
         }
 
-        return arr.join(" ")
-
+        if (s[i] === "*" && !inside) {
+            count++
+        }
     }
+
+    return count
 }
 
-let srt = new Solution()
-
-console.log(srt.sort("sorting words in a sentence"))
+console.log(countAsterisks("yo|uar|e**|b|e***au|tifu|l"))
