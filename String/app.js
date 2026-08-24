@@ -285,22 +285,99 @@ let prompt = require("prompt-sync")()
 
 // que 73
 
-function countAsterisks(s) {
-    let count = 0
-    let inside = false
+// function countAsterisks(s) {
+//     let count = 0
+//     let inside = false
 
-    for (let i = 0; i < s.length; i++) {
+//     for (let i = 0; i < s.length; i++) {
 
-        if (s[i] === "|") {
-            inside = !inside
+//         if (s[i] === "|") {
+//             inside = !inside
+//         }
+
+//         if (s[i] === "*" && !inside) {
+//             count++
+//         }
+//     }
+
+//     return count
+// }
+
+// console.log(countAsterisks("yo|uar|e**|b|e***au|tifu|l"))
+
+// que 74
+
+// class Solution {
+//   /**
+//    * @param {string} s
+//    * @param {string} letter
+//    * @returns {number}
+//    */
+//   percentageLetter(s, letter) {
+//     // Write your code here
+//     let sum = 0;
+//     for (let i = 0; i < s.length; i++) {
+//       if (s[i] === letter) {
+//         sum++
+//       }
+//     }
+
+//     return Math.floor((sum / s.length) * 100)
+
+//   }
+// }
+
+// let percentage = new Solution()
+// console.log(percentage.percentageLetter("hello","l"))
+
+// que 75
+
+// function checkString(s) {
+//   // Write your code here
+//   for(let i = 1; i<s.length; i++){
+//     if(s[i] == "a" && s[i-1] == "b")return false
+//   }
+
+//   return true
+// }
+
+// console.log(checkString("aabb"),checkString("aaabbbab"))
+
+// que 76
+
+class Solution {
+    /**
+     * @param {string} password
+     * @return {boolean}
+     */
+    strongPasswordCheckerII(password) {
+        if (password.length < 8) return false;
+
+        let hasLower = false;
+        let hasUpper = false;
+        let hasDigit = false;
+        let hasSpecial = false;
+
+        const specialChars = "!@#$%^&*()-+";
+
+        for (let i = 0; i < password.length; i++) {
+            const char = password[i];
+            const ascii = password.charCodeAt(i);
+
+            if (i > 0 && password[i] === password[i - 1]) return false;
+
+            if (ascii >= 97 && ascii <= 122) hasLower = true;
+
+            if (ascii >= 65 && ascii <= 90) hasUpper = true;
+
+            if (ascii >= 48 && ascii <= 57) hasDigit = true;
+
+            if (specialChars.includes(char)) hasSpecial = true;
         }
 
-        if (s[i] === "*" && !inside) {
-            count++
-        }
+        return hasLower && hasUpper && hasDigit && hasSpecial;
     }
-
-    return count
 }
 
-console.log(countAsterisks("yo|uar|e**|b|e***au|tifu|l"))
+let strongPass = new Solution()
+console.log(strongPass.strongPasswordCheckerII("Abcdefg1"))
