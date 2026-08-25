@@ -430,21 +430,70 @@ let prompt = require("prompt-sync")()
 
 // que 79
 
+// class Solution {
+//     largestGoodInteger(num) {
+//         // Write your code here
+//         let condidate = ""
+//         for (let i = 0; i < num.length - 2; i++) {
+//             if(num[i] === num[i+1] && num[i+1] === num[i+2]){
+//                 let current = num.substring(i,i+3)
+//                 if(condidate < current || condidate === ""){
+//                     condidate = current
+//                 }
+//             }
+//         }
+//         return condidate;
+//     }
+// }
+
+// let goodInt = new Solution()
+// console.log(goodInt.largestGoodInteger("6777199933339"))
+
+// que 80 
+// class Solution {
+//     removeDigit(number, digit) {
+//         // Write your code here
+//         let ans = ""
+//         for (let i = 0; i < number.length; i++) {
+//             if (number[i] === digit) {
+//                 let curr = number.slice(0, i) + number.slice(i + 1)
+//                 if (curr > ans || ans === "") {
+//                     ans = curr
+//                 }
+//             }
+//         }
+
+//         return ans
+//     }
+// }
+
+// let digRemove = new Solution()
+// console.log(digRemove.removeDigit("1231", "1"))
+
+// que 81
+
+// [1,2,1,0,....0]
+
 class Solution {
-    largestGoodInteger(num) {
+    /**
+     * @param {string} num
+     * @return {boolean}
+     */
+    digitCount(num) {
         // Write your code here
-        let condidate = ""
-        for (let i = 0; i < num.length - 2; i++) {
-            if(num[i] === num[i+1] && num[i+1] === num[i+2]){
-                let current = num.substring(i,i+3)
-                if(condidate < current || condidate === ""){
-                    condidate = current
-                }
-            }
+        let arr = new Array(10).fill(0)
+        for (let i = 0; i < num.length; i++) {
+            let digit = Number(num[i])
+            arr[digit]++
         }
-        return condidate;
+        for (let i = 0; i < num.length; i++) {
+            if (Number(num[i]) !== arr[i]) return false
+        }
+
+        return true
+
     }
 }
 
-let goodInt = new Solution()
-console.log(goodInt.largestGoodInteger("6777199933339"))
+let countdig = new Solution()
+console.log(countdig.digitCount("1210"))
