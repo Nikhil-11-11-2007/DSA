@@ -345,39 +345,106 @@ let prompt = require("prompt-sync")()
 
 // que 76
 
+// class Solution {
+//     /**
+//      * @param {string} password
+//      * @return {boolean}
+//      */
+//     strongPasswordCheckerII(password) {
+//         if (password.length < 8) return false;
+
+//         let hasLower = false;
+//         let hasUpper = false;
+//         let hasDigit = false;
+//         let hasSpecial = false;
+
+//         const specialChars = "!@#$%^&*()-+";
+
+//         for (let i = 0; i < password.length; i++) {
+//             const char = password[i];
+//             const ascii = password.charCodeAt(i);
+
+//             if (i > 0 && password[i] === password[i - 1]) return false;
+
+//             if (ascii >= 97 && ascii <= 122) hasLower = true;
+
+//             if (ascii >= 65 && ascii <= 90) hasUpper = true;
+
+//             if (ascii >= 48 && ascii <= 57) hasDigit = true;
+
+//             if (specialChars.includes(char)) hasSpecial = true;
+//         }
+
+//         return hasLower && hasUpper && hasDigit && hasSpecial;
+//     }
+// }
+
+// let strongPass = new Solution()
+// console.log(strongPass.strongPasswordCheckerII("Abcdefg1"))
+
+// que 77
+
+// function greatestLetter(s) {
+//     // Write your logic here
+//     for (let i = 90; i >= 65; i--) {
+//         let upper = String.fromCharCode(i)
+//         let lower = String.fromCharCode(i + 32)
+//         if (s.includes(upper) && s.includes(lower)) {
+//             return upper
+//         }
+
+//     }
+//     return ""; // return empty string if none found
+// }
+
+// console.log(greatestLetter("aAbBcCdD"))
+
+// que 78
+
+// class Solution {
+//     checkDistances(s, distance) {
+//         // Write your code here
+//         let firstIndex = {}
+//         for (let i = 0; i < s.length; i++) {
+//             let char = s[i]
+//             if(firstIndex[char] === undefined){
+//                 firstIndex[char] = i
+//             }
+//             else{
+//                 let actualdis = i - firstIndex[char] - 1
+//                 let charIndex = char.charCodeAt(0) - 97
+
+//                 if(actualdis !== distance[charIndex]){
+//                     return false
+//                 }
+//             }
+//         }
+
+//         return true
+//     }
+// }
+
+// let checkcharDis = new Solution()
+// console.log(checkcharDis.checkDistances("zzxxccvvbbnnmmllkkjjiihhggffddssaa",
+// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]))
+
+// que 79
+
 class Solution {
-    /**
-     * @param {string} password
-     * @return {boolean}
-     */
-    strongPasswordCheckerII(password) {
-        if (password.length < 8) return false;
-
-        let hasLower = false;
-        let hasUpper = false;
-        let hasDigit = false;
-        let hasSpecial = false;
-
-        const specialChars = "!@#$%^&*()-+";
-
-        for (let i = 0; i < password.length; i++) {
-            const char = password[i];
-            const ascii = password.charCodeAt(i);
-
-            if (i > 0 && password[i] === password[i - 1]) return false;
-
-            if (ascii >= 97 && ascii <= 122) hasLower = true;
-
-            if (ascii >= 65 && ascii <= 90) hasUpper = true;
-
-            if (ascii >= 48 && ascii <= 57) hasDigit = true;
-
-            if (specialChars.includes(char)) hasSpecial = true;
+    largestGoodInteger(num) {
+        // Write your code here
+        let condidate = ""
+        for (let i = 0; i < num.length - 2; i++) {
+            if(num[i] === num[i+1] && num[i+1] === num[i+2]){
+                let current = num.substring(i,i+3)
+                if(condidate < current || condidate === ""){
+                    condidate = current
+                }
+            }
         }
-
-        return hasLower && hasUpper && hasDigit && hasSpecial;
+        return condidate;
     }
 }
 
-let strongPass = new Solution()
-console.log(strongPass.strongPasswordCheckerII("Abcdefg1"))
+let goodInt = new Solution()
+console.log(goodInt.largestGoodInteger("6777199933339"))
