@@ -474,26 +474,79 @@ let prompt = require("prompt-sync")()
 
 // [1,2,1,0,....0]
 
+// class Solution {
+//     /**
+//      * @param {string} num
+//      * @return {boolean}
+//      */
+//     digitCount(num) {
+//         // Write your code here
+//         let arr = new Array(10).fill(0)
+//         for (let i = 0; i < num.length; i++) {
+//             let digit = Number(num[i])
+//             arr[digit]++
+//         }
+//         for (let i = 0; i < num.length; i++) {
+//             if (Number(num[i]) !== arr[i]) return false
+//         }
+
+//         return true
+
+//     }
+// }
+
+// let countdig = new Solution()
+// console.log(countdig.digitCount("1210"))
+
+// que 82
+
+// class Solution {
+//     /**
+//      * @param {string[]} words
+//      * @return {string[]}
+//      */
+//     removeAnagrams(words) {
+//         // Write your code here
+//         let result = [words[0]]
+//         for(let i = 1; i<words.length; i++){
+//             let resultLastSort = result[result.length-1].split("").sort().join("")
+//             let currentSort = words[i].split("").sort().join("")
+//             if(currentSort !== resultLastSort){
+//                 result.push(words[i])
+//             }
+//         }
+//         return result
+
+//     }
+// }
+// let removeAnag = new Solution()
+// console.log(removeAnag.removeAnagrams(["abba","abab","bbaa","cd","cd"]))
+
+// que 83
+
 class Solution {
     /**
-     * @param {string} num
-     * @return {boolean}
+     * @param {string} s
+     * @param {number} k
+     * @return {string}
      */
-    digitCount(num) {
+    digitSum(s, k) {
         // Write your code here
-        let arr = new Array(10).fill(0)
-        for (let i = 0; i < num.length; i++) {
-            let digit = Number(num[i])
-            arr[digit]++
-        }
-        for (let i = 0; i < num.length; i++) {
-            if (Number(num[i]) !== arr[i]) return false
-        }
+        while (k < s.length) {
+            let sum = ""
+            for (let i = 0; i < s.length; i += k) {
+                let group = s.substring(i, i + k)
+                let groupSum = 0
+                for (let j = 0; j < group.length; j++) {
+                    groupSum += Number(group[j])
+                }
+                sum += String(groupSum)
+            }
 
-        return true
-
+            s = sum
+        }
+        return s
     }
 }
-
-let countdig = new Solution()
-console.log(countdig.digitCount("1210"))
+let digsm = new Solution()
+console.log(digsm.digitSum("11111222223", 3))
