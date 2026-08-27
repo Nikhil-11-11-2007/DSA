@@ -429,10 +429,8 @@ let prompt = require("prompt-sync")()
 // [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]))
 
 // que 79
-
 // class Solution {
 //     largestGoodInteger(num) {
-//         // Write your code here
 //         let condidate = ""
 //         for (let i = 0; i < num.length - 2; i++) {
 //             if(num[i] === num[i+1] && num[i+1] === num[i+2]){
@@ -445,11 +443,10 @@ let prompt = require("prompt-sync")()
 //         return condidate;
 //     }
 // }
-
 // let goodInt = new Solution()
 // console.log(goodInt.largestGoodInteger("6777199933339"))
 
-// que 80 
+// // que 80 
 // class Solution {
 //     removeDigit(number, digit) {
 //         // Write your code here
@@ -462,11 +459,9 @@ let prompt = require("prompt-sync")()
 //                 }
 //             }
 //         }
-
 //         return ans
 //     }
 // }
-
 // let digRemove = new Solution()
 // console.log(digRemove.removeDigit("1231", "1"))
 
@@ -524,29 +519,80 @@ let prompt = require("prompt-sync")()
 
 // que 83
 
+// class Solution {
+//     /**
+//      * @param {string} s
+//      * @param {number} k
+//      * @return {string}
+//      */
+//     digitSum(s, k) {
+//         // Write your code here
+//         while (k < s.length) {
+//             let sum = ""
+//             for (let i = 0; i < s.length; i += k) {
+//                 let group = s.substring(i, i + k)
+//                 let groupSum = 0
+//                 for (let j = 0; j < group.length; j++) {
+//                     groupSum += Number(group[j])
+//                 }
+//                 sum += String(groupSum)
+//             }
+
+//             s = sum
+//         }
+//         return s
+//     }
+// }
+// let digsm = new Solution()
+// console.log(digsm.digitSum("11111222223", 3))
+
+// que 84
+
+// class Solution {
+//     /**
+//      * @param {string} s
+//      * @return {boolean}
+//      */
+//     areNumbersAscending(s) {
+//         // Write your code here
+//         let arrofStr = s.split(" ")
+//         let num = 0
+//         for (let i = 0; i < arrofStr.length; i++) {
+//             let nmbr = Number(arrofStr[i])
+//             if (!isNaN(nmbr)) {
+//                 if(nmbr <= num){
+//                     return false
+//                 }
+//                 num = nmbr
+//             }
+//         }
+
+//         return true
+//     }
+// }
+
+// let isNumAscending = new Solution()
+// console.log(isNumAscending.areNumbersAscending("1 box has 3 blue 4 red 6 green and 12 yello marbels"))
+
 class Solution {
     /**
-     * @param {string} s
-     * @param {number} k
+     * @param {string} word
+     * @param {string} ch
      * @return {string}
      */
-    digitSum(s, k) {
+    reversePrefix(word, ch) {
         // Write your code here
-        while (k < s.length) {
-            let sum = ""
-            for (let i = 0; i < s.length; i += k) {
-                let group = s.substring(i, i + k)
-                let groupSum = 0
-                for (let j = 0; j < group.length; j++) {
-                    groupSum += Number(group[j])
-                }
-                sum += String(groupSum)
-            }
-
-            s = sum
+        let index = word.indexOf(ch)
+        if (index === -1) {
+            return word
         }
-        return s
+
+        let pref = word.slice(0, index + 1)
+        let rev = pref.split("").reverse().join("")
+        let remaningWords = word.slice(index + 1)
+        return rev + remaningWords
     }
 }
-let digsm = new Solution()
-console.log(digsm.digitSum("11111222223", 3))
+
+let reversePref = new Solution()
+console.log(reversePref.reversePrefix("equality", "l"))
