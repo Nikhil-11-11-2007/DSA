@@ -574,25 +574,76 @@ let prompt = require("prompt-sync")()
 // let isNumAscending = new Solution()
 // console.log(isNumAscending.areNumbersAscending("1 box has 3 blue 4 red 6 green and 12 yello marbels"))
 
-class Solution {
-    /**
-     * @param {string} word
-     * @param {string} ch
-     * @return {string}
-     */
-    reversePrefix(word, ch) {
-        // Write your code here
-        let index = word.indexOf(ch)
-        if (index === -1) {
-            return word
-        }
+// class Solution {
+//     /**
+//      * @param {string} word
+//      * @param {string} ch
+//      * @return {string}
+//      */
+//     reversePrefix(word, ch) {
+//         // Write your code here
+//         let index = word.indexOf(ch)
+//         if (index === -1) {
+//             return word
+//         }
 
-        let pref = word.slice(0, index + 1)
-        let rev = pref.split("").reverse().join("")
-        let remaningWords = word.slice(index + 1)
-        return rev + remaningWords
+//         let pref = word.slice(0, index + 1)
+//         let rev = pref.split("").reverse().join("")
+//         let remaningWords = word.slice(index + 1)
+//         return rev + remaningWords
+//     }
+// }
+    
+// let reversePref = new Solution()
+// console.log(reversePref.reversePrefix("equality", "l"))
+
+class Solution {
+  /**
+   * @param {string} password
+   * @return {boolean}
+   */
+  strongPasswordCheckerII(password) {
+    // Write your logic here
+    if (password.length < 8) {
+      return false
     }
+
+    let isLowerCase = false
+    let isUpperCase = false
+    let isDigit = false
+    let specialCh = "!@#$%^&*()-+"
+    let isSpecial = false
+
+    for (let i = 0; i < password.length; i++) {
+      let ch = password[i]
+      if (i > 0 && password[i] === password[i - 1]) {
+        return false
+      }
+      if (ch >= "a" && ch <= "z") isLowerCase = true
+      else if (ch >= "A" && ch <= "Z") isUpperCase = true
+      else if (ch >= "0" && ch <= "9") isDigit = true
+      else if (specialCh.includes(ch)) isSpecial = true
+    }
+    return isLowerCase && isUpperCase && isDigit && isSpecial
+
+  }
 }
 
-let reversePref = new Solution()
-console.log(reversePref.reversePrefix("equality", "l"))
+let strongPass = new Solution()
+console.log(strongPass.strongPasswordCheckerII("Abcdefg1!"))
+
+// helper.js (template)
+function greatestLetter(s) {
+  // Write your logic here
+  for(let i = 0; i<26; i++){
+    let upper = String.fromCharCode(90 - i)
+    let lower = String.fromCharCode(122 - i)
+    if(s.includes(upper) && s.includes(lower)){
+      return upper
+    }
+  }
+
+  return ""
+}
+
+console.log(greatestLetter("aAbBcCdD"))
