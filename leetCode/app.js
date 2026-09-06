@@ -37,3 +37,43 @@ let prompt = require("prompt-sync")()
 // };
 
 // console.log(lengthOfLongestSubstring("abcabcbb"))
+
+// que 3
+
+var findMedianSortedArrays = function (nums1, nums2) {
+    let i = 0;
+    let j = 0;
+    let arr = []
+    while (i < nums1.length && j < nums2.length) {
+        if (nums1[i] < nums2[j]) {
+            arr.push(nums1[i])
+            i++;
+        } else {
+            arr.push(nums2[j])
+            j++;
+        }
+    }
+
+    while (i < nums1.length) {
+        arr.push(nums1[i])
+        i++;
+    }
+
+    while (j < nums2.length) {
+        arr.push(nums2[j])
+        j++;
+    }
+
+    let n = arr.length
+
+    if (n % 2 === 0) {
+        let mid = n / 2
+        return (arr[mid - 1] + arr[mid]) / 2
+    } else {
+        let mid = Math.floor(n / 2)
+        return arr[mid]
+    }
+
+};
+
+console.log(findMedianSortedArrays([1, 3], [2, 4]))
