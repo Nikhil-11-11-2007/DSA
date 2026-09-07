@@ -28,3 +28,21 @@ let prompt = require("prompt-sync")()
 //     console.log()
 // }
 
+let arr3 = new Array(3)
+
+for (let i = 0; i < arr3.length; i++) {
+    arr3[i] = new Array(+prompt("Enter length of inner array "))
+}
+
+for (let i = 0; i < arr3.length; i++) {
+    for (let j = 0; j < arr3[i].length; j++) {
+        arr3[i][j] = +prompt("Enter a value ")
+    }
+}
+
+for (let i = 0; i < arr3.length; i++) {
+    for (let j = 0; j < arr3[i].length; j++) {
+        process.stdout.write(arr3[i][j] + " ")
+    }
+    console.log()
+}
