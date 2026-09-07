@@ -19,61 +19,107 @@ let prompt = require("prompt-sync")()
 // que 2
 
 // var lengthOfLongestSubstring = function (s) {
+
 //     let str = ""
-//     let max = 0
+//     let count = 0
 //     for (let i = 0; i < s.length; i++) {
 //         let ch = s[i]
-//         if (!str.includes(ch)) {
+//         if (str.includes(ch)) {
+//             str = str.substring(str.indexOf(ch) + 1) + ch
+//         } else {
 //             str += ch
 //         }
-//         else {
-//             str = str.slice(str.indexOf(ch) + 1) + ch
-//         }
-
-//         max = Math.max(max, str.length)
+//         count = Math.max(count, str.length)
 //     }
 
-//     return max
+//     return count
+
 // };
 
-// console.log(lengthOfLongestSubstring("abcabcbb"))
+// console.log(lengthOfLongestSubstring("pwwkew"))
 
 // que 3
 
-var findMedianSortedArrays = function (nums1, nums2) {
-    let i = 0;
-    let j = 0;
-    let arr = []
-    while (i < nums1.length && j < nums2.length) {
-        if (nums1[i] < nums2[j]) {
-            arr.push(nums1[i])
-            i++;
-        } else {
-            arr.push(nums2[j])
-            j++;
+// var findMedianSortedArrays = function (nums1, nums2) {
+//     let i = 0;
+//     let j = 0;
+//     let arr = []
+
+//     while (i < nums1.length && j < nums2.length) {
+//         if (nums1[i] < nums2[j]) {
+//             arr.push(nums1[i])
+//             i++;
+//         } else {
+//             arr.push(nums2[j])
+//             j++;
+//         }
+//     }
+//     while (i < nums1.length) {
+//         arr.push(nums1[i])
+//         i++;
+//     }
+
+//     while (j < nums2.length) {
+//         arr.push(nums2[j])
+//         j++;
+//     }
+
+//     let n = arr.length
+
+//     if (n % 2 === 0) {
+//         let mid = n / 2
+//         return (arr[mid - 1] + arr[mid]) / 2
+//     } else{
+//         let mid = Math.floor(n/2)
+//         return arr[mid]
+//     }
+
+// };
+
+// console.log(findMedianSortedArrays([1, 3], [2]))
+
+// que 4
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function (s) {
+    let result = ""; // b // a // b
+
+    function expand(left, right) {
+        while (
+            left >= 0 &&
+            right < s.length &&
+            s[left] === s[right]
+        ) {
+            left--;
+            right++;
+        }
+
+        // while ke baad left/right ek step extra chale gaye hain
+        return s.slice(left + 1, right);
+    }
+
+    for (let i = 0; i < s.length; i++) {
+
+        // Odd length palindrome
+        let odd = expand(i, i); // b // bab
+
+        // Even length palindrome
+        let even = expand(i, i + 1); // ye even length wale plaidrom string ke liye chalega
+
+        if (odd.length > result.length) {
+            result = odd;
+        }
+
+        // ye condition bhi even length wale plaidrom string ke liye chalegi
+        if (even.length > result.length) {
+            result = even;
         }
     }
 
-    while (i < nums1.length) {
-        arr.push(nums1[i])
-        i++;
-    }
-
-    while (j < nums2.length) {
-        arr.push(nums2[j])
-        j++;
-    }
-
-    let n = arr.length
-
-    if (n % 2 === 0) {
-        let mid = n / 2
-        return (arr[mid - 1] + arr[mid]) / 2
-    } else {
-        let mid = Math.floor(n / 2)
-        return arr[mid]
-    }
-
+    return result;
 };
 
-console.log(findMedianSortedArrays([1, 3], [2, 4]))
+console.log(longestPalindrome("racecar"))
