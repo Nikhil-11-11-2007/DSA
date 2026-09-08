@@ -28,21 +28,87 @@ let prompt = require("prompt-sync")()
 //     console.log()
 // }
 
-let arr3 = new Array(3)
+// let arr3 = new Array(3)
 
-for (let i = 0; i < arr3.length; i++) {
-    arr3[i] = new Array(+prompt("Enter length of inner array "))
-}
+// for (let i = 0; i < arr3.length; i++) {
+//     arr3[i] = new Array(+prompt("Enter length of inner array "))
+// }
 
-for (let i = 0; i < arr3.length; i++) {
-    for (let j = 0; j < arr3[i].length; j++) {
-        arr3[i][j] = +prompt("Enter a value ")
+// for (let i = 0; i < arr3.length; i++) {
+//     for (let j = 0; j < arr3[i].length; j++) {
+//         arr3[i][j] = +prompt("Enter a value ")
+//     }
+// }
+
+// for (let i = 0; i < arr3.length; i++) {
+//     for (let j = 0; j < arr3[i].length; j++) {
+//         process.stdout.write(arr3[i][j] + " ")
+//     }
+//     console.log()
+// }
+
+// que 1 leetcode -> 1572
+
+// var diagonalSum = function (mat) {
+
+//     // TC = O(n^2)
+//     // let sum = 0;
+//     // for (let i = 0; i < mat.length; i++) {
+//     //     for (let j = 0; j < mat[i].length; j++) {
+//     //         if (i === j || (i + j) === mat.length - 1) {
+//     //             sum += mat[i][j]
+//     //         }
+//     //     }
+//     // }
+
+//     // return sum
+
+//     // 2nd method optmized TC = O(n)
+
+//     let sum = 0
+//     let n = mat.length
+
+//     for(let i = 0; i<mat.length; i++){
+//         sum += mat[i][i]
+//         if(i !== n-1-i){
+//             sum += mat[i][n-1-i]
+//         }
+//     }
+
+//     return sum
+
+
+// };
+
+// console.log(diagonalSum([
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+// ]))
+
+// que 2 letcode -> 867
+
+var transpose = function (matrix) {
+
+    let row = matrix.length
+    let col = matrix[0].length
+    let arr = []
+
+    for(let i = 0; i<col; i++){
+        arr[i] = new Array(row)
     }
-}
 
-for (let i = 0; i < arr3.length; i++) {
-    for (let j = 0; j < arr3[i].length; j++) {
-        process.stdout.write(arr3[i][j] + " ")
+    for(let i = 0; i<matrix.length; i++){
+        for(let j = 0; j<matrix[i].length; j++){
+            arr[j][i] = matrix[i][j]
+        }
     }
-    console.log()
-}
+
+    return arr
+
+};
+
+console.log(transpose([
+    [1, 2, 3],
+    [4, 5, 6]
+]))
