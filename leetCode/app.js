@@ -84,25 +84,101 @@ let prompt = require("prompt-sync")()
  * @param {string} s
  * @return {string}
  */
-var longestPalindrome = function (s) {
-    let result = "" // r
-    function expand(left, right) {
-        while (left >= 0 && right < s.length && s[left] === s[right]) {
-            left--;
-            right++;
-        }
+// var longestPalindrome = function (s) {
+//     let result = "" // r
+//     function expand(left, right) {
+//         while (left >= 0 && right < s.length && s[left] === s[right]) {
+//             left--;
+//             right++;
+//         }
 
-        return s.slice(left + 1, right)
-    }
+//         return s.slice(left + 1, right)
+//     }
 
-    for (let i = 0; i < s.length; i++) {
-        let odd = expand(i, i) // r, a, c, racecar, c,a,r
-        let even = expand(i, i + 1) // "","", ""
-        if (odd.length > result.length) result = odd
-        if (even.length > result.length) result = even
-    }
+//     for (let i = 0; i < s.length; i++) {
+//         let odd = expand(i, i) // r, a, c, racecar, c,a,r
+//         let even = expand(i, i + 1) // "","", ""
+//         if (odd.length > result.length) result = odd
+//         if (even.length > result.length) result = even
+//     }
 
-    return result
+//     return result
+// };
+
+// console.log(longestPalindrome("racecar"))
+
+// que 5 leetcode -> 1572
+
+// var diagonalSum = function (mat) {
+
+//     // TC = O(n^2)
+//     // let sum = 0;
+//     // for (let i = 0; i < mat.length; i++) {
+//     //     for (let j = 0; j < mat[i].length; j++) {
+//     //         if (i === j || (i + j) === mat.length - 1) {
+//     //             sum += mat[i][j]
+//     //         }
+//     //     }
+//     // }
+
+//     // return sum
+
+//     // 2nd method optmized TC = O(n)
+//     let sum = 0
+//     let n = mat.length
+//     for(let i = 0; i<n; i++){
+//         sum += mat[i][i]
+//         if(i !== n-1-i){
+//             sum += mat[i][n-1-i]
+//         }
+//     }
+
+//     return sum
+// };
+
+// console.log(diagonalSum([
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+// ]))
+
+// que 6 letcode -> 867
+
+// var transpose = function (matrix) {
+
+//     let row = matrix.length
+//     let col = matrix[0].length
+//     let arr = []
+
+//     for(let i = 0; i<col; i++){
+//         arr[i] = new Array(row)
+//     }
+
+//     for(let i = 0; i<matrix.length; i++){
+//         for(let j = 0; j<matrix[i].length; j++){
+//             arr[j][i] = matrix[i][j]
+//         }
+//     }
+
+//     return arr
+
+// };
+
+// console.log(transpose([
+//     [1, 2, 3],
+//     [4, 5, 6]
+// ]))
+
+// que 7 leetcode -> 832
+
+var flipAndInvertImage = function (image) {
+
 };
 
-console.log(longestPalindrome("racecar"))
+console.log(flipAndInvertImage(
+    [
+        [1, 1, 0],
+        [1, 0, 1],
+        [0, 0, 0]
+    ]
+))

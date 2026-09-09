@@ -88,27 +88,97 @@ let prompt = require("prompt-sync")()
 
 // que 2 letcode -> 867
 
-var transpose = function (matrix) {
+// var transpose = function (matrix) {
 
-    let row = matrix.length
-    let col = matrix[0].length
-    let arr = []
+//     let row = matrix.length
+//     let col = matrix[0].length
+//     let arr = []
 
-    for(let i = 0; i<col; i++){
-        arr[i] = new Array(row)
-    }
+//     for(let i = 0; i<col; i++){
+//         arr[i] = new Array(row)
+//     }
 
-    for(let i = 0; i<matrix.length; i++){
-        for(let j = 0; j<matrix[i].length; j++){
-            arr[j][i] = matrix[i][j]
+//     for(let i = 0; i<matrix.length; i++){
+//         for(let j = 0; j<matrix[i].length; j++){
+//             arr[j][i] = matrix[i][j]
+//         }
+//     }
+
+//     return arr
+
+// };
+
+// console.log(transpose([
+//     [1, 2, 3],
+//     [4, 5, 6]
+// ]))
+
+// que 3 leetcode -> 832
+
+// var flipAndInvertImage = function (image) {
+//     for (let i = 0; i < image.length; i++) {
+//         let arr = image[i]
+//         let j = 0;
+//         let k = arr.length - 1
+//         while (j < k) {
+//             [arr[j], arr[k]] = [arr[k], arr[j]]
+//             j++;
+//             k--;
+//         }
+//     }
+
+//     for (let i = 0; i < image.length; i++) {
+//         for (let j = 0; j < image[i].length; j++) {
+//             if (image[i][j] === 1) image[i][j] = 0
+//             else image[i][j] = 1
+//         }
+//     }
+
+//     return image
+
+// };
+
+// console.log(flipAndInvertImage(
+//     [
+//         [1, 1, 0],
+//         [1, 0, 1],
+//         [0, 0, 0]
+//     ]
+// ))
+
+// que 4 leetcode -> 48
+
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var rotate = function (matrix) {
+
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = i+1; j < matrix[i].length; j++) {
+                [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]]
         }
     }
 
-    return arr
+    for(let i = 0; i<matrix.length; i++){
+        let arr = matrix[i]
+        let j = 0;
+        let k = matrix[i].length - 1
+        while(j<k){
+            [arr[j], arr[k]] = [arr[k], arr[j]]
+            j++;
+            k--;
+        }
+    }
+
+    return matrix
 
 };
 
-console.log(transpose([
+console.log(rotate([
     [1, 2, 3],
-    [4, 5, 6]
+    [4, 5, 6],
+    [7, 8, 9]
 ]))
+
+// 
