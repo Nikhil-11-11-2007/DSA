@@ -171,14 +171,81 @@ let prompt = require("prompt-sync")()
 
 // que 7 leetcode -> 832
 
-var flipAndInvertImage = function (image) {
+// var flipAndInvertImage = function (image) {
 
+//     for(let i = 0; i<image.length; i++){
+//         let arr = image[i]
+//         let j = 0;
+//         let k = arr.length - 1;
+//         while(j<k){
+//             [arr[j],arr[k]] = [arr[k],arr[j]]
+//             j++;
+//             k--;
+//         }
+//     }
+
+//     for(let i = 0; i<image.length; i++){
+//         for(let j = 0; j<image[i].length; j++){
+//             if(image[i][j] === 1) image[i][j] = 0
+//             else image[i][j] = 1
+//         }
+//     }
+
+//     return image
+
+// };
+
+// console.log(flipAndInvertImage(
+//     [
+//         [1, 1, 0],
+//         [1, 0, 1],
+//         [0, 0, 0]
+//     ]
+// ))
+
+// que 8 leetcode -> 54
+
+/**
+ * @param {number[][]} matrix
+ * @return {number[]}
+ */
+var spiralOrder = function (matrix) {
+    let arr = []
+    let top = 0;
+    let bottom = matrix.length - 1;
+    let right = matrix[0].length - 1;
+    let left = 0
+
+    while (top <= bottom && left <= right) {
+        for (let i = left; i <= right; i++) {
+            arr.push(matrix[top][i])
+        }
+        top++
+        if (top <= bottom) {
+            for (let i = top; i <= bottom; i++) {
+                arr.push(matrix[i][right])
+            }
+            right--
+        }
+        if (top <= bottom && left <= right) {
+            for (let i = right; i >= left; i--) {
+                arr.push(matrix[bottom][i])
+            }
+            bottom--
+        }
+        if (top <= bottom && left <= right) {
+            for (let i = bottom; i >= top; i--) {
+                arr.push(matrix[i][left])
+            }
+            left++
+        }
+    }
+
+    return arr
 };
 
-console.log(flipAndInvertImage(
-    [
-        [1, 1, 0],
-        [1, 0, 1],
-        [0, 0, 0]
-    ]
-))
+console.log(spiralOrder([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]))
