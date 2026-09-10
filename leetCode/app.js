@@ -209,43 +209,60 @@ let prompt = require("prompt-sync")()
  * @param {number[][]} matrix
  * @return {number[]}
  */
-var spiralOrder = function (matrix) {
-    let arr = []
-    let top = 0;
-    let bottom = matrix.length - 1;
-    let right = matrix[0].length - 1;
-    let left = 0
+// var spiralOrder = function (matrix) {
+//     let arr = []
+//     let top = 0;
+//     let left = 0;
+//     let right = matrix[0].length - 1;
+//     let bottom = matrix.length - 1;
+//     while (top <= bottom && left <= right) {
+//         for (let i = left; i <= right; i++) {
+//             arr.push(matrix[top][i])
+//         }
+//         top++;
+//         if (top <= bottom) {
+//             for (let i = top; i <= bottom; i++) {
+//                 arr.push(matrix[i][right])
+//             }
+//             right--
+//         }
 
-    while (top <= bottom && left <= right) {
-        for (let i = left; i <= right; i++) {
-            arr.push(matrix[top][i])
-        }
-        top++
-        if (top <= bottom) {
-            for (let i = top; i <= bottom; i++) {
-                arr.push(matrix[i][right])
-            }
-            right--
-        }
-        if (top <= bottom && left <= right) {
-            for (let i = right; i >= left; i--) {
-                arr.push(matrix[bottom][i])
-            }
-            bottom--
-        }
-        if (top <= bottom && left <= right) {
-            for (let i = bottom; i >= top; i--) {
-                arr.push(matrix[i][left])
-            }
-            left++
-        }
-    }
+//         if (left <= right && top <= bottom) {
+//             for (let i = right; i >= left; i--) {
+//                 arr.push(matrix[bottom][[i]])
+//             }
+//             bottom--
+//         }
 
-    return arr
+//         if (top <= bottom && left <= right) {
+//             for (let i = bottom; i >= top; i--) {
+//                 arr.push(matrix[i][left])
+//             }
+//             left++
+//         }
+//     }
+
+//     return arr
+// };
+
+// console.log(spiralOrder([
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+// ]))
+
+// que 9 leetcode -> 73
+
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var setZeroes = function (matrix) {
+
 };
 
-console.log(spiralOrder([
-    [1, 2, 3],
-    [4, 5, 6],
+console.log(setZeroes([
+    [1, 2, 0],
+    [4, 0, 6],
     [7, 8, 9]
 ]))

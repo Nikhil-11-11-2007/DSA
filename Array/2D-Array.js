@@ -152,30 +152,78 @@ let prompt = require("prompt-sync")()
  * @param {number[][]} matrix
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
-var rotate = function (matrix) {
+// var rotate = function (matrix) {
 
-    for (let i = 0; i < matrix.length; i++) {
-        for (let j = i+1; j < matrix[i].length; j++) {
-                [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]]
+//     for (let i = 0; i < matrix.length; i++) {
+//         for (let j = i+1; j < matrix[i].length; j++) {
+//                 [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]]
+//         }
+//     }
+
+//     for(let i = 0; i<matrix.length; i++){
+//         let arr = matrix[i]
+//         let j = 0;
+//         let k = matrix[i].length - 1
+//         while(j<k){
+//             [arr[j], arr[k]] = [arr[k], arr[j]]
+//             j++;
+//             k--;
+//         }
+//     }
+
+//     return matrix
+
+// };
+
+// console.log(rotate([
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+// ]))
+
+// que 5 leetcode -> 54
+
+/**
+ * @param {number[][]} matrix
+ * @return {number[]}
+ */
+var spiralOrder = function (matrix) {
+    let arr = []
+    let top = 0;
+    let left = 0;
+    let right = matrix[0].length - 1;
+    let bottom = matrix.length - 1;
+    while (top <= bottom && left <= right) {
+        for (let i = left; i <= right; i++) {
+            arr.push(matrix[top][i])
+        }
+        top++;
+        if (top <= bottom) {
+            for (let i = top; i <= bottom; i++) {
+                arr.push(matrix[i][right])
+            }
+            right--
+        }
+
+        if (left <= right && top <= bottom) {
+            for (let i = right; i >= left; i--) {
+                arr.push(matrix[bottom][[i]])
+            }
+            bottom--
+        }
+
+        if (top <= bottom && left <= right) {
+            for (let i = bottom; i >= top; i--) {
+                arr.push(matrix[i][left])
+            }
+            left++
         }
     }
 
-    for(let i = 0; i<matrix.length; i++){
-        let arr = matrix[i]
-        let j = 0;
-        let k = matrix[i].length - 1
-        while(j<k){
-            [arr[j], arr[k]] = [arr[k], arr[j]]
-            j++;
-            k--;
-        }
-    }
-
-    return matrix
-
+    return arr
 };
 
-console.log(rotate([
+console.log(spiralOrder([
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
