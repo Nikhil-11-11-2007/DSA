@@ -188,43 +188,110 @@ let prompt = require("prompt-sync")()
  * @return {number[]}
  */
 var spiralOrder = function (matrix) {
-    let arr = []
+    let arr = [];
     let top = 0;
     let left = 0;
     let right = matrix[0].length - 1;
     let bottom = matrix.length - 1;
+
     while (top <= bottom && left <= right) {
-        for (let i = left; i <= right; i++) {
-            arr.push(matrix[top][i])
+        for (let j = left; j <= right; j++) {
+            arr.push(matrix[top][j])
         }
         top++;
         if (top <= bottom) {
             for (let i = top; i <= bottom; i++) {
                 arr.push(matrix[i][right])
             }
-            right--
+            right--;
         }
 
-        if (left <= right && top <= bottom) {
-            for (let i = right; i >= left; i--) {
-                arr.push(matrix[bottom][[i]])
+        if (top <= bottom && left <= right) {
+            for (let j = right; j >= left; j--) {
+                arr.push(matrix[bottom][j])
             }
-            bottom--
+            bottom--;
         }
 
         if (top <= bottom && left <= right) {
             for (let i = bottom; i >= top; i--) {
                 arr.push(matrix[i][left])
             }
-            left++
+            left++;
         }
     }
 
     return arr
+
 };
+
 
 console.log(spiralOrder([
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
 ]))
+
+// que 6 leetcode -> 73
+
+/**
+  * @param {number[][]} matrix
+  * @return {void} Do not return anything, modify matrix in-place instead.
+*/
+// var setZeroes = function (matrix) {
+//     let row = matrix.length;
+//     let cols = matrix[0].length;
+//     let firstRowZero = false;
+//     let firstColZero = false;
+
+//     for(let j = 0; j<cols; j++){
+//         if(matrix[0][j] === 0){
+//             firstRowZero = true;
+//             break;
+//         }
+//     }
+
+//     for(let i = 0; i<row; i++){
+//         if(matrix[i][0] === 0){
+//             firstColZero = true;
+//             break;
+//         }
+//     }
+
+//     for(let i = 1; i<row; i++){
+//         for(let j = 1; j<cols; j++){
+//             if(matrix[i][j] === 0){
+//                 matrix[i][0] = 0
+//                 matrix[0][j] = 0
+//             }
+//         }
+//     }
+
+//     for(let i = 1; i<row; i++){
+//         for(let j= 1; j<cols; j++){
+//             if(matrix[i][0] === 0 || matrix[0][j] === 0){
+//                 matrix[i][j] = 0
+//             }
+//         }
+//     }
+
+//     if(firstRowZero){
+//         for(let j = 0; j<cols; j++){
+//             matrix[0][j] = 0
+//         }
+//     }
+
+//     if(firstColZero){
+//         for(let i = 0; i<row; i++){
+//             matrix[i][0] = 0
+//         }
+//     }
+
+//     return matrix
+// };
+
+// console.log(setZeroes([
+//     [1, 2, 0, 4],
+//     [5, 6, 7, 0],
+//     [9,10,11,12]
+// ]))
