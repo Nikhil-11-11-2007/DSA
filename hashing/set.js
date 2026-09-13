@@ -63,23 +63,37 @@
 // que 5  leetcode -> 202
 
 var isHappy = function(n) {
-    let set = new Set();
+    // let set = new Set();
 
-    while (n !== 1) {
-        if (set.has(n)) return false;
-        set.add(n);
-        let temp = n;
-        let sum = 0;
+    // while (n !== 1) {
+    //     if (set.has(n)) return false;
+    //     set.add(n);
+    //     let temp = n;
+    //     let sum = 0;
 
-        while (temp > 0) {
-            let digit = temp % 10;
-            sum += digit * digit;
-            temp = Math.floor(temp / 10);
+    //     while (temp > 0) {
+    //         let digit = temp % 10;
+    //         sum += digit * digit;
+    //         temp = Math.floor(temp / 10);
+    //     }
+    //     n = sum;
+    // }
+
+    // return true;
+
+    let set = new Set()
+    while(true){
+        let sum = 0
+        while(n>0){
+            let dig = n%10
+            sum += dig*dig
+            n = Math.floor(n/10)
         }
-        n = sum;
+        if(sum === 1) return true
+        if(set.has(sum)) return false
+        set.add(sum)
+        n = sum
     }
-
-    return true;
 };
 
 console.log(isHappy(19))
