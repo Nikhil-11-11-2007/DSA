@@ -14,7 +14,7 @@
 
 // console.log(map)
 
-// que 2
+// que 2 leetcode -> 387
 
 // var firstUniqChar = function (s) {
 //     let map = new Map()
@@ -28,3 +28,39 @@
 // };
 
 // console.log(firstUniqChar("leetcode"))
+
+// que 3 leetcode -> 1
+
+// var twoSum = function (nums, target) {
+//     let map = new Map()
+//     for (let i = 0; i < nums.length; i++) {
+//         if (map.has(target - nums[i])) {
+//             return [map.get(target - nums[i]),i]
+//         } else {
+//             map.set(nums[i], i)
+//         }
+//     }
+
+// };
+
+// console.log(twoSum([2,7,11,5],9))
+
+// que 4 leetcode -> 1748
+
+var sumOfUnique = function(nums) {
+    let map = new Map()
+    let sum = 0
+
+    for(let i = 0; i<nums.length; i++){
+        map.set(nums[i], (map.get(nums[i]) || 0) + 1)
+    }
+    for(let i = 0; i<nums.length; i++){
+        if(map.get(nums[i]) === 1) {
+            sum += nums[i]
+        }
+    }
+
+    return sum
+};
+
+console.log(sumOfUnique([1,2,3,2]))
