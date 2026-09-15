@@ -480,38 +480,74 @@ let prompt = require("prompt-sync")()
 
 // que 17  leetcode -> 202
 
-var isHappy = function(n) {
-    // let set = new Set();
+// var isHappy = function(n) {
+//     // let set = new Set();
 
-    // while (n !== 1) {
-    //     if (set.has(n)) return false;
-    //     set.add(n);
-    //     let temp = n;
-    //     let sum = 0;
+//     // while (n !== 1) {
+//     //     if (set.has(n)) return false;
+//     //     set.add(n);
+//     //     let temp = n;
+//     //     let sum = 0;
 
-    //     while (temp > 0) {
-    //         let digit = temp % 10;
-    //         sum += digit * digit;
-    //         temp = Math.floor(temp / 10);
-    //     }
-    //     n = sum;
-    // }
+//     //     while (temp > 0) {
+//     //         let digit = temp % 10;
+//     //         sum += digit * digit;
+//     //         temp = Math.floor(temp / 10);
+//     //     }
+//     //     n = sum;
+//     // }
 
-    // return true;
+//     // return true;
 
-    let set = new Set()
-    while(true){
-        let sum = 0
-        while(n>0){
-            let dig = n%10
-            sum += dig*dig
-            n = Math.floor(n/10)
-        }
-        if(sum === 1) return true
-        if(set.has(sum)) return false
-        set.add(sum)
-        n = sum
-    }
-};
+//     let set = new Set()
+//     while(true){
+//         let sum = 0
+//         while(n>0){
+//             let dig = n%10
+//             sum += dig*dig
+//             n = Math.floor(n/10)
+//         }
+//         if(sum === 1) return true
+//         if(set.has(sum)) return false
+//         set.add(sum)
+//         n = sum
+//     }
+// };
 
-console.log(isHappy(19))
+// console.log(isHappy(19))
+
+// que 18 leetcode -> 2418
+
+/**
+ * @param {string[]} names
+ * @param {number[]} heights
+ * @return {string[]}
+ */
+// var sortPeople = function (names, heights) {
+//     // method 1
+//     // for(let i = 0; i<heights.length; i++){
+//     //     for(let j = i+1; j<heights.length; j++){
+//     //         if(heights[i] < heights[j]){
+//     //             [heights[i],heights[j]] = [heights[j],heights[i]];
+//     //             [names[i],names[j]] = [names[j],names[i]];
+//     //         }
+//     //     }
+//     // }
+
+//     // methos 2
+
+//     let map = new Map()
+//     let namesArr = []
+
+//     for (let i = 0; i < heights.length; i++) {
+//         map.set(heights[i], names[i])
+//     }
+
+//     heights.sort((a, b) => b - a);
+//     for (let i = 0; i < heights.length; i++) {
+//         namesArr.push(map.get(heights[i]))
+//     }
+//     return namesArr
+// };
+
+// console.log(sortPeople(["Mary", "John", "Emma"], [180, 165, 170]))

@@ -109,7 +109,7 @@
  * @param {number[]} heights
  * @return {string[]}
  */
-var sortPeople = function(names, heights) {
+var sortPeople = function (names, heights) {
     // method 1
     // for(let i = 0; i<heights.length; i++){
     //     for(let j = i+1; j<heights.length; j++){
@@ -121,6 +121,19 @@ var sortPeople = function(names, heights) {
     // }
 
     // methos 2
+
+    let map = new Map()
+    let namesArr = []
+
+    for (let i = 0; i < heights.length; i++) {
+        map.set(heights[i], names[i])
+    }
+
+    heights.sort((a, b) => b - a);
+    for (let i = 0; i < heights.length; i++) {
+        namesArr.push(map.get(heights[i]))
+    }
+    return namesArr
 };
 
-console.log(sortPeople(["Mary","John","Emma"],[180,165,170]))
+console.log(sortPeople(["Mary", "John", "Emma"], [180, 165, 170]))
