@@ -47,20 +47,80 @@
 
 // que 4 leetcode -> 1748
 
-var sumOfUnique = function(nums) {
-    let map = new Map()
-    let sum = 0
+// var sumOfUnique = function(nums) {
+//     let map = new Map()
+//     let sum = 0
 
-    for(let i = 0; i<nums.length; i++){
-        map.set(nums[i], (map.get(nums[i]) || 0) + 1)
-    }
-    for(let i = 0; i<nums.length; i++){
-        if(map.get(nums[i]) === 1) {
-            sum += nums[i]
-        }
-    }
+//     for(let i = 0; i<nums.length; i++){
+//         map.set(nums[i], (map.get(nums[i]) || 0) + 1)
+//     }
+//     for(let i = 0; i<nums.length; i++){
+//         if(map.get(nums[i]) === 1) {
+//             sum += nums[i]
+//         }
+//     }
 
-    return sum
+//     return sum
+// };
+
+// console.log(sumOfUnique([1,2,3,2]))
+
+// que 5 leetcode -> 2351
+
+// /**
+//  * @param {string} s
+//  * @return {character}
+//  */
+// var repeatedCharacter = function (s) {
+//     // method 1
+//     // let str = ""
+//     // for (let i = 0; i < s.length; i++) {
+//     //     if (str.includes(s[i])) return s[i]
+//     //     else str += (s[i])
+//     // }
+
+//     // method 2
+//     // let set = new Set()
+//     // for (let i = 0; i < s.length; i++) {
+//     //     if (set.has(s[i])) {
+//     //         return s[i]
+//     //     }
+
+//     //     set.add(s[i])
+//     // }
+
+//     // method 3
+//     let map = new Map()
+//     for (let i = 0; i < s.length; i++) {
+//         if (map.has(s[i])) {
+//             return s[i]
+//         } else {
+//             map.set(s[i], true)
+//         }
+//     }
+// };
+
+// console.log(repeatedCharacter("abccbaacz"))
+
+// que 6 leetcode -> 2418
+
+/**
+ * @param {string[]} names
+ * @param {number[]} heights
+ * @return {string[]}
+ */
+var sortPeople = function(names, heights) {
+    // method 1
+    // for(let i = 0; i<heights.length; i++){
+    //     for(let j = i+1; j<heights.length; j++){
+    //         if(heights[i] < heights[j]){
+    //             [heights[i],heights[j]] = [heights[j],heights[i]];
+    //             [names[i],names[j]] = [names[j],names[i]];
+    //         }
+    //     }
+    // }
+
+    // methos 2
 };
 
-console.log(sumOfUnique([1,2,3,2]))
+console.log(sortPeople(["Mary","John","Emma"],[180,165,170]))

@@ -317,40 +317,201 @@ let prompt = require("prompt-sync")()
 
 // que 10 leetCode -> 74
 
-/**
- * @param {number[][]} matrix
- * @param {number} target
- * @return {boolean}
- */
-var searchMatrix = function (matrix, target) {
-    let rows = matrix.length;
-    let cols = matrix[0].length;
+// /**
+//  * @param {number[][]} matrix
+//  * @param {number} target
+//  * @return {boolean}
+//  */
+// var searchMatrix = function (matrix, target) {
+//     let rows = matrix.length;
+//     let cols = matrix[0].length;
 
-    let left = 0;
-    let right = rows * cols - 1;
+//     let left = 0;
+//     let right = rows * cols - 1;
 
-    while (left <= right) {
-        let mid = Math.floor((left + right) / 2);
+//     while (left <= right) {
+//         let mid = Math.floor((left + right) / 2);
 
-        let row = Math.floor(mid / cols);
-        let col = mid % cols;
+//         let row = Math.floor(mid / cols);
+//         let col = mid % cols;
 
-        if (matrix[row][col] === target) {
-            return true;
+//         if (matrix[row][col] === target) {
+//             return true;
+//         }
+
+//         if (matrix[row][col] < target) {
+//             left = mid + 1;
+//         } else {
+//             right = mid - 1;
+//         }
+//     }
+
+//     return false;
+// };
+
+// console.log(searchMatrix([
+//     [1, 2, 3, 4],
+//     [5, 6, 7, 8],
+//     [9, 10, 11, 12]
+// ], 7))
+
+// que 11 leetcode -> 387
+
+// var firstUniqChar = function (s) {
+//     let map = new Map()
+//     for (let i = 0; i < s.length; i++) {
+//         map.set(s[i], (map.get(s[i]) || 0) + 1)
+//     }
+//     for (let i = 0; i < s.length; i++) {
+//         if (map.get(s[i]) === 1) return i
+//     }
+//     return -1
+// };
+
+// console.log(firstUniqChar("leetcode"))
+
+// que 12 leetcode -> 1
+
+// var twoSum = function (nums, target) {
+//     let map = new Map()
+//     for (let i = 0; i < nums.length; i++) {
+//         if (map.has(target - nums[i])) {
+//             return [map.get(target - nums[i]),i]
+//         } else {
+//             map.set(nums[i], i)
+//         }
+//     }
+
+// };
+
+// console.log(twoSum([2,7,11,5],9))
+
+// que 13 leetcode -> 1748
+
+// var sumOfUnique = function(nums) {
+//     let map = new Map()
+//     let sum = 0
+
+//     for(let i = 0; i<nums.length; i++){
+//         map.set(nums[i], (map.get(nums[i]) || 0) + 1)
+//     }
+//     for(let i = 0; i<nums.length; i++){
+//         if(map.get(nums[i]) === 1) {
+//             sum += nums[i]
+//         }
+//     }
+
+//     return sum
+// };
+
+// console.log(sumOfUnique([1,2,3,2]))
+
+// que 14 leetcode -> 771
+
+// var numJewelsInStones = function (jewels, stones) {
+//     let count = 0
+//     let set = new Set()
+//     for(let i = 0; i<jewels.length; i++){
+//         set.add(jewels[i])
+//     }
+//     for(let i = 0; i<stones.length; i++){
+//         if(set.has(stones[i])) count++
+//     }
+
+//     return count
+// };
+
+// console.log(numJewelsInStones("aA","aAAbbbb"))
+
+// que 15 leetcode -> 1832
+
+// var checkIfPangram = function(sentence) {
+//     let set = new Set(sentence)
+//     return set.size === 26
+
+//     // less optmize 
+
+//     // let set = new Set(sentence)
+//     // for(let i =0; i<26; i++){
+//     //     let ch = String.fromCharCode(97+i)
+//     //     if(!set.has(ch)) return false
+//     // }
+//     // return true
+// };
+
+// console.log(checkIfPangram("thequickbrownfoxjumpsoverthelazydo"))
+
+// que 16 leetcode -> 2351
+
+// /**
+//  * @param {string} s
+//  * @return {character}
+//  */
+// var repeatedCharacter = function (s) {
+//     // method 1
+//     // let str = ""
+//     // for (let i = 0; i < s.length; i++) {
+//     //     if (str.includes(s[i])) return s[i]
+//     //     else str += (s[i])
+//     // }
+
+//     // method 2
+//     // let set = new Set()
+//     // for (let i = 0; i < s.length; i++) {
+//     //     if (set.has(s[i])) {
+//     //         return s[i]
+//     //     }
+
+//     //     set.add(s[i])
+//     // }
+
+//     // method 3
+//     let map = new Map()
+//     for (let i = 0; i < s.length; i++) {
+//         if (map.has(s[i])) {
+//             return s[i]
+//         } else {
+//             map.set(s[i], true)
+//         }
+//     }
+// };
+
+// console.log(repeatedCharacter("abccbaacz"))
+
+// que 17  leetcode -> 202
+
+var isHappy = function(n) {
+    // let set = new Set();
+
+    // while (n !== 1) {
+    //     if (set.has(n)) return false;
+    //     set.add(n);
+    //     let temp = n;
+    //     let sum = 0;
+
+    //     while (temp > 0) {
+    //         let digit = temp % 10;
+    //         sum += digit * digit;
+    //         temp = Math.floor(temp / 10);
+    //     }
+    //     n = sum;
+    // }
+
+    // return true;
+
+    let set = new Set()
+    while(true){
+        let sum = 0
+        while(n>0){
+            let dig = n%10
+            sum += dig*dig
+            n = Math.floor(n/10)
         }
-
-        if (matrix[row][col] < target) {
-            left = mid + 1;
-        } else {
-            right = mid - 1;
-        }
+        if(sum === 1) return true
+        if(set.has(sum)) return false
+        set.add(sum)
+        n = sum
     }
-
-    return false;
 };
 
-console.log(searchMatrix([
-    [1, 2, 3, 4],
-    [5, 6, 7, 8],
-    [9, 10, 11, 12]
-], 7))
+console.log(isHappy(19))
