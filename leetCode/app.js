@@ -551,3 +551,32 @@ let prompt = require("prompt-sync")()
 // };
 
 // console.log(sortPeople(["Mary", "John", "Emma"], [180, 165, 170]))
+
+// que 19 leetcode -> 2404
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var mostFrequentEven = function (nums) {
+    let maxfreqency = -1
+    let elem = -1
+    let map = new Map()
+    for (let i = 0; i < nums.length; i++) {
+        map.set(nums[i], (map.get(nums[i]) || 0) + 1)
+    }
+
+    for (let [key, value] of map) {
+        if (key % 2 === 0) {
+            if (maxfreqency < value || (value === maxfreqency && key < elem)) {
+                maxfreqency = value;
+                elem = key
+            }
+        }
+    }
+
+    return elem
+
+};
+
+console.log(mostFrequentEven([0, 1, 4, 4, 2, 2, 1]))

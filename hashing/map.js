@@ -109,31 +109,94 @@
  * @param {number[]} heights
  * @return {string[]}
  */
-var sortPeople = function (names, heights) {
-    // method 1
-    // for(let i = 0; i<heights.length; i++){
-    //     for(let j = i+1; j<heights.length; j++){
-    //         if(heights[i] < heights[j]){
-    //             [heights[i],heights[j]] = [heights[j],heights[i]];
-    //             [names[i],names[j]] = [names[j],names[i]];
-    //         }
-    //     }
-    // }
+// var sortPeople = function (names, heights) {
+//     // method 1
+//     // for(let i = 0; i<heights.length; i++){
+//     //     for(let j = i+1; j<heights.length; j++){
+//     //         if(heights[i] < heights[j]){
+//     //             [heights[i],heights[j]] = [heights[j],heights[i]];
+//     //             [names[i],names[j]] = [names[j],names[i]];
+//     //         }
+//     //     }
+//     // }
 
-    // methos 2
+//     // methos 2
 
-    let map = new Map()
-    let namesArr = []
+//     let map = new Map()
+//     let namesArr = []
 
-    for (let i = 0; i < heights.length; i++) {
-        map.set(heights[i], names[i])
+//     for (let i = 0; i < heights.length; i++) {
+//         map.set(heights[i], names[i])
+//     }
+
+//     heights.sort((a, b) => b - a);
+//     for (let i = 0; i < heights.length; i++) {
+//         namesArr.push(map.get(heights[i]))
+//     }
+//     return namesArr
+// };
+
+// console.log(sortPeople(["Mary", "John", "Emma"], [180, 165, 170]))
+
+// que 7 leetcode -> 2404
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+// var mostFrequentEven = function (nums) {
+//     let maxfreqency = -1
+//     let elem = -1
+//     let map = new Map()
+//     for (let i = 0; i < nums.length; i++) {
+//         map.set(nums[i], (map.get(nums[i]) || 0) + 1)
+//     }
+
+//     for (let [key, value] of map) {
+//         if (key % 2 === 0) {
+//             if (maxfreqency < value || (value === maxfreqency && key < elem)) {
+//                 maxfreqency = value;
+//                 elem = key
+//             }
+//         }
+//     }
+
+//     return elem
+
+// };
+
+// console.log(mostFrequentEven([0, 1, 4, 4, 2, 2, 1]))
+
+// que 8
+
+class Solution {
+    countFrequency(arr) {
+        let freq = new Map();
+        let order = [];
+
+        // Count frequency
+        for (let i = 0; i < arr.length; i++) {
+            if(!freq.has(arr[i])){
+                freq.set(arr[i], 1)
+                order.push(arr[i])
+            } else{
+                freq.set(arr[i], freq.get(arr[i])+1)
+            }
+        }
+
+        // Sort by frequency in descending order
+        // Same frequency -> first occurrence order
+        order.sort((a, b) => freq.get(b) - freq.get(a));
+
+        let result = [];
+
+        for (let num of order) {
+            result.push(num + " " + freq.get(num));
+        }
+
+        return result.join("\n");
     }
+}
 
-    heights.sort((a, b) => b - a);
-    for (let i = 0; i < heights.length; i++) {
-        namesArr.push(map.get(heights[i]))
-    }
-    return namesArr
-};
-
-console.log(sortPeople(["Mary", "John", "Emma"], [180, 165, 170]))
+let countfreq = new Solution()
+console.log(countfreq.countFrequency([1,2,3,4,5]))
