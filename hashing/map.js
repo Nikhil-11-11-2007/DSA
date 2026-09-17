@@ -169,34 +169,80 @@
 
 // que 8
 
-class Solution {
-    countFrequency(arr) {
-        let freq = new Map();
-        let order = [];
+// class Solution {
+//     countFrequency(arr) {
+//         let freq = new Map();
+//         let order = [];
 
-        // Count frequency
-        for (let i = 0; i < arr.length; i++) {
-            if(!freq.has(arr[i])){
-                freq.set(arr[i], 1)
-                order.push(arr[i])
-            } else{
-                freq.set(arr[i], freq.get(arr[i])+1)
-            }
-        }
+//         // Count frequency
+//         for (let i = 0; i < arr.length; i++) {
+//             if(!freq.has(arr[i])){
+//                 freq.set(arr[i], 1)
+//                 order.push(arr[i])
+//             } else{
+//                 freq.set(arr[i], freq.get(arr[i])+1)
+//             }
+//         }
 
-        // Sort by frequency in descending order
-        // Same frequency -> first occurrence order
-        order.sort((a, b) => freq.get(b) - freq.get(a));
+//         // Sort by frequency in descending order
+//         // Same frequency -> first occurrence order
+//         order.sort((a, b) => freq.get(b) - freq.get(a));
 
-        let result = [];
+//         let result = [];
 
-        for (let num of order) {
-            result.push(num + " " + freq.get(num));
-        }
+//         for (let num of order) {
+//             result.push(num + " " + freq.get(num));
+//         }
 
-        return result.join("\n");
-    }
-}
+//         return result.join("\n");
+//     }
+// }
 
-let countfreq = new Solution()
-console.log(countfreq.countFrequency([1,2,3,4,5]))
+// let countfreq = new Solution()
+// console.log(countfreq.countFrequency([1,2,3,4,5]))
+
+// que 9 leetcode -> 2325
+
+/**
+ * @param {string} key
+ * @param {string} message
+ * @return {string}
+ */
+// var decodeMessage = function (key, message) {
+//     let map = new Map()
+//     let alphabet = "abcdefghijklmnopqrstuvwxyz", idx = 0
+    
+//     for(let i = 0; i<key.length; i++){
+//         if(key[i] === " ") continue;
+//         else if(!map.has(key[i])){
+//             map.set(key[i],alphabet[idx])
+//             idx++;
+//         }
+//     }
+
+//     let result = ""
+
+//     for(let i = 0; i<message.length; i++){
+//         if(message[i] === " ") result += " ";
+//         else result += map.get(message[i])
+//     }
+
+//     return result
+
+// };
+
+// console.log(decodeMessage("the quick brown fox jumps over the lazy dog", "vkbs bs t suepuv"))
+
+// que 10 leetcode -> 575
+
+/**
+ * @param {number[]} candyType
+ * @return {number}
+ */
+var distributeCandies = function(candyType) {
+    let set = new Set(candyType)
+    let eat = Math.floor(candyType.length/2)
+    return Math.min(eat,set.size)
+};
+
+console.log(distributeCandies([1,1,2,2,3,3]))
