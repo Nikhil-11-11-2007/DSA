@@ -211,7 +211,7 @@
 // var decodeMessage = function (key, message) {
 //     let map = new Map()
 //     let alphabet = "abcdefghijklmnopqrstuvwxyz", idx = 0
-    
+
 //     for(let i = 0; i<key.length; i++){
 //         if(key[i] === " ") continue;
 //         else if(!map.has(key[i])){
@@ -239,10 +239,90 @@
  * @param {number[]} candyType
  * @return {number}
  */
-var distributeCandies = function(candyType) {
-    let set = new Set(candyType)
-    let eat = Math.floor(candyType.length/2)
-    return Math.min(eat,set.size)
+// var distributeCandies = function(candyType) {
+//     let set = new Set(candyType)
+//     let eat = Math.floor(candyType.length/2)
+//     return Math.min(eat,set.size)
+// };
+
+// console.log(distributeCandies([1,1,2,2,3,3]))
+
+// que 11
+
+// class Solution {
+//     distributeCandies(n, k, candies) {
+//         // Implement logic here
+//         let ans = 0
+//         let map = new Map()
+//         for (let i = 0; i < n; i++) {
+//             map.set(candies[i], (map.get(candies[i]) || 0) + 1)
+//         }
+
+//         while (true) {
+//             let count = 0;
+//             for (let [key, value] of map) {
+//                 if (value > 0) {
+//                     map.set(key, value - 1);
+//                     count++;
+//                 }
+//                 if (count === k) break;
+//             }
+
+//             if (count < k) break;
+//             ans++
+//         }
+//         return ans
+//     }
+// }
+
+// let distribute = new Solution()
+// console.log(distribute.distributeCandies(7, 3, [1, 1, 2, 2, 3, 3, 4]))
+
+// que 11 leetcode -> 2053
+
+/**
+ * @param {string[]} arr
+ * @param {number} k
+ * @return {string}
+ */
+// var kthDistinct = function(arr, k) {
+
+//     let map = new Map()
+//     for(let i = 0; i<arr.length; i++){
+//         map.set(arr[i], (map.get(arr[i]) || 0) + 1)
+//     }
+
+//     let count = 0
+//     for(let [key,value] of map){
+//         if(value === 1) count++
+//         if(count === k) return key
+//     }
+
+//     return ""
+    
+// };
+
+// console.log(kthDistinct(["d","b","c","b","c","a"],2))
+
+// que 12 leetcode -> 290
+
+/**
+ * @param {string} pattern
+ * @param {string} s
+ * @return {boolean}
+ */
+var wordPattern = function(pattern, s) {
+    let words = s.split(" ")
+    if(pattern.length !== words.length) return false
+    let map = new Map()
+    for(let i = 0; i<pattern.length; i++){
+        if(map.has(pattern[i])){
+            map.set(pattern[i], words[i])
+        }
+    }
+
+    return map
+
 };
 
-console.log(distributeCandies([1,1,2,2,3,3]))
+console.log(wordPattern("abba","dog cat cat dog"))

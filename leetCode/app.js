@@ -558,25 +558,97 @@ let prompt = require("prompt-sync")()
  * @param {number[]} nums
  * @return {number}
  */
-var mostFrequentEven = function (nums) {
-    let maxfreqency = -1
-    let elem = -1
-    let map = new Map()
-    for (let i = 0; i < nums.length; i++) {
-        map.set(nums[i], (map.get(nums[i]) || 0) + 1)
-    }
+// var mostFrequentEven = function (nums) {
+//     let maxfreqency = -1
+//     let elem = -1
+//     let map = new Map()
+//     for (let i = 0; i < nums.length; i++) {
+//         map.set(nums[i], (map.get(nums[i]) || 0) + 1)
+//     }
 
-    for (let [key, value] of map) {
-        if (key % 2 === 0) {
-            if (maxfreqency < value || (value === maxfreqency && key < elem)) {
-                maxfreqency = value;
-                elem = key
-            }
-        }
-    }
+//     for (let [key, value] of map) {
+//         if (key % 2 === 0) {
+//             if (maxfreqency < value || (value === maxfreqency && key < elem)) {
+//                 maxfreqency = value;
+//                 elem = key
+//             }
+//         }
+//     }
 
-    return elem
+//     return elem
 
-};
+// };
 
-console.log(mostFrequentEven([0, 1, 4, 4, 2, 2, 1]))
+// console.log(mostFrequentEven([0, 1, 4, 4, 2, 2, 1]))
+
+// que 20 leetcode -> 2325
+
+/**
+ * @param {string} key
+ * @param {string} message
+ * @return {string}
+ */
+// var decodeMessage = function (key, message) {
+//     let map = new Map()
+//     let alphabet = "abcdefghijklmnopqrstuvwxyz", idx = 0
+
+//     for(let i = 0; i<key.length; i++){
+//         if(key[i] === " ") continue;
+//         else if(!map.has(key[i])){
+//             map.set(key[i],alphabet[idx])
+//             idx++;
+//         }
+//     }
+
+//     let result = ""
+
+//     for(let i = 0; i<message.length; i++){
+//         if(message[i] === " ") result += " ";
+//         else result += map.get(message[i])
+//     }
+
+//     return result
+
+// };
+
+// console.log(decodeMessage("the quick brown fox jumps over the lazy dog", "vkbs bs t suepuv"))
+
+// que 21 leetcode -> 575
+
+/**
+ * @param {number[]} candyType
+ * @return {number}
+ */
+// var distributeCandies = function(candyType) {
+//     let set = new Set(candyType)
+//     let eat = Math.floor(candyType.length/2)
+//     return Math.min(eat,set.size)
+// };
+
+// console.log(distributeCandies([1,1,2,2,3,3]))
+
+// que 22 leetcode -> 2053
+
+/**
+ * @param {string[]} arr
+ * @param {number} k
+ * @return {string}
+ */
+// var kthDistinct = function(arr, k) {
+
+//     let map = new Map()
+//     for(let i = 0; i<arr.length; i++){
+//         map.set(arr[i], (map.get(arr[i]) || 0) + 1)
+//     }
+
+//     let count = 0
+//     for(let [key,value] of map){
+//         if(value === 1) count++
+//         if(count === k) return key
+//     }
+
+//     return ""
+    
+// };
+
+// console.log(kthDistinct(["d","b","c","b","c","a"],2))
