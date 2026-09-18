@@ -315,14 +315,24 @@ var wordPattern = function(pattern, s) {
     let words = s.split(" ")
     if(pattern.length !== words.length) return false
     let map = new Map()
+    let set = new Set()
     for(let i = 0; i<pattern.length; i++){
-        if(map.has(pattern[i])){
-            map.set(pattern[i], words[i])
+        let char = pattern[i];
+        let word = words[i];
+        if(map.has(char)){
+            if(map.get(char) !== word) return false
+        } else{
+            if(set.has(word)){
+                return false
+            }
+
+            map.set(char,word);
+            set.add((word));
         }
     }
 
-    return map
+    return true
 
 };
 
-console.log(wordPattern("abba","dog cat cat dog"))
+console.log(wordPattern("abba","dog cat cat fish"))
