@@ -660,28 +660,77 @@ let prompt = require("prompt-sync")()
  * @param {string} s
  * @return {boolean}
  */
-var wordPattern = function(pattern, s) {
-    let words = s.split(" ")
-    if(pattern.length !== words.length) return false
-    let map = new Map()
-    let set = new Set()
-    for(let i = 0; i<pattern.length; i++){
-        let char = pattern[i];
-        let word = words[i];
-        if(map.has(char)){
-            if(map.get(char) !== word) return false
-        } else{
-            if(set.has(word)){
-                return false
-            }
+// var wordPattern = function(pattern, s) {
+//     let words = s.split(" ")
+//     if(pattern.length !== words.length) return false
+//     let map = new Map()
+//     let set = new Set()
+//     for(let i = 0; i<pattern.length; i++){
+//         let char = pattern[i];
+//         let word = words[i];
+//         if(map.has(char)){
+//             if(map.get(char) !== word) return false
+//         } else{
+//             if(set.has(word)){
+//                 return false
+//             }
 
-            map.set(char,word);
-            set.add((word));
+//             map.set(char,word);
+//             set.add((word));
+//         }
+//     }
+
+//     return true
+
+// };
+
+// console.log(wordPattern("abba","dog cat cat fish"))
+
+// que 24 leetcode -> 645
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var findErrorNums = function (nums) {
+
+    // method 1
+    // const n = nums.length;
+    // const count = Array(n + 1).fill(0);
+    // for (const num of nums) {
+    //     count[num]++;
+    // }
+
+    // let duplicate = -1;
+    // let missing = -1;
+
+    // for (let i = 1; i <= n; i++) {
+    //     if (count[i] === 0) missing = i;
+    //     if (count[i] === 2) duplicate = i;
+    // }
+
+    // return [duplicate, missing];
+
+    // method 2
+
+    let map = new Map();
+    let duplicate;
+    for (let i = 0; i < nums.length; i++) {
+        map.set(nums[i], (map.get(nums[i]) || 0) + 1)
+    }
+
+    for (let [key, value] of map) {
+        if (value > 1) {
+            duplicate = key
         }
     }
 
-    return true
+    for (let i = 1; i < nums.length + 1; i++) {
+        if (!map.has(i)) {
+            return [duplicate, i]
+        }
+    }
 
 };
 
-console.log(wordPattern("abba","dog cat cat fish"))
+console.log(findErrorNums([1, 2, 2, 4]))
