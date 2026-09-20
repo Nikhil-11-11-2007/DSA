@@ -574,6 +574,8 @@ let prompt = require("prompt-sync")()
 // let isNumAscending = new Solution()
 // console.log(isNumAscending.areNumbersAscending("1 box has 3 blue 4 red 6 green and 12 yello marbels"))
 
+// que 85 -> leetcode -> 2000
+
 // class Solution {
 //     /**
 //      * @param {string} word
@@ -597,53 +599,123 @@ let prompt = require("prompt-sync")()
 // let reversePref = new Solution()
 // console.log(reversePref.reversePrefix("equality", "l"))
 
-class Solution {
-  /**
-   * @param {string} password
-   * @return {boolean}
-   */
-  strongPasswordCheckerII(password) {
-    // Write your logic here
-    if (password.length < 8) {
-      return false
-    }
+// que 86
 
-    let isLowerCase = false
-    let isUpperCase = false
-    let isDigit = false
-    let specialCh = "!@#$%^&*()-+"
-    let isSpecial = false
+// class Solution {
+//   /**
+//    * @param {string} password
+//    * @return {boolean}
+//    */
+//   strongPasswordCheckerII(password) {
+//     // Write your logic here
+//     if (password.length < 8) {
+//       return false
+//     }
 
-    for (let i = 0; i < password.length; i++) {
-      let ch = password[i]
-      if (i > 0 && password[i] === password[i - 1]) {
-        return false
-      }
-      if (ch >= "a" && ch <= "z") isLowerCase = true
-      else if (ch >= "A" && ch <= "Z") isUpperCase = true
-      else if (ch >= "0" && ch <= "9") isDigit = true
-      else if (specialCh.includes(ch)) isSpecial = true
-    }
-    return isLowerCase && isUpperCase && isDigit && isSpecial
+//     let isLowerCase = false
+//     let isUpperCase = false
+//     let isDigit = false
+//     let specialCh = "!@#$%^&*()-+"
+//     let isSpecial = false
 
-  }
-}
+//     for (let i = 0; i < password.length; i++) {
+//       let ch = password[i]
+//       if (i > 0 && password[i] === password[i - 1]) {
+//         return false
+//       }
+//       if (ch >= "a" && ch <= "z") isLowerCase = true
+//       else if (ch >= "A" && ch <= "Z") isUpperCase = true
+//       else if (ch >= "0" && ch <= "9") isDigit = true
+//       else if (specialCh.includes(ch)) isSpecial = true
+//     }
+//     return isLowerCase && isUpperCase && isDigit && isSpecial
 
-let strongPass = new Solution()
-console.log(strongPass.strongPasswordCheckerII("Abcdefg1!"))
+//   }
+// }
+
+// let strongPass = new Solution()
+// console.log(strongPass.strongPasswordCheckerII("Abcdefg1!"))
+
+// que 87
 
 // helper.js (template)
-function greatestLetter(s) {
-  // Write your logic here
-  for(let i = 0; i<26; i++){
-    let upper = String.fromCharCode(90 - i)
-    let lower = String.fromCharCode(122 - i)
-    if(s.includes(upper) && s.includes(lower)){
-      return upper
+// function greatestLetter(s) {
+//   // Write your logic here
+//   for(let i = 0; i<26; i++){
+//     let upper = String.fromCharCode(90 - i)
+//     let lower = String.fromCharCode(122 - i)
+//     if(s.includes(upper) && s.includes(lower)){
+//       return upper
+//     }
+//   }
+
+//   return ""
+// }
+
+// console.log(greatestLetter("aAbBcCdD"))
+
+// que 88  leetcode -> 6
+
+/**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+var convert = function (s, numRows) {
+    if (numRows === 1 || numRows >= s.length) {
+        return s;
     }
-  }
 
-  return ""
-}
+    let rows = new Array(numRows).fill("");
+    let row = 0;
+    let direction = 1; // 1 = down, -1 = up
 
-console.log(greatestLetter("aAbBcCdD"))
+    for (let i = 0; i < s.length; i++) {
+        rows[row] += s[i];
+
+        // Bottom par pahunch gaye → ab upar jaana hai
+        if (row === numRows - 1) {
+            direction = -1;
+        }
+
+        // Top par pahunch gaye → ab neeche jaana hai
+        if (row === 0) {
+            direction = 1;
+        }
+
+        row += direction;
+    }
+
+    return rows.join("");
+};/**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+var convert = function (s, numRows) {
+    if (numRows === 1 || numRows >= s.length) {
+        return s;
+    }
+
+    let rows = new Array(numRows).fill("");
+    let row = 0;
+    let direction = 1; // 1 = down, -1 = up
+
+    for (let i = 0; i < s.length; i++) {
+        rows[row] += s[i];
+
+        // Bottom par pahunch gaye → ab upar jaana hai
+        if (row === numRows - 1) {
+            direction = -1;
+        }
+
+        // Top par pahunch gaye → ab neeche jaana hai
+        if (row === 0) {
+            direction = 1;
+        }
+
+        row += direction;
+    }
+
+    return rows.join("");
+};
