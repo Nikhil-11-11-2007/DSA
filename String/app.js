@@ -595,7 +595,7 @@ let prompt = require("prompt-sync")()
 //         return rev + remaningWords
 //     }
 // }
-    
+
 // let reversePref = new Solution()
 // console.log(reversePref.reversePrefix("equality", "l"))
 
@@ -662,60 +662,21 @@ let prompt = require("prompt-sync")()
  * @return {string}
  */
 var convert = function (s, numRows) {
-    if (numRows === 1 || numRows >= s.length) {
-        return s;
-    }
+    if (numRows === 1 || numRows >= s.length) return s
+    let rows = new Array(numRows).fill("")
 
-    let rows = new Array(numRows).fill("");
     let row = 0;
-    let direction = 1; // 1 = down, -1 = up
-
+    let direction = 1;
     for (let i = 0; i < s.length; i++) {
         rows[row] += s[i];
 
-        // Bottom par pahunch gaye → ab upar jaana hai
-        if (row === numRows - 1) {
-            direction = -1;
-        }
-
-        // Top par pahunch gaye → ab neeche jaana hai
-        if (row === 0) {
-            direction = 1;
-        }
-
+        if (row === 0) direction = 1;
+        if (row === numRows - 1) direction = -1;
         row += direction;
     }
 
-    return rows.join("");
-};/**
- * @param {string} s
- * @param {number} numRows
- * @return {string}
- */
-var convert = function (s, numRows) {
-    if (numRows === 1 || numRows >= s.length) {
-        return s;
-    }
+    return rows.join("")
 
-    let rows = new Array(numRows).fill("");
-    let row = 0;
-    let direction = 1; // 1 = down, -1 = up
-
-    for (let i = 0; i < s.length; i++) {
-        rows[row] += s[i];
-
-        // Bottom par pahunch gaye → ab upar jaana hai
-        if (row === numRows - 1) {
-            direction = -1;
-        }
-
-        // Top par pahunch gaye → ab neeche jaana hai
-        if (row === 0) {
-            direction = 1;
-        }
-
-        row += direction;
-    }
-
-    return rows.join("");
 };
+
+console.log(convert("PAYPALISHIRING",3))

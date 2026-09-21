@@ -692,45 +692,73 @@ let prompt = require("prompt-sync")()
  * @param {number[]} nums
  * @return {number[]}
  */
-var findErrorNums = function (nums) {
+// var findErrorNums = function (nums) {
 
-    // method 1
-    // const n = nums.length;
-    // const count = Array(n + 1).fill(0);
-    // for (const num of nums) {
-    //     count[num]++;
-    // }
+//     // method 1
+//     // const n = nums.length;
+//     // const count = Array(n + 1).fill(0);
+//     // for (const num of nums) {
+//     //     count[num]++;
+//     // }
 
-    // let duplicate = -1;
-    // let missing = -1;
+//     // let duplicate = -1;
+//     // let missing = -1;
 
-    // for (let i = 1; i <= n; i++) {
-    //     if (count[i] === 0) missing = i;
-    //     if (count[i] === 2) duplicate = i;
-    // }
+//     // for (let i = 1; i <= n; i++) {
+//     //     if (count[i] === 0) missing = i;
+//     //     if (count[i] === 2) duplicate = i;
+//     // }
 
-    // return [duplicate, missing];
+//     // return [duplicate, missing];
 
-    // method 2
+//     // method 2
 
-    let map = new Map();
-    let duplicate;
-    for (let i = 0; i < nums.length; i++) {
-        map.set(nums[i], (map.get(nums[i]) || 0) + 1)
-    }
+//     let map = new Map();
+//     let duplicate;
+//     for (let i = 0; i < nums.length; i++) {
+//         map.set(nums[i], (map.get(nums[i]) || 0) + 1)
+//     }
 
-    for (let [key, value] of map) {
-        if (value > 1) {
-            duplicate = key
-        }
-    }
+//     for (let [key, value] of map) {
+//         if (value > 1) {
+//             duplicate = key
+//         }
+//     }
 
-    for (let i = 1; i < nums.length + 1; i++) {
-        if (!map.has(i)) {
-            return [duplicate, i]
-        }
-    }
+//     for (let i = 1; i < nums.length + 1; i++) {
+//         if (!map.has(i)) {
+//             return [duplicate, i]
+//         }
+//     }
 
-};
+// };
 
-console.log(findErrorNums([1, 2, 2, 4]))
+// console.log(findErrorNums([1, 2, 2, 4]))
+
+// que 25  leetcode -> 6
+
+/**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+// var convert = function (s, numRows) {
+//     if (numRows === 1 || numRows >= s.length) return s
+//     let rows = new Array(numRows).fill("")
+
+//     let row = 0;
+//     let direction = 1;
+//     for (let i = 0; i < s.length; i++) {
+//         rows[row] += s[i];
+
+//         if (row === 0) direction = 1;
+//         if (row === numRows - 1) direction = -1;
+//         row += direction;
+//     }
+
+//     return rows.join("")
+
+// };
+
+// console.log(convert("PAYPALISHIRING",3))
+
