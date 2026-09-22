@@ -2,17 +2,17 @@ let prompt = require("prompt-sync")();
 
 // que 1 convert decimal into binary
 
-let num = +prompt("Enter number ")
-let ans = 0
-let place = 1
+// let num = +prompt("Enter number ")
+// let ans = 0
+// let place = 1
 
 
-while(num > 0){
-    let bit = num%2;
-    ans += bit * place
-    place *= 10
-    num = Math.floor(num/2)
-}
+// while(num > 0){
+//     let bit = num%2;
+//     ans += bit * place
+//     place *= 10
+//     num = Math.floor(num/2)
+// }
 
 // 2nd method according to place value
     
@@ -22,7 +22,7 @@ while(num > 0){
 //     num = Math.floor(num/2)
 // }
 
-console.log(ans)
+// console.log(ans)
 
 // que 2 convert binary into decimal
 
@@ -73,23 +73,27 @@ console.log(ans)
 //     console.log(array1[k]);
 // }
 
-let arr = [
-    [0, 2],
-    [1, 3]
-];
+// que 4
 
-arr[0][0] = arr[0][1] & arr[1][0];
+// let arr = [
+//     [0, 2],
+//     [1, 3]
+// ];
 
-if ((arr[0][1] & 6) < arr[0][1]) {
-    arr[1][1] = 4 + arr[1][1];
-}
+// arr[0][0] = arr[0][1] & arr[1][0];
 
-arr[0][1] = (arr[1][1] + 4) ^ arr[0][1];
+// if ((arr[0][1] & 6) < arr[0][1]) {
+//     arr[1][1] = 4 + arr[1][1];
+// }
 
-if ((1 + 3) < (7 - arr[1][1])) {
-    arr[0][1] = (arr[0][1] + 4) + arr[0][1];
-} else {
-    arr[0][1] = (8 + 11) & arr[1][1];
-}
+// arr[0][1] = (arr[1][1] + 4) ^ arr[0][1];
 
-console.log(arr[1][1] + arr[0][1] + arr[1][1]);
+// if ((1 + 3) < (7 - arr[1][1])) {
+//     arr[0][1] = (arr[0][1] + 4) + arr[0][1];
+// } else {
+//     arr[0][1] = (8 + 11) & arr[1][1];
+// }
+
+// console.log(arr[1][1] + arr[0][1] + arr[1][1]);
+
+console.log(2&4)

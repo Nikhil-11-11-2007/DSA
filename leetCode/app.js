@@ -648,7 +648,7 @@ let prompt = require("prompt-sync")()
 //     }
 
 //     return ""
-    
+
 // };
 
 // console.log(kthDistinct(["d","b","c","b","c","a"],2))
@@ -762,3 +762,47 @@ let prompt = require("prompt-sync")()
 
 // console.log(convert("PAYPALISHIRING",3))
 
+// que 26 leetcode -> 8
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var myAtoi = function (s) {
+  s = s.trim();
+
+  let ans = 0;
+  let sign = 1;
+  let i = 0;
+
+  if (s[i] === "-") {
+    sign = -1;
+    i++;
+  } else if (s[i] === "+") {
+    i++;
+  }
+
+  for (; i < s.length; i++) {
+    let code = s.charCodeAt(i);
+
+    if (code < 48 || code > 57) {
+      break;
+    }
+
+    let digit = code - 48;
+
+    ans = ans * 10 + digit;
+
+    if (sign === 1 && ans > 2147483647) {
+      return 2147483647;
+    }
+
+    if (sign === -1 && ans > 2147483648) {
+      return -2147483648;
+    }
+  }
+
+  return ans * sign;
+};
+
+console.log(myAtoi("-+"))
