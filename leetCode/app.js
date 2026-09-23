@@ -768,41 +768,51 @@ let prompt = require("prompt-sync")()
  * @param {string} s
  * @return {number}
  */
-var myAtoi = function (s) {
-  s = s.trim();
+// var myAtoi = function (s) {
+//   s = s.trim();
 
-  let ans = 0;
-  let sign = 1;
-  let i = 0;
+//   let ans = 0;
+//   let sign = 1;
+//   let i = 0;
 
-  if (s[i] === "-") {
-    sign = -1;
-    i++;
-  } else if (s[i] === "+") {
-    i++;
-  }
+//   if (s[i] === "-") {
+//     sign = -1;
+//     i++;
+//   } else if (s[i] === "+") {
+//     i++;
+//   }
 
-  for (; i < s.length; i++) {
-    let code = s.charCodeAt(i);
+//   for (; i < s.length; i++) {
+//     let code = s.charCodeAt(i);
 
-    if (code < 48 || code > 57) {
-      break;
-    }
+//     if (code < 48 || code > 57) {
+//       break;
+//     }
 
-    let digit = code - 48;
+//     let digit = code - 48;
 
-    ans = ans * 10 + digit;
+//     ans = ans * 10 + digit;
 
-    if (sign === 1 && ans > 2147483647) {
-      return 2147483647;
-    }
+//     if (sign === 1 && ans > 2147483647) {
+//       return 2147483647;
+//     }
 
-    if (sign === -1 && ans > 2147483648) {
-      return -2147483648;
-    }
-  }
+//     if (sign === -1 && ans > 2147483648) {
+//       return -2147483648;
+//     }
+//   }
 
-  return ans * sign;
-};
+//   return ans * sign;
+// };
 
-console.log(myAtoi("-+"))
+// console.log(myAtoi("-+"))
+
+// que 27 leetcode -> 231
+
+// var isPowerOfTwo = function (n) {
+//   if ((n & (n - 1)) === 0 && n > 0) return true
+//   else return false
+// };
+
+// console.log(isPowerOfTwo(20))
+

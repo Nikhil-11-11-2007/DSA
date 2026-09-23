@@ -15,7 +15,7 @@ let prompt = require("prompt-sync")();
 // }
 
 // 2nd method according to place value
-    
+
 // while(num > 0){
 //     let bit = num%2;
 //     ans = bit + ans
@@ -96,4 +96,56 @@ let prompt = require("prompt-sync")();
 
 // console.log(arr[1][1] + arr[0][1] + arr[1][1]);
 
-console.log(2&4)
+// que 5
+
+// function swapNumbers(a, b) {
+//     // Write your logic here
+//     a = a^b
+//     b = a^b
+//     a = a^b
+
+//     return [a,b]
+
+// }
+
+// console.log(swapNumbers(10,20))
+
+// que 6
+
+// function checkEvenOrOdd(num) {
+//     // Write your logic here
+//     // if (num % 2 === 0) return "Even"
+//     // else return "Odd"
+
+//     if((num&1) === 0) return "Even"
+//     else return "Odd"
+// }
+
+// console.log(checkEvenOrOdd(4))
+
+// que 7 check if ith bit is set bit or not
+
+// function chekSetbit(n,i) {
+//     if((12>>i) & 1 === 1) return "setBit"
+//     else return "not setBit"
+// }
+
+// console.log(chekSetbit(5,2))
+
+// que 8 flip ith bit
+
+// function flipBit(n, i) {
+// let ans = n^(1<<i)
+// return ans
+// }
+
+// console.log(flipBit(5, 2))
+
+// que 9 leetcode -> 231
+
+var isPowerOfTwo = function(n) {
+    if((n&(n-1)) === 0 && n > 0) return true
+    else return false
+};
+
+console.log(isPowerOfTwo(20))
