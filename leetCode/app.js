@@ -816,3 +816,36 @@ let prompt = require("prompt-sync")()
 
 // console.log(isPowerOfTwo(20))
 
+//  que 28 leetcode -> 190
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+// var reverseBits = function (n) {
+//   let ans = 0;
+//   for (let i = 0; i < 32; i++) {
+//     let bit = (n & 1);
+//     ans = (ans << 1) | bit;
+//     n = n >>> 1;
+//   }
+//   return ans >>> 0
+// };
+
+// console.log(reverseBits(43261596))
+
+// que 29 leetcode -> 191
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+// var hammingWeight = function (n) {
+//   let setBit = 0
+//   for (let i = 0; i<32; i++){
+//     if((n>>i) & 1 === 1) setBit++
+//   }
+//   return setBit
+// };
+
+// console.log(hammingWeight(2147483645))

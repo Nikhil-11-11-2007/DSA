@@ -126,7 +126,7 @@ let prompt = require("prompt-sync")();
 // que 7 check if ith bit is set bit or not
 
 // function chekSetbit(n,i) {
-//     if((12>>i) & 1 === 1) return "setBit"
+//     if((n>>i) & 1 === 1) return "setBit"
 //     else return "not setBit"
 // }
 
