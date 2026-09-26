@@ -90,13 +90,27 @@ let prompt = require("prompt-sync")()
 
 // fibonacci(5)
 
+// que 5 leetcode -> 509
+
 /**
  * @param {number} n
  * @return {number}
  */
-var fib = function (n) {
-    if (n <= 1) return n;
-    return fib(n - 1) + fib(n - 2);
-};
+// var fib = function (n) {
+//     if (n <= 1) return n;
+//     return fib(n - 1) + fib(n - 2);
+// };
 
-console.log(fib(3))
+// console.log(fib(3))
+
+//  que 6 
+
+function sumOfDigits(n) {
+    // Write your logic here
+    if (n < 10) return n;
+
+    return (n % 10) + sumOfDigits(Math.floor(n / 10));
+
+}
+
+console.log(sumOfDigits(936))

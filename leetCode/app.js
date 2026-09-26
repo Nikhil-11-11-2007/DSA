@@ -849,3 +849,16 @@ let prompt = require("prompt-sync")()
 // };
 
 // console.log(hammingWeight(2147483645))
+
+// que 30 leetcode -> 509
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var fib = function (n) {
+    if (n <= 1) return n;
+    return fib(n - 1) + fib(n - 2);
+};
+
+console.log(fib(3))
