@@ -105,12 +105,42 @@ let prompt = require("prompt-sync")()
 
 //  que 6 
 
-function sumOfDigits(n) {
+// function sumOfDigits(n) {
+//     // Write your logic here
+//     if (n < 10) return n;
+
+//     return (n % 10) + sumOfDigits(Math.floor(n / 10));
+
+//     // second method
+//     // if (n === 0) return n;
+
+//     // return (n % 10) + sumOfDigits(Math.floor(n / 10));
+
+// }
+
+// console.log(sumOfDigits(936))
+
+// que 7
+
+/**
+ * Print the reverse of the digits of the given number
+ * @param {number} n
+ */
+function reverseDigits(n) {
     // Write your logic here
-    if (n < 10) return n;
+    let sign = n < 0 ? -1 : 1;
+    n = Math.abs(n);
 
-    return (n % 10) + sumOfDigits(Math.floor(n / 10));
+    function reverse(num, ans) {
+        if (num === 0) return ans;
 
+        let digit = num % 10;
+        ans = ans * 10 + digit;
+
+        return reverse(Math.floor(num / 10), ans);
+    }
+
+    return sign * reverse(n, 0);
 }
 
-console.log(sumOfDigits(936))
+console.log(reverseDigits(1234))
