@@ -856,9 +856,39 @@ let prompt = require("prompt-sync")()
  * @param {number} n
  * @return {number}
  */
-var fib = function (n) {
-    if (n <= 1) return n;
-    return fib(n - 1) + fib(n - 2);
+// var fib = function (n) {
+//     if (n === 0 || n === 1) return n;
+//     return fib(n - 1) + fib(n - 2);
+// };
+
+// console.log(fib(8))
+// 0,1,1,2,3,5,8,13,21
+
+// que 31 leetcode -> 12
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var romanToInt = function (s) {
+    let map = new Map([
+        ["I", 1],
+        ["V", 5],
+        ["X", 10],
+        ["L", 50],
+        ["C", 100],
+        ["D", 500],
+        ["M", 1000]
+    ]);
+    let ans = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        let current = map.get(s[i]);
+        let next = map.get(s[i + 1]);
+        if (current < next) ans -= current;
+        else ans += current;
+    }
+    return ans;
 };
 
-console.log(fib(3))
+console.log(romanToInt("LVIII"))

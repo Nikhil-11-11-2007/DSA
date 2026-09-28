@@ -112,7 +112,7 @@ let prompt = require("prompt-sync")()
 //     return (n % 10) + sumOfDigits(Math.floor(n / 10));
 
 //     // second method
-//     // if (n === 0) return n;
+//     // if (n === 0) return 0;
 
 //     // return (n % 10) + sumOfDigits(Math.floor(n / 10));
 
