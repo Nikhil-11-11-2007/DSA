@@ -870,25 +870,48 @@ let prompt = require("prompt-sync")()
  * @param {string} s
  * @return {number}
  */
-var romanToInt = function (s) {
-    let map = new Map([
-        ["I", 1],
-        ["V", 5],
-        ["X", 10],
-        ["L", 50],
-        ["C", 100],
-        ["D", 500],
-        ["M", 1000]
-    ]);
-    let ans = 0;
+// var romanToInt = function (s) {
+//     let map = new Map([
+//         ["I", 1],
+//         ["V", 5],
+//         ["X", 10],
+//         ["L", 50],
+//         ["C", 100],
+//         ["D", 500],
+//         ["M", 1000]
+//     ]);
+//     let ans = 0;
 
-    for (let i = 0; i < s.length; i++) {
-        let current = map.get(s[i]);
-        let next = map.get(s[i + 1]);
-        if (current < next) ans -= current;
-        else ans += current;
-    }
-    return ans;
-};
+//     for (let i = 0; i < s.length; i++) {
+//         let current = map.get(s[i]);
+//         let next = map.get(s[i + 1]);
+//         if (current < next) ans -= current;
+//         else ans += current;
+//     }
+//     return ans;
+// };
 
-console.log(romanToInt("LVIII"))
+// console.log(romanToInt("LVIII"))
+
+// leet code 2264
+
+/**
+ * @param {string} num
+ * @return {string}
+ */
+// var largestGoodInteger = function (num) {
+//     let ans = "";
+
+//     for (let i = 0; i < num.length - 2; i++) {
+//         if (num[i] === num[i + 1] && num[i] === num[i + 2]) {
+//             let current = num.slice(i, i + 3);
+//             if (current > ans) {
+//                 ans = current;
+//             }
+//         }
+//     }
+
+//     return ans;
+// };
+
+// console.log(largestGoodInteger("677713339"))

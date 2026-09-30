@@ -431,16 +431,30 @@ let prompt = require("prompt-sync")()
 // que 79
 // class Solution {
 //     largestGoodInteger(num) {
-//         let condidate = ""
+//         // let condidate = ""
+//         // for (let i = 0; i < num.length - 2; i++) {
+//         //     if (num[i] === num[i + 1] && num[i + 1] === num[i + 2]) {
+//         //         let current = num.substring(i, i + 3)
+//         //         if (condidate < current || condidate === "") {
+//         //             condidate = current
+//         //         }
+//         //     }
+//         // }
+//         // return condidate;
+
+//         // 2nd method this one is readble
+//         let ans = "";
+
 //         for (let i = 0; i < num.length - 2; i++) {
-//             if(num[i] === num[i+1] && num[i+1] === num[i+2]){
-//                 let current = num.substring(i,i+3)
-//                 if(condidate < current || condidate === ""){
-//                     condidate = current
+//             if (num[i] === num[i + 1] && num[i] === num[i + 2]) {
+//                 let current = num.slice(i, i + 3);
+//                 if (current > ans) {
+//                     ans = current;
 //                 }
 //             }
 //         }
-//         return condidate;
+
+//         return ans;
 //     }
 // }
 // let goodInt = new Solution()
@@ -679,4 +693,4 @@ var convert = function (s, numRows) {
 
 };
 
-console.log(convert("PAYPALISHIRING",3))
+console.log(convert("PAYPALISHIRING", 3))
