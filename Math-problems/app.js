@@ -88,18 +88,47 @@ let prompt = require("prompt-sync")();
  * @param {number} x
  * @return {boolean}
  */
-var isPalindrome = function (x) {
-    if (x < 0) return false;
-    let original = x;
-    let reverse = 0;
+// var isPalindrome = function (x) {
+//     if (x < 0) return false;
+//     let original = x;
+//     let reverse = 0;
 
-    while (x > 0) {
-        let digit = x % 10;
-        reverse = reverse * 10 + digit;
-        x = Math.floor(x / 10);
+//     while (x > 0) {
+//         let digit = x % 10;
+//         reverse = reverse * 10 + digit;
+//         x = Math.floor(x / 10);
+//     }
+
+//     return original === reverse;
+// };
+
+// console.log(isPalindrome(121))
+
+// que 4 leetcode -> 204
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var countPrimes = function(n) {
+    let prime = new Array(n+1).fill(true)
+    prime[0] = prime[1] = false
+    let count = 0
+    for(let i = 2; i<=Math.sqrt(n); i++){
+        if(prime[i]){
+            for(let j = i*i; j<n; j+=i){
+                prime[j] = false
+            }
+        }
     }
 
-    return original === reverse;
+    for(let i =2; i<n; i++){
+        if(prime[i]) count++
+    }
+
+    return count
 };
 
-console.log(isPalindrome(121))
+console.log(countPrimes(10))
+
+// TC = n * log(log(n)) = O(n log log(n)), TC = O(n)
