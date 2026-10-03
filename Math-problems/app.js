@@ -110,25 +110,61 @@ let prompt = require("prompt-sync")();
  * @param {number} n
  * @return {number}
  */
-var countPrimes = function(n) {
-    let prime = new Array(n+1).fill(true)
-    prime[0] = prime[1] = false
-    let count = 0
-    for(let i = 2; i<=Math.sqrt(n); i++){
-        if(prime[i]){
-            for(let j = i*i; j<n; j+=i){
-                prime[j] = false
-            }
-        }
-    }
+// var countPrimes = function(n) {
+//     let prime = new Array(n+1).fill(true)
+//     prime[0] = prime[1] = false
+//     let count = 0
+//     for(let i = 2; i<=Math.sqrt(n); i++){
+//         if(prime[i]){
+//             for(let j = i*i; j<n; j+=i){
+//                 prime[j] = false
+//             }
+//         }
+//     }
 
-    for(let i =2; i<n; i++){
-        if(prime[i]) count++
-    }
+//     for(let i =2; i<n; i++){
+//         if(prime[i]) count++
+//     }
 
-    return count
-};
+//     return count
+// };
 
-console.log(countPrimes(10))
+// console.log(countPrimes(10))
 
 // TC = n * log(log(n)) = O(n log log(n)), TC = O(n)
+
+// que 5 leetcode -> 69
+
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function (x) {
+    if (x < 2) return x
+    let left = 1
+    let right = x
+    let ans = 0
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2)
+        if (mid * mid === x) return mid;
+        if (mid * mid < x) {
+            ans = mid
+            left = mid + 1
+        } else {
+            right = mid - 1
+        }
+    }
+    return ans
+
+    // 2nd method
+    // let i;
+    // for(i = 1; i*i<=x; i++){
+    //     if(i*i === x) return i
+    // }
+    // return i - 1
+
+};
+
+console.log(mySqrt(20))
+
+// TC = O(log(x)), SC = O(1)
