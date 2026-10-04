@@ -139,32 +139,57 @@ let prompt = require("prompt-sync")();
  * @param {number} x
  * @return {number}
  */
-var mySqrt = function (x) {
-    if (x < 2) return x
-    let left = 1
-    let right = x
-    let ans = 0
-    while (left <= right) {
-        let mid = Math.floor((left + right) / 2)
-        if (mid * mid === x) return mid;
-        if (mid * mid < x) {
-            ans = mid
-            left = mid + 1
-        } else {
-            right = mid - 1
-        }
-    }
-    return ans
+// var mySqrt = function (x) {
+//     if (x < 2) return x
+//     let left = 1
+//     let right = x
+//     let ans = 0
+//     while (left <= right) {
+//         let mid = Math.floor((left + right) / 2)
+//         if (mid * mid === x) return mid;
+//         if (mid * mid < x) {
+//             ans = mid
+//             left = mid + 1
+//         } else {
+//             right = mid - 1
+//         }
+//     }
+//     return ans
 
-    // 2nd method
-    // let i;
-    // for(i = 1; i*i<=x; i++){
-    //     if(i*i === x) return i
-    // }
-    // return i - 1
+//     // 2nd method
+//     // let i;
+//     // for(i = 1; i*i<=x; i++){
+//     //     if(i*i === x) return i
+//     // }
+//     // return i - 1
 
-};
+// };
 
-console.log(mySqrt(20))
+// console.log(mySqrt(20))
 
 // TC = O(log(x)), SC = O(1)
+
+// que 6 leetcode -> 50
+
+/**
+ * @param {number} x
+ * @param {number} n
+ * @return {number}
+ */
+function solve(x, n) {
+    if (n === 0) return 1;
+    let ans = solve(x, Math.floor(n / 2));
+    if (n % 2 === 0) return ans * ans;
+    return ans * ans * x;
+}
+var myPow = function (x, n) {
+    if (n < 0) {
+        n = -n;
+        return 1 / solve(x, n);
+    }
+    return solve(x, n);
+};
+
+console.log(myPow(2,10))
+
+// TC = O(log(n)), SC = O(log(n))
