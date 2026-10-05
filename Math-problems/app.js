@@ -176,20 +176,86 @@ let prompt = require("prompt-sync")();
  * @param {number} n
  * @return {number}
  */
-function solve(x, n) {
-    if (n === 0) return 1;
-    let ans = solve(x, Math.floor(n / 2));
-    if (n % 2 === 0) return ans * ans;
-    return ans * ans * x;
-}
-var myPow = function (x, n) {
-    if (n < 0) {
-        n = -n;
-        return 1 / solve(x, n);
-    }
-    return solve(x, n);
-};
+// function solve(x, n) {
+//     if (n === 0) return 1;
+//     let ans = solve(x, Math.floor(n / 2));
+//     if (n % 2 === 0) return ans * ans;
+//     return ans * ans * x;
+// }
+// var myPow = function (x, n) {
+//     if (n < 0) {
+//         n = -n;
+//         return 1 / solve(x, n);
+//     }
+//     return solve(x, n);
+// };
 
-console.log(myPow(2,10))
+// console.log(myPow(2,10))
 
 // TC = O(log(n)), SC = O(log(n))
+
+// que 7
+
+/**
+ * Print all factors of the number in ascending order
+ * @param {number} n
+ */
+// function findFactors(n) {
+//     // Write your code here
+//     function hleper(i) {
+//         if (i > n / 2) return;
+//         if (n % i === 0) process.stdout.write(i + " ")
+//         return hleper(i + 1)
+//     }
+
+//     hleper(1)
+
+//     process.stdout.write(n.toString())
+
+//     // 2nd method less optmized
+
+//     // let factors = []
+
+//     // for(let i = 1; i<=Math.sqrt(n); i++){
+//     //     if(n%i === 0) {
+//     //         factors.push(i)
+//     //         if(i !== n/i){
+//     //             factors.push(n/i)
+//     //         }
+//     //     }
+//     // }
+
+//     // factors.sort((a,b) => a - b)
+//     // console.log(factors.join(" "))
+
+// }
+
+// findFactors(6)
+
+// TC = O(n/2) + O(1) = O(n), SC = O(n)
+
+// que 8 leetcode -> 1492
+
+/**
+ * @param {number} n
+ * @param {number} k
+ * @return {number}
+ */
+var kthFactor = function (n, k) {
+    let factors = []
+    for (let i = 1; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+            factors.push(i)
+            if (i !== n / i) {
+                factors.push(n / i)
+            }
+        }
+    }
+
+    factors.sort((a, b) => a - b)
+    return (factors.length < k) ? -1 : factors[k - 1]
+};
+
+console.log(kthFactor(7, 2))
+
+// TC = O(√n + d log d), SC = O(d)
