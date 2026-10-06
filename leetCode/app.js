@@ -1069,21 +1069,40 @@ let prompt = require("prompt-sync")()
 
 // que 38  leetcode  -> 88
 
-var merge = function (nums1, m, nums2, n) {
+// var merge = function (nums1, m, nums2, n) {
 
-    let i = m - 1, j = n - 1, k = m + n - 1
-    while (i >= 0 && j >= 0) {
-        if (nums1[i] > nums2[j]) nums1[k--] = nums1[i--]
-        else nums1[k--] = nums2[j--]
-    }
-    while (j >= 0) {
-        nums1[k--] = nums2[j--]
-    }
+//     let i = m - 1, j = n - 1, k = m + n - 1
+//     while (i >= 0 && j >= 0) {
+//         if (nums1[i] > nums2[j]) nums1[k--] = nums1[i--]
+//         else nums1[k--] = nums2[j--]
+//     }
+//     while (j >= 0) {
+//         nums1[k--] = nums2[j--]
+//     }
 
-    return nums1
+//     return nums1
 
-};
+// };
 
-console.log(merge([8, 0, 0, 0, 0], 1, [1, 4, 6, 7], 4))
+// console.log(merge([8, 0, 0, 0, 0], 1, [1, 4, 6, 7], 4))
 
 // TC = O(n)+O(n) = O(n), SC =O(1)
+
+// que 39 leetcode -> 26
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var removeDuplicates = function(nums) {
+    let j = 1;
+    for(let i = 0; i<nums.length -1; i++){
+        if(nums[i] !== nums[i+1]){
+            nums[j] = nums[i+1]
+            j++;
+        }
+    }
+    return j 
+};
+
+console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
