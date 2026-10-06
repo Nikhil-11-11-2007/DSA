@@ -259,3 +259,17 @@ var kthFactor = function (n, k) {
 console.log(kthFactor(7, 2))
 
 // TC = O(√n + d log d), SC = O(d)
+// TC = O(√n + d log d), SC = O(d)
+// Loop √n times
+//        ↓
+//    O(√n)
+
+// Array has d elements
+//        ↓
+//    Sorting
+//        ↓
+//  O(d log d)
+
+// Array stores d elements
+//        ↓
+//    O(d) space

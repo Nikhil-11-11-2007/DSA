@@ -1035,21 +1035,55 @@ let prompt = require("prompt-sync")()
  * @param {number} k
  * @return {number}
  */
-var kthFactor = function (n, k) {
-    let factors = []
-    for (let i = 1; i <= Math.sqrt(n); i++) {
-        if (n % i === 0) {
-            factors.push(i)
-            if (i !== n / i) {
-                factors.push(n / i)
-            }
-        }
-    }
+// var kthFactor = function (n, k) {
+//     let factors = []
+//     for (let i = 1; i <= Math.sqrt(n); i++) {
+//         if (n % i === 0) {
+//             factors.push(i)
+//             if (i !== n / i) {
+//                 factors.push(n / i)
+//             }
+//         }
+//     }
 
-    factors.sort((a, b) => a - b)
-    return (factors.length < k) ? -1 : factors[k - 1]
-};
+//     factors.sort((a, b) => a - b)
+//     return (factors.length < k) ? -1 : factors[k - 1]
+// };
 
-console.log(kthFactor(7, 2))
+// console.log(kthFactor(7, 2))
 
 // TC = O(√n + d log d), SC = O(d)
+// Loop √n times
+//        ↓
+//    O(√n)
+
+// Array has d elements
+//        ↓
+//    Sorting
+//        ↓
+//  O(d log d)
+
+// Array stores d elements
+//        ↓
+//    O(d) space
+
+// que 38  leetcode  -> 88
+
+var merge = function (nums1, m, nums2, n) {
+
+    let i = m - 1, j = n - 1, k = m + n - 1
+    while (i >= 0 && j >= 0) {
+        if (nums1[i] > nums2[j]) nums1[k--] = nums1[i--]
+        else nums1[k--] = nums2[j--]
+    }
+    while (j >= 0) {
+        nums1[k--] = nums2[j--]
+    }
+
+    return nums1
+
+};
+
+console.log(merge([8, 0, 0, 0, 0], 1, [1, 4, 6, 7], 4))
+
+// TC = O(n)+O(n) = O(n), SC =O(1)
