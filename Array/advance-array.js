@@ -46,15 +46,71 @@ let prompt = require("prompt-sync")()
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function(nums) {
-    let j = 1;
-    for(let i = 0; i<nums.length -1; i++){
-        if(nums[i] !== nums[i+1]){
-            nums[j] = nums[i+1]
+// var removeDuplicates = function(nums) {
+//     let j = 1;
+//     for(let i = 0; i<nums.length -1; i++){
+//         if(nums[i] !== nums[i+1]){
+//             nums[j] = nums[i+1]
+//             j++;
+//         }
+//     }
+//     return j 
+// };
+
+// console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
+// TC = O(n), SC = O(1)
+
+// que 4 leetcode  -> 1089
+
+/**
+ * @param {number[]} arr
+ * @return {void} Do not return anything, modify arr in-place instead.
+ */
+// var duplicateZeros = function(arr) {
+//     let zeros = 0
+//     for(let i = 0; i<arr.length; i++){
+//         if(arr[i] === 0) zeros++;
+//     }
+
+//     let i = arr.length-1;
+//     let j = (arr.length - 1) + zeros
+//     while(i >= 0){
+//         if(j < arr.length){
+//             arr[j] = arr[i]
+//         }
+//         j--;
+//         if(arr[i] === 0){
+//             if(j < arr.length){
+//                 arr[j] = 0
+//             }
+//             j--;
+//         }
+//         i--;
+//     }
+
+//     return arr
+// };
+
+// console.log(duplicateZeros([1,0,2,3,0,4,5,0]))
+
+// TC = O(n)+ O(n) = O(n), SC = O(1)
+
+// que 5 leetcode -> 283
+
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function (nums) {
+    let j = 0
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== 0) {
+            [nums[i], nums[j]] = [nums[j], nums[i]]
             j++;
         }
     }
-    return j 
+    return nums
 };
 
-console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
+console.log(moveZeroes([0,1,0,3,12]))
+// TC = O(n), SC = O(n)
