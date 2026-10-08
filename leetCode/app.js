@@ -1149,16 +1149,50 @@ let prompt = require("prompt-sync")()
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var moveZeroes = function (nums) {
-    let j = 0
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !== 0) {
-            [nums[i], nums[j]] = [nums[j], nums[i]]
-            j++;
-        }
-    }
-    return nums
-};
+// var moveZeroes = function (nums) {
+//     let j = 0
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== 0) {
+//             [nums[i], nums[j]] = [nums[j], nums[i]]
+//             j++;
+//         }
+//     }
+//     return nums
+// };
 
-console.log(moveZeroes([0,1,0,3,12]))
+// console.log(moveZeroes([0,1,0,3,12]))
 // TC = O(n), SC = O(n)
+
+// que 42 leetcode -> 53
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+// var maxSubArray = function (nums) {
+//     // method 1 worst case mai isko use krna koi solution nhi ho jb
+//     // let largeSum = nums[0];
+//     // for( let i = 0; i<nums.length; i++){
+//     //     let sum = 0
+//     //     for(let j = i; j<nums.length; j++){
+//     //         sum += nums[j]
+//     //         if(largeSum < sum) largeSum = sum
+//     //     }
+//     // }
+//     // return largeSum
+
+//     // 2nd method Optmized method Kadane's Algorithem
+
+//     let maxSum = nums[0]
+//     let currSum = 0
+//     for (let i = 0; i < nums.length; i++) {
+//         currSum += nums[i]
+//         maxSum = Math.max(maxSum, currSum)
+//         if (currSum < 0) currSum = 0
+//     }
+//     return maxSum
+// };
+
+// console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])) 
+
+// TC = O(n), SC = O(1)
