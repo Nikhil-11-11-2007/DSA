@@ -156,14 +156,32 @@ let prompt = require("prompt-sync")()
  * @return {number}
  */
 var majorityElement = function (nums) {
-    let map = new Map()
-    let n = Math.floor(nums.length/2)
-    for (let i = 0; i < nums.length; i++) {
-        map.set(nums[i], (map.get(nums[i]) || 0) + 1)
+    // let map = new Map()
+    // let n = Math.floor(nums.length/2)
+    // for (let i = 0; i < nums.length; i++) {
+    //     map.set(nums[i], (map.get(nums[i]) || 0) + 1)
+    // }
+    // for(let key of map.keys()){
+    //     if(map.get(key) > n) return key
+    // }
+
+    // 2nd method boyer Moore's algorithem
+
+    let ans = nums[0]
+    let count = 1;
+    for (let i = 1; i < nums.length; i++) {
+        if (count === 0) {
+            ans = nums[i]
+            count = 1
+        }
+        else if (nums[i] === ans) count++;
+        else count--;
     }
-    for(let key of map.keys()){
-        if(map.get(key) > n) return key
-    }
+
+    return ans
 };
 
-console.log((majorityElement([2, 2, 1, 1, 1, 2, 2])))
+console.log((majorityElement([2, 1, 1, 1, 2, 2, 2])))
+
+// TC = O(n)+O(n) = O(n), SC = O(n)
+// TC = O(n), SC =O(1)
