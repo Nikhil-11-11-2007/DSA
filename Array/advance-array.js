@@ -155,33 +155,101 @@ let prompt = require("prompt-sync")()
  * @param {number[]} nums
  * @return {number}
  */
-var majorityElement = function (nums) {
-    // let map = new Map()
-    // let n = Math.floor(nums.length/2)
-    // for (let i = 0; i < nums.length; i++) {
-    //     map.set(nums[i], (map.get(nums[i]) || 0) + 1)
-    // }
-    // for(let key of map.keys()){
-    //     if(map.get(key) > n) return key
-    // }
+// var majorityElement = function (nums) {
+//     // let map = new Map()
+//     // let n = Math.floor(nums.length/2)
+//     // for (let i = 0; i < nums.length; i++) {
+//     //     map.set(nums[i], (map.get(nums[i]) || 0) + 1)
+//     // }
+//     // for(let key of map.keys()){
+//     //     if(map.get(key) > n) return key
+//     // }
 
-    // 2nd method boyer Moore's algorithem
+//     // 2nd method boyer Moore's algorithem
 
-    let ans = nums[0]
-    let count = 1;
-    for (let i = 1; i < nums.length; i++) {
-        if (count === 0) {
-            ans = nums[i]
-            count = 1
-        }
-        else if (nums[i] === ans) count++;
-        else count--;
-    }
+//     let ans = nums[0]
+//     let count = 1;
+//     for (let i = 1; i < nums.length; i++) {
+//         if (count === 0) {
+//             ans = nums[i]
+//             count = 1
+//         }
+//         else if (nums[i] === ans) count++;
+//         else count--;
+//     }
 
-    return ans
-};
+//     return ans
+// };
 
-console.log((majorityElement([2, 1, 1, 1, 2, 2, 2])))
+// console.log((majorityElement([2, 1, 1, 1, 2, 2, 2])))
 
 // TC = O(n)+O(n) = O(n), SC = O(n)
 // TC = O(n), SC =O(1)
+
+// que 8 leetcode -> 121
+
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+// var maxProfit = function (prices) {
+//     let min = prices[0]
+//     let maxProfit = 0
+//     for (let i = 0; i < prices.length; i++) {
+//         if (prices[i] < min) min = prices[i]
+//         maxProfit = Math.max(maxProfit,prices[i] - min)
+//     }
+//     return maxProfit
+
+// };
+
+// console.log(maxProfit([7, 1, 5, 3, 6, 4]))
+// TC = O(n), SC =O(1)
+
+// que 9 , leetcode -> 122
+
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+// var maxProfit = function (prices) {
+//     let profit = 0
+//     for (let i = 1; i < prices.length; i++) {
+//         if (prices[i] > prices[i - 1]) profit += prices[i] - prices[i - 1]
+//     }
+
+//     return profit
+
+// };
+// console.log(maxProfit([3, 5, 9, 4, 5, 8]))
+
+// TC = O(n), SC = O(1)
+
+// que 10 leetcode -> 75
+
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var sortColors = function (nums) {
+    // Duch national flag Algorithem
+    let i = 0;
+    let j = 0;
+    let k = nums.length - 1;
+    while(i<=k){
+        if(nums[i] === 0){
+            [nums[i],nums[j]] = [nums[j],nums[i]]
+            i++;
+            j++;
+        }
+        else if(nums[i] === 2){
+            [nums[i], nums[k]] = [nums[k], nums[i]]
+            k--;
+        } else i++;
+    }
+    return nums
+};
+
+console.log(sortColors([2, 0, 2, 1, 1, 0]))
+
+// TC = O(n), SC = O(n)
