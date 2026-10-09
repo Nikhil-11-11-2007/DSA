@@ -225,31 +225,75 @@ let prompt = require("prompt-sync")()
 
 // TC = O(n), SC = O(1)
 
-// que 10 leetcode -> 75
+// que 10 leetcode -> 75 medium
 
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var sortColors = function (nums) {
-    // Duch national flag Algorithem
-    let i = 0;
-    let j = 0;
-    let k = nums.length - 1;
-    while(i<=k){
-        if(nums[i] === 0){
-            [nums[i],nums[j]] = [nums[j],nums[i]]
-            i++;
-            j++;
-        }
-        else if(nums[i] === 2){
-            [nums[i], nums[k]] = [nums[k], nums[i]]
-            k--;
-        } else i++;
-    }
-    return nums
-};
+// var sortColors = function (nums) {
+//     // Duch national flag Algorithem
+//     let i = 0;
+//     let j = 0;
+//     let k = nums.length - 1;
+//     while(i<=k){
+//         if(nums[i] === 0){
+//             [nums[i],nums[j]] = [nums[j],nums[i]]
+//             i++;
+//             j++;
+//         }
+//         else if(nums[i] === 2){
+//             [nums[i], nums[k]] = [nums[k], nums[i]]
+//             k--;
+//         } else i++;
+//     }
+//     return nums
+// };
 
-console.log(sortColors([2, 0, 2, 1, 1, 0]))
+// console.log(sortColors([2, 0, 2, 1, 1, 0]))
 
 // TC = O(n), SC = O(n)
+
+// que 11 leetcode -> 42
+
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var trap = function (height) {
+    // method 1 but ye TLE de rha hai
+    // let total = 0
+    // for (let i = 0; i < height.length; i++) {
+    //     let leftMax = rightMax = height[i]
+    //     for (let j = i; j >= 0; j--) {
+    //         leftMax = Math.max(leftMax, height[j])
+    //     }
+    //     for (let j = i; j < height.length; j++) {
+    //         rightMax = Math.max(rightMax, height[j])
+    //     }
+    //     total += Math.min(leftMax, rightMax) - height[i]
+    // }
+    // return total
+
+    let leftMax = height[0], rightMax = height[height.length - 1]
+    let leftArr = []
+    let rigthArr = []
+    let total = 0
+
+    for (let i = 0; i < height.length; i++) {
+        leftMax = Math.max(leftMax, height[i])
+        leftArr[i] = leftMax
+    }
+    for (let i = height.length - 1; i >= 0; i--) {
+        rightMax = Math.max(rightMax, height[i])
+        rigthArr[i] = rightMax
+    }
+    for (let i = 0; i < height.length; i++) {
+        total += Math.min(leftArr[i], rigthArr[i]) - height[i]
+    }
+
+    return total
+
+};
+
+console.log(trap([4, 2, 0, 3, 2, 5]))
