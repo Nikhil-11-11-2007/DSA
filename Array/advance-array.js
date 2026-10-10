@@ -275,24 +275,50 @@ var trap = function (height) {
     // }
     // return total
 
-    let leftMax = height[0], rightMax = height[height.length - 1]
-    let leftArr = []
-    let rigthArr = []
-    let total = 0
+    // let leftMax = height[0], rightMax = height[height.length - 1]
+    // let leftArr = []
+    // let rigthArr = []
+    // let total = 0
 
-    for (let i = 0; i < height.length; i++) {
-        leftMax = Math.max(leftMax, height[i])
-        leftArr[i] = leftMax
+    // for (let i = 0; i < height.length; i++) {
+    //     leftMax = Math.max(leftMax, height[i])
+    //     leftArr[i] = leftMax
+    // }
+    // for (let i = height.length - 1; i >= 0; i--) {
+    //     rightMax = Math.max(rightMax, height[i])
+    //     rigthArr[i] = rightMax
+    // }
+    // for (let i = 0; i < height.length; i++) {
+    //     total += Math.min(leftArr[i], rigthArr[i]) - height[i]
+    // }
+
+    // return total
+
+    const n = height.length;
+    if (n === 0) return 0;
+    
+     // right[i] stores max height to the right of index i
+    const right = new Array(n);                
+    right[n - 1] = height[n - 1];
+
+    // Fill the right max array
+    for (let i = n - 2; i >= 0; i--) {
+        right[i] = Math.max(height[i], right[i + 1]);
     }
-    for (let i = height.length - 1; i >= 0; i--) {
-        rightMax = Math.max(rightMax, height[i])
-        rigthArr[i] = rightMax
-    }
-    for (let i = 0; i < height.length; i++) {
-        total += Math.min(leftArr[i], rigthArr[i]) - height[i]
+    
+    // running max from the left
+    let left = height[0];  
+    let ans = 0;
+
+    // Calculate water trapped at each index
+    for (let i = 0; i < n; i++) {
+         // max height from left up to i
+        left = Math.max(height[i], left);   
+        // water = min(left_max, right_max) - height[i]
+        ans += Math.min(left, right[i]) - height[i];  
     }
 
-    return total
+    return ans;
 
 };
 
