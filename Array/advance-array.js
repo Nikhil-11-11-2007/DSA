@@ -254,7 +254,7 @@ let prompt = require("prompt-sync")()
 
 // TC = O(n), SC = O(n)
 
-// que 11 leetcode -> 42
+// que 11 leetcode -> 42 (Hard)
 
 /**
  * @param {number[]} height
@@ -275,6 +275,8 @@ var trap = function (height) {
     // }
     // return total
 
+    // TC =O(n^2), SC = O(1)
+
     // let leftMax = height[0], rightMax = height[height.length - 1]
     // let leftArr = []
     // let rigthArr = []
@@ -294,31 +296,17 @@ var trap = function (height) {
 
     // return total
 
-    const n = height.length;
-    if (n === 0) return 0;
-    
-     // right[i] stores max height to the right of index i
-    const right = new Array(n);                
-    right[n - 1] = height[n - 1];
+    // let left = 0, right = height.length - 1, total = 0
+    // let leftMax = 0, rightMax = 0
+    // while (left < right) {
+    //     leftMax = Math.max(leftMax, height[left])
+    //     rightMax = Math.max(rightMax, height[right])
+    //     if (leftMax < rightMax) total += leftMax - height[left++]
+    //     else total += rightMax - height[right--]
+    // }
+    // return total
 
-    // Fill the right max array
-    for (let i = n - 2; i >= 0; i--) {
-        right[i] = Math.max(height[i], right[i + 1]);
-    }
-    
-    // running max from the left
-    let left = height[0];  
-    let ans = 0;
-
-    // Calculate water trapped at each index
-    for (let i = 0; i < n; i++) {
-         // max height from left up to i
-        left = Math.max(height[i], left);   
-        // water = min(left_max, right_max) - height[i]
-        ans += Math.min(left, right[i]) - height[i];  
-    }
-
-    return ans;
+    // TC =O(n), SC = O(1)
 
 };
 

@@ -1302,7 +1302,7 @@ let prompt = require("prompt-sync")()
 
 // TC = O(n), SC = O(n)
 
-// que 47 leetcode -> 42
+// que 47 leetcode -> 42 (Hard)
 
 /**
  * @param {number[]} height
@@ -1323,24 +1323,40 @@ var trap = function (height) {
     // }
     // return total
 
-    let leftMax = height[0], rightMax = height[height.length - 1]
-    let leftArr = []
-    let rigthArr = []
-    let total = 0
+    // TC =O(n^2), SC = O(1)
 
-    for (let i = 0; i < height.length; i++) {
-        leftMax = Math.max(leftMax, height[i])
-        leftArr[i] = leftMax
-    }
-    for (let i = height.length - 1; i >= 0; i--) {
-        rightMax = Math.max(rightMax, height[i])
-        rigthArr[i] = rightMax
-    }
-    for (let i = 0; i < height.length; i++) {
-        total += Math.min(leftArr[i], rigthArr[i]) - height[i]
-    }
+    // let leftMax = height[0], rightMax = height[height.length - 1]
+    // let leftArr = []
+    // let rigthArr = []
+    // let total = 0
 
-    return total
+    // for (let i = 0; i < height.length; i++) {
+    //     leftMax = Math.max(leftMax, height[i])
+    //     leftArr[i] = leftMax
+    // }
+    // for (let i = height.length - 1; i >= 0; i--) {
+    //     rightMax = Math.max(rightMax, height[i])
+    //     rigthArr[i] = rightMax
+    // }
+    // for (let i = 0; i < height.length; i++) {
+    //     total += Math.min(leftArr[i], rigthArr[i]) - height[i]
+    // }
+
+    // return total
+
+    // TC = O(n), SC = O(n)
+
+    // let left = 0, right = height.length - 1, total = 0
+    // let leftMax = 0, rightMax = 0
+    // while (left < right) {
+    //     leftMax = Math.max(leftMax, height[left])
+    //     rightMax = Math.max(rightMax, height[right])
+    //     if (leftMax < rightMax) total += leftMax - height[left++]
+    //     else total += rightMax - height[right--]
+    // }
+    // return total
+
+    // TC =O(n), SC = O(1)
 
 };
 
