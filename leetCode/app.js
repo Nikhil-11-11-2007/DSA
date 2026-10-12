@@ -1400,3 +1400,64 @@ let prompt = require("prompt-sync")()
 // };
 
 // console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]))
+
+// que 49 leetcode -> 15 (medium)
+
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+// var threeSum = function (nums) {
+
+//     // method 1 brootforce TLE dega
+//     // let result = [];
+//     // let seen = new Set();
+
+//     // for(let i = 0; i<nums.length; i++){
+//     //     for(let j = i+1; j<nums.length; j++){
+//     //         for(let k = j+1; k<nums.length; k++){
+//     //             if((nums[i]+nums[j]+nums[k]) === 0){
+//     //                 let triplate  = [nums[i],nums[j],nums[k]]
+//     //                 triplate.sort((a,b) => a - b);
+//     //                 let key = triplate.join(",")
+
+//     //                 if(!seen.has(key)){
+//     //                     seen.add(key);
+//     //                     result.push(triplate)
+//     //                 }
+//     //             }
+//     //         }
+//     //     }
+//     // }
+
+//     // return result
+//     // TC = O(n^3), SC = O(n^2)
+
+//     // method 2 optmized two pointer
+
+//     // nums.sort((a, b) => a - b)
+
+//     // let ans = []
+
+//     // for (let i = 0; i < nums.length - 2; i++) {
+//     //     if (i !== 0 && nums[i - 1] === nums[i]) continue;
+//     //     let j = i + 1, k = nums.length - 1
+//     //     while (j < k) {
+//     //         let sum = nums[i] + nums[j] + nums[k]
+//     //         if (sum === 0) {
+//     //             let triplate = [nums[i], nums[j++], nums[k--]];
+//     //             ans.push(triplate);
+//     //             while (j < k && nums[j - 1] === nums[j]) j++;
+//     //             while (j < k && nums[k + 1] === nums[k]) k--;
+//     //         }
+//     //         else if (sum < 0) j++;
+//     //         else k--;
+//     //     }
+//     // }
+
+//     // return ans
+//     // TC = O(n^2), SC =O(n^2)
+
+// };
+
+// console.log(threeSum([-1, 0, 1, 2, -1, -4]))
