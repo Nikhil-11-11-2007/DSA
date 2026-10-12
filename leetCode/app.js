@@ -1308,7 +1308,7 @@ let prompt = require("prompt-sync")()
  * @param {number[]} height
  * @return {number}
  */
-var trap = function (height) {
+// var trap = function (height) {
     // method 1 but ye TLE de rha hai
     // let total = 0
     // for (let i = 0; i < height.length; i++) {
@@ -1358,6 +1358,45 @@ var trap = function (height) {
 
     // TC =O(n), SC = O(1)
 
-};
+// };
 
-console.log(trap([4, 2, 0, 3, 2, 5]))
+// console.log(trap([4, 2, 0, 3, 2, 5]))
+
+// que 48 leetcode -> 11 (medium)
+
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+// var maxArea = function (height) {
+    // method 1 brootforce but TLE dega
+    // let area = 0 
+    // for (let i = 0; i < height.length; i++) {
+    //     for (let j = i + 1; j < height.length; j++) {
+    //         let length = Math.min(height[i], height[j])
+    //         let breth = j - i 
+    //         area = Math.max(area, length * breth)
+    //     }
+    // }
+
+    // return area
+
+    // TC = O(n^2), SC = O(1)
+
+    // method 2 Two pointer optmized
+
+    // let i = 0, j = height.length - 1
+    // let areaMax = 0
+    // while (i < j) {
+    //     let length = Math.min(height[i], height[j])
+    //     let breath = j - i
+    //     areaMax = Math.max(areaMax, (length * breth))
+    //     if (height[i] < height[j]) i++;
+    //     else j--;
+    // }
+    // return areaMax
+
+    // TC = O(n), SC = O(1)
+// };
+
+// console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]))

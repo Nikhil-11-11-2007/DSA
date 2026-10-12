@@ -260,54 +260,128 @@ let prompt = require("prompt-sync")()
  * @param {number[]} height
  * @return {number}
  */
-var trap = function (height) {
-    // method 1 but ye TLE de rha hai
-    // let total = 0
-    // for (let i = 0; i < height.length; i++) {
-    //     let leftMax = rightMax = height[i]
-    //     for (let j = i; j >= 0; j--) {
-    //         leftMax = Math.max(leftMax, height[j])
-    //     }
-    //     for (let j = i; j < height.length; j++) {
-    //         rightMax = Math.max(rightMax, height[j])
-    //     }
-    //     total += Math.min(leftMax, rightMax) - height[i]
-    // }
-    // return total
+// var trap = function (height) {
+//     // method 1 but ye TLE de rha hai but ye brootforce hai
+//     // let total = 0
+//     // for (let i = 0; i < height.length; i++) {
+//     //     let leftMax = rightMax = height[i]
+//     //     for (let j = i; j >= 0; j--) {
+//     //         leftMax = Math.max(leftMax, height[j])
+//     //     }
+//     //     for (let j = i; j < height.length; j++) {
+//     //         rightMax = Math.max(rightMax, height[j])
+//     //     }
+//     //     total += Math.min(leftMax, rightMax) - height[i]
+//     // }
+//     // return total
 
-    // TC =O(n^2), SC = O(1)
+//     // TC =O(n^2), SC = O(1)
 
-    // let leftMax = height[0], rightMax = height[height.length - 1]
-    // let leftArr = []
-    // let rigthArr = []
-    // let total = 0
+//     // let leftMax = height[0], rightMax = height[height.length - 1]
+//     // let leftArr = []
+//     // let rigthArr = []
+//     // let total = 0
 
-    // for (let i = 0; i < height.length; i++) {
-    //     leftMax = Math.max(leftMax, height[i])
-    //     leftArr[i] = leftMax
-    // }
-    // for (let i = height.length - 1; i >= 0; i--) {
-    //     rightMax = Math.max(rightMax, height[i])
-    //     rigthArr[i] = rightMax
-    // }
-    // for (let i = 0; i < height.length; i++) {
-    //     total += Math.min(leftArr[i], rigthArr[i]) - height[i]
-    // }
+//     // for (let i = 0; i < height.length; i++) {
+//     //     leftMax = Math.max(leftMax, height[i])
+//     //     leftArr[i] = leftMax
+//     // }
+//     // for (let i = height.length - 1; i >= 0; i--) {
+//     //     rightMax = Math.max(rightMax, height[i])
+//     //     rigthArr[i] = rightMax
+//     // }
+//     // for (let i = 0; i < height.length; i++) {
+//     //     total += Math.min(leftArr[i], rigthArr[i]) - height[i]
+//     // }
 
-    // return total
+//     // return total
 
-    // let left = 0, right = height.length - 1, total = 0
-    // let leftMax = 0, rightMax = 0
-    // while (left < right) {
-    //     leftMax = Math.max(leftMax, height[left])
-    //     rightMax = Math.max(rightMax, height[right])
-    //     if (leftMax < rightMax) total += leftMax - height[left++]
-    //     else total += rightMax - height[right--]
-    // }
-    // return total
+//     // method 3 optmized
 
-    // TC =O(n), SC = O(1)
+//     // let i = 0, j = height.length - 1, total = 0
+//     // let leftMax = 0, rightMax = 0
+//     // while (i < j) {
+//     //     leftMax = Math.max(leftMax, height[i])
+//     //     rightMax = Math.max(rightMax, height[j])
+//     //     if (leftMax < rightMax) total += leftMax - height[i++]
+//     //     else total += rightMax - height[j--]
+//     // }
+
+//     // return total
+//     // TC = O(n), SC = O(1)
+
+// };
+
+// console.log(trap([4, 2, 0, 3, 2, 5]))
+
+// que 12 leetcode -> 11 (medium)
+
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+// var maxArea = function (height) {
+// method 1 brootforce but TLE dega
+// let area = 0 
+// for (let i = 0; i < height.length; i++) {
+//     for (let j = i + 1; j < height.length; j++) {
+//         let length = Math.min(height[i], height[j])
+//         let breth = j - i 
+//         area = Math.max(area, length * breth)
+//     }
+// }
+
+// return area
+
+// TC = O(n^2), SC = O(1)
+
+// method 2 Two pointer optmized
+
+// let i = 0, j = height.length - 1
+// let areaMax = 0
+// while (i < j) {
+//     let length = Math.min(height[i], height[j])
+//     let breath = j - i
+//     areaMax = Math.max(areaMax, (length * breth))
+//     if (height[i] < height[j]) i++;
+//     else j--;
+// }
+// return areaMax
+
+// TC = O(n), SC = O(1)
+// };
+
+// console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]))
+
+// que 13 leetcode -> 15
+
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function (nums) {
+    let result = [];
+    let seen = new Set();
+
+    for(let i = 0; i<nums.length; i++){
+        for(let j = i+1; j<nums.length; j++){
+            for(let k = j+1; k<nums.length; k++){
+                if((nums[i]+nums[j]+nums[k]) === 0){
+                    let triplate  = [nums[i],nums[j],nums[k]]
+                    triplate.sort((a,b) => a - b);
+                    let key = triplate.join(",")
+
+                    if(!seen.has(key)){
+                        seen.add(key);
+                        result.push(triplate)
+                    }
+                }
+            }
+        }
+    }
+
+    return result
 
 };
 
-console.log(trap([4, 2, 0, 3, 2, 5]))
+console.log(threeSum([-1, 0, 1, 2, -1, -4]))
