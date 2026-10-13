@@ -54,7 +54,7 @@ let prompt = require("prompt-sync")()
 //             j++;
 //         }
 //     }
-//     return j 
+//     return j
 // };
 
 // console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
@@ -145,7 +145,7 @@ let prompt = require("prompt-sync")()
 //     return maxSum
 // };
 
-// console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])) 
+// console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
 
 // TC = O(n), SC = O(1)
 
@@ -322,11 +322,11 @@ let prompt = require("prompt-sync")()
  */
 // var maxArea = function (height) {
 // method 1 brootforce but TLE dega
-// let area = 0 
+// let area = 0
 // for (let i = 0; i < height.length; i++) {
 //     for (let j = i + 1; j < height.length; j++) {
 //         let length = Math.min(height[i], height[j])
-//         let breth = j - i 
+//         let breth = j - i
 //         area = Math.max(area, length * breth)
 //     }
 // }
@@ -413,3 +413,29 @@ let prompt = require("prompt-sync")()
 // };
 
 // console.log(threeSum([-1, 0, 1, 2, -1, -4]))
+
+// que 14 leetcode -> 56 (medium)
+
+/**
+ * @param {number[][]} intervals
+ * @return {number[][]}
+ */
+// var merge = function (intervals) {
+//     intervals.sort((a, b) => a[0] - b[0])
+//     let ans = [];
+//     for (let i = 0; i < intervals.length; i++) {
+//         let curr = intervals[i]
+//         let prev = ans[ans.length - 1]
+//         if (ans.length === 0 || prev[1] < curr[0]) ans.push(curr)
+//         else {
+//             prev[1] = Math.max(prev[1],curr[1])
+//         }
+//     }
+
+//     return ans
+
+// };
+
+// // TC = O(nlogn)+O(n) = O(nlogn) sorting ki wajha se , SC =O(n)
+
+// console.log(merge([[1, 3], [2, 6], [8, 10], [15, 18]]))
