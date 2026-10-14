@@ -469,8 +469,49 @@ let prompt = require("prompt-sync")()
 //     }
 //     return arr
 
-        // TC = O(n), SC = O(1)
+// TC = O(n), SC = O(1)
 
 // };
 
 // console.log(replaceElements([17, 18, 20, 5, 4, 6]))
+
+// que 16 leetcode -> 905
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+// var sortArrayByParity = function (nums) {
+//         let i = 0, j = nums.length - 1
+//         while (i < j) {
+//                 if (nums[i] % 2 !== 0) {
+//                         [nums[i], nums[j]] = [nums[j], nums[i]]
+//                         j--;
+//                 } else i++;
+//         }
+//         return nums
+//         // TC = O(n), SC = O(1)
+// };
+
+// console.log(sortArrayByParity([3, 1, 2, 3]))
+
+// que 17 leetcode -> 1480
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+// var runningSum = function (nums) {
+//     let i = 1;
+//     let sum = nums[0]
+//     while (i < nums.length) {
+//         sum += nums[i]
+//         nums[i] = sum;
+//         i++;
+//     }
+//     return nums
+// };
+
+// // TC = O(n), SC = (1)
+
+// console.log(runningSum([1, 2, 3, 4]))
