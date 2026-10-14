@@ -1487,3 +1487,38 @@ let prompt = require("prompt-sync")()
 // // TC = O(nlogn)+O(n) = O(nlogn) sorting ki wajha se , SC =O(n)
 
 // console.log(merge([[1, 3], [2, 6], [8, 10], [15, 18]]))
+
+// que 51 leetcode -> 1299
+
+/**
+ * @param {number[]} arr
+ * @return {number[]}
+ */
+// var replaceElements = function (arr) {
+//     // this one is brootforce
+//     // let ans = []
+//     // for (let i = 0; i < arr.length - 1; i++) {
+//     //     let greatest = arr[i + 1];
+//     //     for (let j = i + 1; j < arr.length - 1; j++) {
+//     //         greatest = Math.max(greatest, arr[j + 1])
+//     //     }
+//     //     ans.push(greatest)
+//     // }
+//     // ans.push(-1)
+//     // return ans
+//     // TC = O(n^2), SC = O(n)
+
+//     let maxRight = -1
+
+//     for(let i = arr.length - 1; i>=0; i--){
+//         let curr = arr[i];
+//         arr[i] = maxRight;
+//         maxRight = Math.max(maxRight,curr);
+//     }
+//     return arr
+
+        // TC = O(n), SC = O(1)
+
+// };
+
+// console.log(replaceElements([17, 18, 20, 5, 4, 6]))
