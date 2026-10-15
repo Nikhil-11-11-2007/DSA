@@ -547,16 +547,24 @@ let prompt = require("prompt-sync")()
  * @param {number[]} nums
  * @return {number[]}
  */
-// var productExceptSelf = function(nums) {
-//     let ans = []
-//     let productLeft = [nums[0]]
-//     let productRigth = []
-//     for(let i = 0; i<nums.length; i++){
-//         productLeft.push(productLeft[i]*nums[i])
-//         productRigth.push(nums[i+1])
-//         ans[i] = productLeft[i]*productRigth[i]
+// var productExceptSelf = function (nums) {
+//     let arr = new Array(nums.length);
+//     let result = new Array(nums.length);
+//     let product = 1;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         arr[i] = product;
+//         product *= nums[i];
 //     }
-//     return ans
+//     product = 1;
+//     for (let i = nums.length - 1; i >= 0; i--) {
+//         result[i] = arr[i] * product;
+//         product *= nums[i];
+//     }
+//     return result;
+
 // };
 
-// console.log(productExceptSelf([1,2,3,4]))
+// TC = O(n)+O(n) = O(n), SC = O(n)
+
+// console.log(productExceptSelf([1, 2, 3, 4]))

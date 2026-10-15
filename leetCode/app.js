@@ -1589,3 +1589,31 @@ let prompt = require("prompt-sync")()
 // // TC = O(n)+(On) = O(n), SC = O(1)
 
 // console.log(pivotIndex([2,1,-1]))
+
+// que 55 leetcode -> 238
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+// var productExceptSelf = function (nums) {
+//     let arr = new Array(nums.length);
+//     let result = new Array(nums.length);
+//     let product = 1;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         arr[i] = product;
+//         product *= nums[i];
+//     }
+//     product = 1;
+//     for (let i = nums.length - 1; i >= 0; i--) {
+//         result[i] = arr[i] * product;
+//         product *= nums[i];
+//     }
+//     return result;
+
+// };
+
+// TC = O(n)+O(n) = O(n), SC = O(n)
+
+// console.log(productExceptSelf([1, 2, 3, 4]))
