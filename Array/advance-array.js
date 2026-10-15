@@ -515,3 +515,48 @@ let prompt = require("prompt-sync")()
 // // TC = O(n), SC = (1)
 
 // console.log(runningSum([1, 2, 3, 4]))
+
+// que 18 leetcode -> 724
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+// var pivotIndex = function (nums) {
+//     let sum = 0
+//     for(let i = 0; i<nums.length; i++){
+//         sum += nums[i]
+//     }
+//     let leftSum = 0
+//     for(let i = 0; i<nums.length; i++){
+//         let rightSum = sum - leftSum - nums[i]
+//         if(leftSum === rightSum) return i
+//         else leftSum += nums[i]
+//     }
+
+//     return - 1
+// };
+
+// // TC = O(n)+(On) = O(n), SC = O(1)
+
+// console.log(pivotIndex([2,1,-1]))
+
+// que 19 leetcode -> 238
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+// var productExceptSelf = function(nums) {
+//     let ans = []
+//     let productLeft = [nums[0]]
+//     let productRigth = []
+//     for(let i = 0; i<nums.length; i++){
+//         productLeft.push(productLeft[i]*nums[i])
+//         productRigth.push(nums[i+1])
+//         ans[i] = productLeft[i]*productRigth[i]
+//     }
+//     return ans
+// };
+
+// console.log(productExceptSelf([1,2,3,4]))

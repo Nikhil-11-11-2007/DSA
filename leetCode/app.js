@@ -1564,3 +1564,28 @@ let prompt = require("prompt-sync")()
 // // TC = O(n), SC = (1)
 
 // console.log(runningSum([1, 2, 3, 4]))
+
+// que 54 leetcode -> 724
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+// var pivotIndex = function (nums) {
+//     let sum = 0
+//     for(let i = 0; i<nums.length; i++){
+//         sum += nums[i]
+//     }
+//     let leftSum = 0
+//     for(let i = 0; i<nums.length; i++){
+//         let rightSum = sum - leftSum - nums[i]
+//         if(leftSum === rightSum) return i
+//         else leftSum += nums[i]
+//     }
+
+//     return - 1
+// };
+
+// // TC = O(n)+(On) = O(n), SC = O(1)
+
+// console.log(pivotIndex([2,1,-1]))
