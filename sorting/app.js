@@ -54,7 +54,7 @@ let prompt = require("prompt-sync")();
 //         while (k < arr.length) nums[i++] = arr[k++]
 //     }
 
-        // TC = O(n)
+// TC = O(n)
 
 //     function divide(nums, f, l) {
 //         if (f >= l) return
@@ -65,7 +65,7 @@ let prompt = require("prompt-sync")();
 //     }
 //     divide(nums, 0, nums.length - 1)
 
-        // TC O(logn)
+// TC O(logn)
 
 //     return nums
 // };
@@ -74,3 +74,33 @@ let prompt = require("prompt-sync")();
 
 // console.log(sortArray([5, 2, 3, 1]))
 
+// que 2 Quick Sort algorithim
+let nums = [5, 2, 3, 1]
+
+function findPartition(nums, f, l) {
+        let i = f - 1, j = f, pivot = nums[l]
+        while (j < l) {
+                if (nums[j] <= pivot) {
+                        i++;
+                        [nums[i], nums[j]] = [nums[j], nums[i]]
+                }
+                j++;
+        }
+
+        i++;
+        [nums[i], nums[l]] = [nums[l], nums[i]]
+        return i
+}
+
+function quickSort(nums, f, l) {
+        if (f >= l) return
+        let pIdx = findPartition(nums, f, l)
+        quickSort(nums, f, pIdx - 1)
+        quickSort(nums, pIdx + 1, l)
+}
+
+quickSort(nums, 0, nums.length - 1)
+
+
+
+console.log(nums)
