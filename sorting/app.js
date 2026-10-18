@@ -75,32 +75,59 @@ let prompt = require("prompt-sync")();
 // console.log(sortArray([5, 2, 3, 1]))
 
 // que 2 Quick Sort algorithim
-let nums = [5, 2, 3, 1]
+// let nums = [5, 2, 3, 1]
 
-function findPartition(nums, f, l) {
-        let i = f - 1, j = f, pivot = nums[l]
-        while (j < l) {
-                if (nums[j] <= pivot) {
-                        i++;
-                        [nums[i], nums[j]] = [nums[j], nums[i]]
+// function findPartition(nums, f, l) {
+//         let i = f - 1, j = f, pivot = nums[l]
+//         while (j < l) {
+//                 if (nums[j] <= pivot) {
+//                         i++;
+//                         [nums[i], nums[j]] = [nums[j], nums[i]]
+//                 }
+//                 j++;
+//         }
+
+//         i++;
+//         [nums[i], nums[l]] = [nums[l], nums[i]]
+//         return i
+// }
+
+// function quickSort(nums, f, l) {
+//         if (f >= l) return
+//         let pIdx = findPartition(nums, f, l)
+//         quickSort(nums, f, pIdx - 1)
+//         quickSort(nums, pIdx + 1, l)
+// }
+
+// quickSort(nums, 0, nums.length - 1)
+
+// console.log(nums)
+
+// que 3
+
+let arr = [38, 27, 43, 3, 9, 82, 10]
+function quickSort(arr, low, high) {
+        // Your code here
+        if (low >= high) return
+        function partition(arr, low, high) {
+                let i = low - 1, pivot = arr[high], j = low
+                while (j < high) {
+                        if (arr[j] < pivot) {
+                                i++;
+                                [arr[i], arr[j]] = [arr[j], arr[i]]
+                        }
+                        j++
                 }
-                j++;
+                i++;
+                [arr[i], arr[high]] = [arr[high], arr[i]]
+                return i
         }
 
-        i++;
-        [nums[i], nums[l]] = [nums[l], nums[i]]
-        return i
+        let pivotIdx = partition(arr, low, high)
+        quickSort(arr, low, pivotIdx - 1)
+        quickSort(arr, pivotIdx + 1, high)
+        return arr
+
 }
 
-function quickSort(nums, f, l) {
-        if (f >= l) return
-        let pIdx = findPartition(nums, f, l)
-        quickSort(nums, f, pIdx - 1)
-        quickSort(nums, pIdx + 1, l)
-}
-
-quickSort(nums, 0, nums.length - 1)
-
-
-
-console.log(nums)
+console.log(quickSort(arr, 0, arr.length - 1))
