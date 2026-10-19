@@ -105,29 +105,73 @@ let prompt = require("prompt-sync")();
 
 // que 3
 
-let arr = [38, 27, 43, 3, 9, 82, 10]
-function quickSort(arr, low, high) {
-        // Your code here
-        if (low >= high) return
-        function partition(arr, low, high) {
-                let i = low - 1, pivot = arr[high], j = low
-                while (j < high) {
-                        if (arr[j] < pivot) {
-                                i++;
-                                [arr[i], arr[j]] = [arr[j], arr[i]]
-                        }
-                        j++
-                }
-                i++;
-                [arr[i], arr[high]] = [arr[high], arr[i]]
-                return i
+// let arr = [38, 27, 43, 3, 9, 82, 10]
+// function quickSort(arr, low, high) {
+//         // Your code here
+//         if (low >= high) return
+//         function partition(arr, low, high) {
+//                 let i = low - 1, pivot = arr[high], j = low
+//                 while (j < high) {
+//                         if (arr[j] < pivot) {
+//                                 i++;
+//                                 [arr[i], arr[j]] = [arr[j], arr[i]]
+//                         }
+//                         j++
+//                 }
+//                 i++;
+//                 [arr[i], arr[high]] = [arr[high], arr[i]]
+//                 return i
+//         }
+
+//         let pivotIdx = partition(arr, low, high)
+//         quickSort(arr, low, pivotIdx - 1)
+//         quickSort(arr, pivotIdx + 1, high)
+//         return arr
+
+// }
+
+// console.log(quickSort(arr, 0, arr.length - 1))
+
+// cyclic sort algorithem
+
+// function cyclicSort(arr) {
+//     let i = 0
+//     while(i<arr.length){
+//         let currIdx = arr[i]
+//         if(arr[i] !== arr[currIdx]){
+//             [arr[i],arr[currIdx]] = [arr[currIdx],arr[i]]
+//         } else i++
+//     }
+
+//     return arr
+// }
+
+// TC = O(n), SC = O(n)
+
+// let arr = [2, 5, 1, 6, 3, 7, 4, 0]
+
+// console.log(cyclicSort(arr))
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function (nums) {
+    let i = 0
+    while (i < nums.length) {
+        let currIdx = nums[i]
+        if ((nums[i] < nums.length) && (nums[i] !== nums[currIdx])) {
+            [nums[i], nums[currIdx]] = [nums[currIdx], nums[i]]
         }
+        else i++
+    }
 
-        let pivotIdx = partition(arr, low, high)
-        quickSort(arr, low, pivotIdx - 1)
-        quickSort(arr, pivotIdx + 1, high)
-        return arr
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== i) return i
+    }
+    return nums.length
 
-}
+};
 
-console.log(quickSort(arr, 0, arr.length - 1))
+console.log(missingNumber([3, 0, 1]))
+// 1,0,3 -> 0,1,3
