@@ -152,26 +152,29 @@ let prompt = require("prompt-sync")();
 
 // console.log(cyclicSort(arr))
 
+// que 4 leetcode -> 268
+
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var missingNumber = function (nums) {
-    let i = 0
-    while (i < nums.length) {
-        let currIdx = nums[i]
-        if ((nums[i] < nums.length) && (nums[i] !== nums[currIdx])) {
-            [nums[i], nums[currIdx]] = [nums[currIdx], nums[i]]
-        }
-        else i++
-    }
+// var missingNumber = function (nums) {
+//     let i = 0
+//     while (i < nums.length) {
+//         let currIdx = nums[i]
+//         if ((nums[i] < nums.length) && (nums[i] !== nums[currIdx])) {
+//             [nums[i], nums[currIdx]] = [nums[currIdx], nums[i]]
+//         }
+//         else i++
+//     }
 
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !== i) return i
-    }
-    return nums.length
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== i) return i
+//     }
+//     return nums.length
 
-};
+// };
 
-console.log(missingNumber([3, 0, 1]))
-// 1,0,3 -> 0,1,3
+// // TC = O(n), Sc= O(1)
+
+// console.log(missingNumber([3, 0, 1]))
