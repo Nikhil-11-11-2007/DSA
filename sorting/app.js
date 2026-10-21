@@ -178,3 +178,36 @@ let prompt = require("prompt-sync")();
 // // TC = O(n), Sc= O(1)
 
 // console.log(missingNumber([3, 0, 1]))
+
+
+// que 5 leetcode  -> 448
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+// var findDisappearedNumbers = function (nums) {
+
+//     let ans = []
+//     let i = 0
+
+//     while (i < nums.length) {
+//         let currIdx = nums[i] - 1
+//         if (nums[i] !== nums[currIdx]) {
+//             [nums[i], nums[currIdx]] = [nums[currIdx], nums[i]]
+//         } else i++
+//     }
+
+//     console.log(nums)
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== i + 1) ans.push(i+1)
+//     }
+
+//     return ans
+
+// };
+
+// // TC = O(n), SC = O(1)
+
+// console.log(findDisappearedNumbers([4,3,2,7,8,2,3,1]))
