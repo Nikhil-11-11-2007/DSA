@@ -211,3 +211,29 @@ let prompt = require("prompt-sync")();
 // // TC = O(n), SC = O(1)
 
 // console.log(findDisappearedNumbers([4,3,2,7,8,2,3,1]))
+
+// que 6 leetcode -> 41 (hard)
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var firstMissingPositive = function (nums) {
+
+    let i = 0
+    while (i < nums.length) {
+        let cIdx = nums[i] - 1
+        if (nums[i] !== nums[cIdx] && nums[i] > 0 && nums[i] <= nums.length) {
+            [nums[i], nums[cIdx]] = [nums[cIdx], nums[i]]
+        } else i++;
+    }
+    
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== i + 1) return i + 1
+    }
+
+    return nums.length + 1
+
+};
+
+console.log(firstMissingPositive([1, 2, 3]))
