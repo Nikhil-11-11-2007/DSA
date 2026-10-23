@@ -1309,54 +1309,54 @@ let prompt = require("prompt-sync")()
  * @return {number}
  */
 // var trap = function (height) {
-    // method 1 but ye TLE de rha hai
-    // let total = 0
-    // for (let i = 0; i < height.length; i++) {
-    //     let leftMax = rightMax = height[i]
-    //     for (let j = i; j >= 0; j--) {
-    //         leftMax = Math.max(leftMax, height[j])
-    //     }
-    //     for (let j = i; j < height.length; j++) {
-    //         rightMax = Math.max(rightMax, height[j])
-    //     }
-    //     total += Math.min(leftMax, rightMax) - height[i]
-    // }
-    // return total
+// method 1 but ye TLE de rha hai
+// let total = 0
+// for (let i = 0; i < height.length; i++) {
+//     let leftMax = rightMax = height[i]
+//     for (let j = i; j >= 0; j--) {
+//         leftMax = Math.max(leftMax, height[j])
+//     }
+//     for (let j = i; j < height.length; j++) {
+//         rightMax = Math.max(rightMax, height[j])
+//     }
+//     total += Math.min(leftMax, rightMax) - height[i]
+// }
+// return total
 
-    // TC =O(n^2), SC = O(1)
+// TC =O(n^2), SC = O(1)
 
-    // let leftMax = height[0], rightMax = height[height.length - 1]
-    // let leftArr = []
-    // let rigthArr = []
-    // let total = 0
+// let leftMax = height[0], rightMax = height[height.length - 1]
+// let leftArr = []
+// let rigthArr = []
+// let total = 0
 
-    // for (let i = 0; i < height.length; i++) {
-    //     leftMax = Math.max(leftMax, height[i])
-    //     leftArr[i] = leftMax
-    // }
-    // for (let i = height.length - 1; i >= 0; i--) {
-    //     rightMax = Math.max(rightMax, height[i])
-    //     rigthArr[i] = rightMax
-    // }
-    // for (let i = 0; i < height.length; i++) {
-    //     total += Math.min(leftArr[i], rigthArr[i]) - height[i]
-    // }
+// for (let i = 0; i < height.length; i++) {
+//     leftMax = Math.max(leftMax, height[i])
+//     leftArr[i] = leftMax
+// }
+// for (let i = height.length - 1; i >= 0; i--) {
+//     rightMax = Math.max(rightMax, height[i])
+//     rigthArr[i] = rightMax
+// }
+// for (let i = 0; i < height.length; i++) {
+//     total += Math.min(leftArr[i], rigthArr[i]) - height[i]
+// }
 
-    // return total
+// return total
 
-    // TC = O(n), SC = O(n)
+// TC = O(n), SC = O(n)
 
-    // let left = 0, right = height.length - 1, total = 0
-    // let leftMax = 0, rightMax = 0
-    // while (left < right) {
-    //     leftMax = Math.max(leftMax, height[left])
-    //     rightMax = Math.max(rightMax, height[right])
-    //     if (leftMax < rightMax) total += leftMax - height[left++]
-    //     else total += rightMax - height[right--]
-    // }
-    // return total
+// let left = 0, right = height.length - 1, total = 0
+// let leftMax = 0, rightMax = 0
+// while (left < right) {
+//     leftMax = Math.max(leftMax, height[left])
+//     rightMax = Math.max(rightMax, height[right])
+//     if (leftMax < rightMax) total += leftMax - height[left++]
+//     else total += rightMax - height[right--]
+// }
+// return total
 
-    // TC =O(n), SC = O(1)
+// TC =O(n), SC = O(1)
 
 // };
 
@@ -1369,34 +1369,34 @@ let prompt = require("prompt-sync")()
  * @return {number}
  */
 // var maxArea = function (height) {
-    // method 1 brootforce but TLE dega
-    // let area = 0 
-    // for (let i = 0; i < height.length; i++) {
-    //     for (let j = i + 1; j < height.length; j++) {
-    //         let length = Math.min(height[i], height[j])
-    //         let breth = j - i 
-    //         area = Math.max(area, length * breth)
-    //     }
-    // }
+// method 1 brootforce but TLE dega
+// let area = 0 
+// for (let i = 0; i < height.length; i++) {
+//     for (let j = i + 1; j < height.length; j++) {
+//         let length = Math.min(height[i], height[j])
+//         let breth = j - i 
+//         area = Math.max(area, length * breth)
+//     }
+// }
 
-    // return area
+// return area
 
-    // TC = O(n^2), SC = O(1)
+// TC = O(n^2), SC = O(1)
 
-    // method 2 Two pointer optmized
+// method 2 Two pointer optmized
 
-    // let i = 0, j = height.length - 1
-    // let areaMax = 0
-    // while (i < j) {
-    //     let length = Math.min(height[i], height[j])
-    //     let breath = j - i
-    //     areaMax = Math.max(areaMax, (length * breth))
-    //     if (height[i] < height[j]) i++;
-    //     else j--;
-    // }
-    // return areaMax
+// let i = 0, j = height.length - 1
+// let areaMax = 0
+// while (i < j) {
+//     let length = Math.min(height[i], height[j])
+//     let breath = j - i
+//     areaMax = Math.max(areaMax, (length * breth))
+//     if (height[i] < height[j]) i++;
+//     else j--;
+// }
+// return areaMax
 
-    // TC = O(n), SC = O(1)
+// TC = O(n), SC = O(1)
 // };
 
 // console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]))
@@ -1517,7 +1517,7 @@ let prompt = require("prompt-sync")()
 //     }
 //     return arr
 
-        // TC = O(n), SC = O(1)
+// TC = O(n), SC = O(1)
 
 // };
 
@@ -1638,7 +1638,7 @@ let prompt = require("prompt-sync")()
 //         while (k < arr.length) nums[i++] = arr[k++]
 //     }
 
-        // TC = O(n)
+// TC = O(n)
 
 //     function divide(nums, f, l) {
 //         if (f >= l) return
@@ -1649,7 +1649,7 @@ let prompt = require("prompt-sync")()
 //     }
 //     divide(nums, 0, nums.length - 1)
 
-        // TC O(logn)
+// TC O(logn)
 
 //     return nums
 // };
@@ -1723,22 +1723,68 @@ let prompt = require("prompt-sync")()
  * @param {number[]} nums
  * @return {number}
  */
-var firstMissingPositive = function (nums) {
+// var firstMissingPositive = function (nums) {
 
-    let i = 0
-    while (i < nums.length) {
-        let cIdx = nums[i] - 1
-        if (nums[i] !== nums[cIdx] && nums[i] > 0 && nums[i] <= nums.length) {
-            [nums[i], nums[cIdx]] = [nums[cIdx], nums[i]]
-        } else i++;
-    }
-    
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !== i + 1) return i + 1
-    }
+//     let i = 0
+//     while (i < nums.length) {
+//         let cIdx = nums[i] - 1
+//         if (nums[i] !== nums[cIdx] && nums[i] > 0 && nums[i] <= nums.length) {
+//             [nums[i], nums[cIdx]] = [nums[cIdx], nums[i]]
+//         } else i++;
+//     }
 
-    return nums.length + 1
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== i + 1) return i + 1
+//     }
 
-};
+//     return nums.length + 1
 
-console.log(firstMissingPositive([1, 2, 3]))
+// };
+
+// console.log(firstMissingPositive([1, 2, 3]))
+
+// TC = O(n), SC = O(1)
+
+// que 60 leetcode -> 35
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+// var searchInsert = function (nums, target) {
+
+//     let start = 0, end = nums.length - 1
+//     while (start <= end) {
+//         let mid = Math.floor((start + end) / 2)
+//         if (target === nums[mid]) return mid
+//         else if (target < nums[mid]) end = mid - 1
+//         else start = mid + 1
+//     }
+//     return start
+
+// };
+
+// console.log(searchInsert([1, 3, 5, 6], 7))
+
+// TC = O(log(n)), SC = O(1)
+
+// que 61 leetcode -> 852
+
+/**
+ * @param {number[]} arr
+ * @return {number}
+ */
+// var peakIndexInMountainArray = function (arr) {
+//     let start = 0, end = arr.length - 1
+//     while (start < end) {
+//         let mid = Math.floor((start + end) / 2)
+//         if (arr[mid] < arr[mid + 1]) start = mid + 1
+//         else end = mid
+//     }
+//     return start
+// };
+
+// console.log(peakIndexInMountainArray([0, 10, 5, 2]))
+
+// TC = O(log(n)), SC = O(1)
