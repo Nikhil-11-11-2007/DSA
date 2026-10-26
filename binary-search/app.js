@@ -51,33 +51,96 @@ let prompt = require("prompt-sync")();
  * @param {number} target
  * @return {number[]}
  */
-// var searchRange = function (nums, target) {
-//     let ans = new Array(2).fill(-1)
-//     let start = 0, end = nums.length - 1
+
+// function firstPosition(nums, target) {
+//     let start = 0, end = nums.length, first = -1
 //     while (start <= end) {
 //         let mid = Math.floor((start + end) / 2)
-//         if (target === nums[mid]) {
-//             ans[0] = mid
+//         if (nums[mid] === target) {
+//             first = mid
 //             end = mid - 1
 //         } else if (nums[mid] < target) start = mid + 1
 //         else end = mid - 1
 //     }
 
-//     start = 0, end = nums.length - 1
+//     return first
+// }
 
+// function lastPosition(nums, target) {
+//     let start = 0, end = nums.length - 1, last = -1
 //     while (start <= end) {
 //         let mid = Math.floor((start + end) / 2)
-//         if (target === nums[mid]) {
-//             ans[1] = mid
+//         if (nums[mid] === target) {
+//             last = mid
 //             start = mid + 1
 //         } else if (nums[mid] < target) start = mid + 1
 //         else end = mid - 1
 //     }
 
-//     return ans
+//     return last
+
+// }
+// var searchRange = function (nums, target) {
+//     //     let ans = new Array(2).fill(-1)
+//     //     let start = 0, end = nums.length - 1
+//     //     while (start <= end) {
+//     //         let mid = Math.floor((start + end) / 2)
+//     //         if (target === nums[mid]) {
+//     //             ans[0] = mid
+//     //             end = mid - 1
+//     //         } else if (nums[mid] < target) start = mid + 1
+//     //         else end = mid - 1
+//     //     }
+
+//     //     start = 0, end = nums.length - 1
+
+//     //     while (start <= end) {
+//     //         let mid = Math.floor((start + end) / 2)
+//     //         if (target === nums[mid]) {
+//     //             ans[1] = mid
+//     //             start = mid + 1
+//     //         } else if (nums[mid] < target) start = mid + 1
+//     //         else end = mid - 1
+//     //     }
+
+//     //     return ans
+
+//     // ye second method 
+//     return [firstPosition(nums,target),lastPosition(nums,target)]
 
 // };
 
 // console.log(searchRange([5, 7, 7, 8, 8, 8, 8, 10], 8))
 
 // // TC = O(log(n)), SC = O(1)
+
+// que 4 leetcode -> 33
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+// var search = function (nums, target) {
+
+//     let start = 0, end = nums.length - 1
+//     while (start <= end) {
+//         let mid = Math.floor((start + end) / 2)
+//         if (nums[mid] === target) return mid
+//         if (nums[start] <= nums[mid]) {
+//             if (nums[start] <= target && target <= nums[mid]) end = mid - 1
+//             else start = mid + 1
+//         }
+//         else if (nums[mid] <= nums[end]) {
+//             if (nums[mid] <= target && target <= nums[end]) start = mid + 1
+//             else end = mid - 1
+//         }
+//     }
+
+//     return -1
+
+// };
+
+// console.log(search([6, 7, 1, 2, 3, 4, 5], 3))
+
+// TC  = O(log(n)) 
