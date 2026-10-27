@@ -234,9 +234,35 @@ let prompt = require("prompt-sync")();
  * @param {number} k
  * @return {number}
  */
-var minDays = function(bloomDay, m, k) {
-    if(m*k > bloomDay.length) return -1
-    
-};
+// function isValid(arr, mid, m, k) {
+//     let flowers = 0, banquet = 0
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] <= mid) {
+//             flowers++;
+//             if (flowers === k) {
+//                 banquet++;
+//                 flowers = 0
+//             }
+//         } else flowers = 0
+//     }
+//     return banquet >= m
+// }
+// var minDays = function (bloomDay, m, k) {
+//     if (m * k > bloomDay.length) return -1
+//     let first = Infinity, last = 0, ans = -1
+//     for (let i = 0; i < bloomDay.length; i++) {
+//         first = Math.min(first, bloomDay[i])
+//         last = Math.max(last, bloomDay[i])
+//     }
+//     while (first <= last) {
+//         let mid = Math.floor((first + last) / 2)
+//         if (isValid(bloomDay, mid, m, k)) {
+//             ans = mid
+//             last = mid - 1
+//         } else first = mid + 1
+//     }
+//     return ans
+// };
 
-console.log(minDays([1,10,3,10,2],3,1))
+// // TC = O(nlog(n)), SC = O(1)
+// console.log(minDays([7, 7, 7, 7, 12, 7, 7], 2, 3))

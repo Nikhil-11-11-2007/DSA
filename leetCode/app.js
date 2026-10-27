@@ -1938,3 +1938,44 @@ let prompt = require("prompt-sync")()
 
 // console.log(shipWithinDays([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5))
 // // TC = O(nlog(n)), SC = O(1)
+
+// que 66 leetcode -> 1482
+
+/**
+ * @param {number[]} bloomDay
+ * @param {number} m
+ * @param {number} k
+ * @return {number}
+ */
+// function isValid(arr, mid, m, k) {
+//     let flowers = 0, banquet = 0
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] <= mid) {
+//             flowers++;
+//             if (flowers === k) {
+//                 banquet++;
+//                 flowers = 0
+//             }
+//         } else flowers = 0
+//     }
+//     return banquet >= m
+// }
+// var minDays = function (bloomDay, m, k) {
+//     if (m * k > bloomDay.length) return -1
+//     let first = Infinity, last = 0, ans = -1
+//     for (let i = 0; i < bloomDay.length; i++) {
+//         first = Math.min(first, bloomDay[i])
+//         last = Math.max(last, bloomDay[i])
+//     }
+//     while (first <= last) {
+//         let mid = Math.floor((first + last) / 2)
+//         if (isValid(bloomDay, mid, m, k)) {
+//             ans = mid
+//             last = mid - 1
+//         } else first = mid + 1
+//     }
+//     return ans
+// };
+
+// // TC = O(nlog(n)), SC = O(1)
+// console.log(minDays([7, 7, 7, 7, 12, 7, 7], 2, 3))
