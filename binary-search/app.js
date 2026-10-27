@@ -144,3 +144,99 @@ let prompt = require("prompt-sync")();
 // console.log(search([6, 7, 1, 2, 3, 4, 5], 3))
 
 // TC  = O(log(n)) 
+
+// que 5 GFG ka
+
+/**
+ * @param {number[]} pages - Array of book pages
+ * @param {number} students - Number of students
+ * @return {number} - Minimum number of maximum pages assigned to a student
+ */
+// function isValid(arr, upper, students) {
+//     let sum = 0, count = 1
+//     for (let i = 0; i < arr.length; i++) {
+//         if (sum + arr[i] > upper) {
+//             sum = arr[i]
+//             count++
+//             if (count > students) return false
+//         } else sum += arr[i]
+//     }
+//     return true
+// }
+
+// function allocateBooks(pages, students) {
+//     // Write Your code here
+//     if (pages.length < students) return -1
+//     let first = -Infinity, last = 0, ans = -1
+//     for (let i = 0; i < pages.length; i++) {
+//         first = Math.max(first, pages[i])
+//         last += pages[i]
+//     }
+
+//     while (first <= last) {
+//         let mid = Math.floor((first + last) / 2)
+//         if (isValid(pages, mid, students)) {
+//             ans = mid
+//             last = mid -1
+//         } else first = mid + 1
+//     }
+//     return ans
+// }
+
+
+// TC = O(nlog(n)), SC = O(1)
+
+// console.log(allocateBooks([12, 34, 67, 90], 2))
+
+// que 6 leetcode -> 1011 (medium)
+
+/**
+ * @param {number[]} weights
+ * @param {number} days
+ * @return {number}
+ */
+// function isValid(arr, upper, days) {
+//     let sum = 0, count = 1
+//     for (let i = 0; i < arr.length; i++) {
+//         if (sum + arr[i] > upper) {
+//             sum = arr[i]
+//             count++;
+//             if (count > days) return false
+//         } else sum += arr[i]
+//     }
+//     return true
+// }
+
+// var shipWithinDays = function (weights, days) {
+//     let first = 0, last = 0, ans = -1
+//     for (let i = 0; i < weights.length; i++) {
+//         first = Math.max(first, weights[i])
+//         last += weights[i]
+//     }
+//     while (first <= last) {
+//         let mid = Math.floor((first + last) / 2)
+//         if (isValid(weights, mid, days)) {
+//             ans = mid
+//             last = mid - 1
+//         } else first = mid + 1
+//     }
+//     return ans
+// };
+
+// console.log(shipWithinDays([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5))
+// // TC = O(nlog(n)), SC = O(1)
+
+// que 7 leetcode -> 1482
+
+/**
+ * @param {number[]} bloomDay
+ * @param {number} m
+ * @param {number} k
+ * @return {number}
+ */
+var minDays = function(bloomDay, m, k) {
+    if(m*k > bloomDay.length) return -1
+    
+};
+
+console.log(minDays([1,10,3,10,2],3,1))
