@@ -105,7 +105,7 @@ let prompt = require("prompt-sync")();
 
 //     //     return ans
 
-//     // ye second method 
+//     // ye second method
 //     return [firstPosition(nums,target),lastPosition(nums,target)]
 
 // };
@@ -143,7 +143,7 @@ let prompt = require("prompt-sync")();
 
 // console.log(search([6, 7, 1, 2, 3, 4, 5], 3))
 
-// TC  = O(log(n)) 
+// TC  = O(log(n))
 
 // que 5 GFG ka
 
@@ -226,7 +226,7 @@ let prompt = require("prompt-sync")();
 // console.log(shipWithinDays([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5))
 // // TC = O(nlog(n)), SC = O(1)
 
-// que 7 leetcode -> 1482
+// que 7 leetcode -> 1482 (medium)
 
 /**
  * @param {number[]} bloomDay
@@ -266,3 +266,71 @@ let prompt = require("prompt-sync")();
 
 // // TC = O(nlog(n)), SC = O(1)
 // console.log(minDays([7, 7, 7, 7, 12, 7, 7], 2, 3))
+
+// que 8 leetcode -> 875 (medium)
+
+/**
+ * @param {number[]} piles
+ * @param {number} h
+ * @return {number}
+ */
+// function isValid(arr, speed, h) {
+//     let total = 0
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] % speed === 0) total += Math.floor(arr[i] / speed)
+//         else total += Math.floor(arr[i] / speed) + 1
+//     }
+//     return total <= h
+// }
+// var minEatingSpeed = function (piles, h) {
+//     let first = 1, last = 0, ans = -1
+//     for (let i = 0; i < piles.length; i++) {
+//         last = Math.max(last, piles[i])
+//     }
+
+//     while (first <= last) {
+//         let mid = Math.floor((first + last) / 2)
+//         if (isValid(piles, mid, h)) {
+//             ans = mid
+//             last = mid - 1
+//         } else first = mid + 1
+//     }
+//     return ans
+// };
+
+// TC = O(nlog(n)), SC = O(1)
+// console.log(minEatingSpeed([3, 6, 7, 11], 8))
+
+// que 9 leetcode -> 1283 (medium)
+
+/**
+ * @param {number[]} nums
+ * @param {number} threshold
+ * @return {number}
+ */
+
+// function isValid(arr, div, threshold) {
+//     let total = 0
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] % div === 0) total += Math.ceil(arr[i] / div)
+//         else total += Math.ceil(arr[i] / div)
+//     }
+//     return total <= threshold
+// }
+// var smallestDivisor = function (nums, threshold) {
+//     let first = 1, last = 0, ans = -1
+//     for (let i = 0; i < nums.length; i++) {
+//         last = Math.max(last, nums[i])
+//     }
+//     while (first <= last) {
+//         let mid = Math.floor((first + last) / 2)
+//         if (isValid(nums, mid, threshold)) {
+//             ans = mid
+//             last = mid - 1
+//         } else first = mid + 1
+//     }
+//     return ans
+// };
+
+// TC = O(nlog(n)), SC = O(1)
+// console.log(smallestDivisor([1,2,5,9],6))
