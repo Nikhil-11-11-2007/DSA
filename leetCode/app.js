@@ -2047,3 +2047,80 @@ let prompt = require("prompt-sync")()
 
 // TC = O(nlog(n)), SC = O(1)
 // console.log(smallestDivisor([1,2,5,9],6))
+
+// que 69 leetcode -> 410 (hard)
+
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+
+// function isValid(nums, upper, k) {
+//     let sum = 0, count = 1
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] + sum > upper) {
+//             sum = nums[i]
+//             count++;
+//             if (count > k) return false
+//         } else sum += nums[i]
+//     }
+//     return true
+// }
+// var splitArray = function (nums, k) {
+//     let first = 0, last = 0, ans = -1
+//     for(let  i = 0; i<nums.length; i++){
+//         first = Math.max(first,nums[i])
+//         last += nums[i]
+//     }
+//     while (first <= last) {
+//         let mid = Math.floor((first + last) / 2)
+//         if (isValid(nums, mid, k)) {
+//             ans = mid
+//             last = mid - 1
+//         } else first = mid + 1
+//     }
+//     return ans
+// };
+
+// TC = O(nlog(n)), SC = O(1)
+// console.log(splitArray([7, 2, 5, 10, 8], 2))
+
+// que 70 GFG
+
+/**
+ * @param {number[]} arr
+ * @param {number} k
+ * @returns {number}
+ */
+// class Solution {
+//     isValid(arr, mid, k) {
+//         let lastPosition = arr[0], count = 1
+//         for (let i = 1; i < arr.length; i++) {
+//             if (arr[i] - lastPosition >= mid) {
+//                 count++
+//                 lastPosition = arr[i]
+//                 if (count >= k) return true
+//             }
+//         }
+//         return false
+
+//     }
+//     aggressiveCows(arr, k) {
+//         // code here
+//         arr.sort((a, b) => a - b)
+//         let first = 1, last = arr[arr.length - 1] - arr[0], ans = -1
+//         while (first <= last) {
+//             let mid = Math.floor((first + last) / 2)
+//             if (this.isValid(arr, mid, k)) {
+//                 ans = mid
+//                 first = mid+1
+//             }else last = mid - 1
+//         }
+//         return ans
+//     }
+// }
+
+// let aggressive = new Solution()
+// console.log(aggressive.aggressiveCows([10, 1, 2, 7, 5], 3))
+// TC = O(nlog(n)+nlogD), where D = Maximum distance between stalls, SC = O(1)
