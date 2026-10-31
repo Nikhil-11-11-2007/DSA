@@ -78,3 +78,34 @@
 // TC = O(n),  SC = (n)
 
 // console.log(intersect([4, 9, 5, 9], [9, 4, 9, 8, 4]))
+
+// que 74 leetcode -> 325 GFG -> Longest Subarray with Sum K
+
+/**
+ * @param {number[]} arr
+ * @param {number} k
+ * @returns {number}
+ */
+// class Solution {
+//     longestSubarray(arr, k) {
+//         // code here
+//         let map = new Map()
+//         map.set(0, -1)
+//         let maxLength = 0, sum = 0
+//         for (let i = 0; i < arr.length; i++) {
+//             sum += arr[i]
+//             if (map.has(sum - k)) maxLength = Math.max(maxLength, i - map.get(sum - k))
+//             if (!map.has(sum)) {
+//                 map.set(sum, i);
+//             }
+//         }
+
+//         return maxLength
+
+//     }
+// }
+
+// let ans = new Solution()
+// console.log(ans.longestSubarray([0, 1, -1, 2], 2))
+
+// TC  = O(n), SC = O(n)
