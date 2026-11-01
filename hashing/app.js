@@ -108,3 +108,32 @@
 // console.log(ans.longestSubarray([0, 1, -1, 2], 2))
 
 // TC  = O(n), SC = O(n)
+
+// que 5 leetcode  -> 525 & gfg Largest Subarray of Equal 0's and 1's
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+// var findMaxLength = function (nums) {
+//     for(let i = 0; i < nums.length; i++){
+//         if(nums[i] === 0) nums[i] = -1
+//     }
+
+//     let map = new Map()
+//     map.set(0,-1)
+
+//     let sum = 0, maxLength = 0
+//     for(let i = 0; i<nums.length; i++){
+//         sum += nums[i]
+//         if(map.has(sum)) maxLength = Math.max(maxLength, i - map.get(sum))
+//         else map.set(sum, i)
+//     }
+
+//     return maxLength
+
+// };
+
+// console.log(findMaxLength([0, 1, 1, 1, 0, 0]))
+
+// TC  = O(n)+O(n) = O(n), SC = O(n)
