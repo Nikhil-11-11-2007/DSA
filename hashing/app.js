@@ -248,3 +248,32 @@
 
 // let ans = new Solution()
 // console.log(ans.countDistinct([1, 2, 1, 3, 4, 2, 3], 4))
+
+// que 8 leetcode -> 2461
+
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+// var maximumSubarraySum = function (nums, k) {
+//     let map = new Map(), maxSum = 0, sum = 0
+//     for (let i = 0; i < k - 1; i++) {
+//         map.set(nums[i], (map.get(nums[i]) || 0) + 1)
+//         sum += nums[i]
+//     }
+//     let i = 0, j = k - 1
+//     while (j < nums.length) {
+//         map.set(nums[j], (map.get(nums[j]) || 0) + 1)
+//         sum += nums[j]
+//         if (map.size === k) maxSum = Math.max(maxSum, sum)
+//         sum -= nums[i]
+//         if(map.get(nums[i]) === 1) map.delete(nums[i])
+//         else map.set(nums[i], map.get(nums[i]) - 1)
+//         i++; j++
+//     }
+
+//     return maxSum
+// };
+
+// TC = O(n), SC = O(1)
