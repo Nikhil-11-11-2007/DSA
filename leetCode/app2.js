@@ -1,5 +1,7 @@
 // que 71 leetcode -> 349
 
+const { createLinkedList, printList, ListNode } = require("../linkList/LL-template");
+
 /**
  * @param {number[]} nums1
  * @param {number[]} nums2
@@ -281,129 +283,178 @@
 
 // que 79 leetcode -> 707
 
-var Node = function (val) {
-    this.data = val;
-    this.next = null;
-};
+// var Node = function (val) {
+//     this.data = val;
+//     this.next = null;
+// };
 
-var MyLinkedList = function () {
-    this.head = null;
-    this.size = 0
+// var MyLinkedList = function () {
+//     this.head = null;
+//     this.size = 0
 
-};
+// };
 
-/** 
- * @param {number} index
- * @return {number}
+// /** 
+//  * @param {number} index
+//  * @return {number}
+//  */
+// MyLinkedList.prototype.get = function (index) {
+//     if (index < 0 || index >= this.size) return -1
+
+//     let temp = this.head
+//     for (let i = 0; i < index; i++) {
+//         temp = temp.next
+//     }
+//     return temp.data
+// };
+
+// /** 
+//  * @param {number} val
+//  * @return {void}
+//  */
+// MyLinkedList.prototype.addAtHead = function (val) {
+//     let newNode = new Node(val)
+//     newNode.next = this.head
+//     this.head = newNode
+//     this.size++
+// };
+
+// /** 
+//  * @param {number} val
+//  * @return {void}
+//  */
+// MyLinkedList.prototype.addAtTail = function (val) {
+//     let newNode = new Node(val)
+
+//     if (this.head === null) {
+//         this.head = newNode
+//         this.size++
+//         return
+//     }
+//     let temp = this.head
+//     while (temp.next !== null) {
+//         temp = temp.next
+//     }
+
+//     temp.next = newNode
+//     this.size++;
+// };
+
+// /** 
+//  * @param {number} index 
+//  * @param {number} val
+//  * @return {void}
+//  */
+// MyLinkedList.prototype.addAtIndex = function (index, val) {
+//     if (index < 0 || index > this.size) return;
+
+//     if (index === 0) {
+//         this.addAtHead(val)
+//         return
+//     }
+
+//     let newNode = new Node(val);
+//     let temp = this.head
+//     for (let i = 0; i < index - 1; i++) {
+//         temp = temp.next
+//     }
+//     newNode.next = temp.next
+//     temp.next = newNode
+//     this.size++;
+// };
+
+// /** 
+//  * @param {number} index
+//  * @return {void}
+//  */
+// MyLinkedList.prototype.deleteAtIndex = function (index) {
+//     if (index < 0 || index >= this.size) return;
+
+//     if (index === 0) {
+//         this.head = this.head.next;
+//         this.size--;
+//         return;
+//     }
+
+//     let temp = this.head;
+
+//     for (let i = 0; i < index - 1; i++) {
+//         temp = temp.next;
+//     }
+
+//     temp.next = temp.next.next;
+
+//     this.size--;
+// };
+
+// MyLinkedList.prototype.printList = function () {
+//     let temp = this.head;
+
+//     while (temp !== null) {
+//         process.stdout.write(temp.data + " -> ");
+//         temp = temp.next;
+//     }
+
+//     console.log("null");
+// };
+
+
+// var obj = new MyLinkedList();
+
+// var param_1 = obj.get(3);
+
+// obj.addAtHead(5);
+// obj.addAtTail(10);
+// obj.addAtIndex(2, 7);
+// obj.deleteAtIndex(0);
+
+// obj.printList();
+
+// qye 80 leetcode -> 876
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
  */
-MyLinkedList.prototype.get = function (index) {
-    if (index < 0 || index >= this.size) return -1
-
-    let temp = this.head
-    for (let i = 0; i < index; i++) {
-        temp = temp.next
-    }
-    return temp.data
-};
-
-/** 
- * @param {number} val
- * @return {void}
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
  */
-MyLinkedList.prototype.addAtHead = function (val) {
-    let newNode = new Node(val)
-    newNode.next = this.head
-    this.head = newNode
-    this.size++
+var middleNode = function (head) {
+    // brotforce
+    // let size = 0
+    // let temp = head
+
+    // while (temp !== null) {
+    //     size++
+    //     temp = temp.next
+    // }
+
+    // let mid = Math.floor(size / 2)
+
+    // temp = head
+
+    // for (let i = 0; i < mid; i++) {
+    //     temp = temp.next
+    // }
+
+    // return temp
+
+    // optimal 
+    let slow = head, fast = head
+
+    while (fast !== null && fast.next !== null) {
+        fast = fast.next.next
+        slow = slow.next
+    }
+
+    return slow
 };
 
-/** 
- * @param {number} val
- * @return {void}
- */
-MyLinkedList.prototype.addAtTail = function (val) {
-    let newNode = new Node(val)
+let head = createLinkedList([1, 2, 3, 4, 5])
+let result = middleNode(head);
 
-    if (this.head === null) {
-        this.head = newNode
-        this.size++
-        return
-    }
-    let temp = this.head
-    while (temp.next !== null) {
-        temp = temp.next
-    }
-
-    temp.next = newNode
-    this.size++;
-};
-
-/** 
- * @param {number} index 
- * @param {number} val
- * @return {void}
- */
-MyLinkedList.prototype.addAtIndex = function (index, val) {
-    if (index < 0 || index > this.size) return;
-
-    if (index === 0) {
-        this.addAtHead(val)
-        return
-    }
-
-    let newNode = new Node(val);
-    let temp = this.head
-    for (let i = 0; i < index - 1; i++) {
-        temp = temp.next
-    }
-    newNode.next = temp.next
-    temp.next = newNode
-    this.size++;
-};
-
-/** 
- * @param {number} index
- * @return {void}
- */
-MyLinkedList.prototype.deleteAtIndex = function (index) {
-    if (index < 0 || index >= this.size) return;
-
-    if (index === 0) {
-        this.head = this.head.next;
-        this.size--;
-        return;
-    }
-
-    let temp = this.head;
-
-    for (let i = 0; i < index - 1; i++) {
-        temp = temp.next;
-    }
-
-    temp.next = temp.next.next;
-
-    this.size--;
-};
-
-MyLinkedList.prototype.printList = function () {
-    let temp = this.head;
-
-    while (temp !== null) {
-        process.stdout.write(temp.data + " -> ");
-        temp = temp.next;
-    }
-
-    console.log("null");
-};
-
-
-var obj = new MyLinkedList();
-
-var param_1 = obj.get(3);
-
-obj.addAtHead(5);
-obj.addAtTail(10);
-obj.addAtIndex(2, 7);
-obj.deleteAtIndex(0);
-
-obj.printList();
+printList(result);
