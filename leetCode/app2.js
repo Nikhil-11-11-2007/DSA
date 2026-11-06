@@ -423,38 +423,93 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
  * @param {ListNode} head
  * @return {ListNode}
  */
-var middleNode = function (head) {
-    // brotforce
-    // let size = 0
-    // let temp = head
+// var middleNode = function (head) {
+//     // brotforce
+//     // let size = 0
+//     // let temp = head
 
-    // while (temp !== null) {
-    //     size++
-    //     temp = temp.next
-    // }
+//     // while (temp !== null) {
+//     //     size++
+//     //     temp = temp.next
+//     // }
 
-    // let mid = Math.floor(size / 2)
+//     // let mid = Math.floor(size / 2)
 
-    // temp = head
+//     // temp = head
 
-    // for (let i = 0; i < mid; i++) {
-    //     temp = temp.next
-    // }
+//     // for (let i = 0; i < mid; i++) {
+//     //     temp = temp.next
+//     // }
 
-    // return temp
+//     // return temp
 
-    // optimal 
-    let slow = head, fast = head
+//     // optimal 
+//     let slow = head, fast = head
 
-    while (fast !== null && fast.next !== null) {
-        fast = fast.next.next
-        slow = slow.next
-    }
+//     while (fast !== null && fast.next !== null) {
+//         fast = fast.next.next
+//         slow = slow.next
+//     }
 
-    return slow
-};
+//     return slow
+// };
 
-let head = createLinkedList([1, 2, 3, 4, 5])
-let result = middleNode(head);
+// let head = createLinkedList([1, 2, 3, 4, 5])
+// let result = middleNode(head);
 
-printList(result);
+// printList(result);
+
+// que 81 leetcode -> 21
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} list1
+ * @param {ListNode} list2
+ * @return {ListNode}
+ */
+// var mergeTwoLists = function (list1, list2) {
+//     // brootforce
+//     // let dummy = new ListNode(-1)
+//     // let temp = dummy
+//     // while (list1 !== null && list2 !== null) {
+//     //     if (list1.val < list2.val) {
+//     //         temp.next = list1
+//     //         list1 = list1.next
+//     //     } else {
+//     //         temp.next = list2
+//     //         list2 = list2.next
+//     //     }
+//     //     temp = temp.next
+//     // }
+//     // if (list1 !== null) temp.next = list1
+//     // if (list2 !== null) temp.next = list2
+//     // return dummy.next
+
+//     // optimal using recursion
+
+//     // if (list1 === null) return list2
+//     // if (list2 === null) return list1
+
+//     // if (list1.val < list2.val) {
+//     //     list1.next = mergeTwoLists(list1.next, list2)
+//     //     return list1
+//     // } else {
+//     //     list2.next = mergeTwoLists(list1, list2.next)
+//     //     return list2
+//     // }
+// };
+
+// let list1 = createLinkedList([1, 2, 4])
+// let list2 = createLinkedList([1, 3, 4])
+
+// let mergedLists = mergeTwoLists(list1, list2)
+
+// printList(mergedLists)
+
+// TC =O(n), SC= O(n)
