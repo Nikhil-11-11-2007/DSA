@@ -513,3 +513,56 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
 // printList(mergedLists)
 
 // TC =O(n), SC= O(n)
+
+// que 82 leetcode -> 141
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+// var hasCycle = function (head) {
+//     // brootforce
+//     // if (head === null || head.next === null) return false;
+
+//     // let temp = head;
+//     // let set = new Set();
+
+//     // while (temp !== null) {
+//     //     if (set.has(temp)) return true;
+//     //     set.add(temp);
+//     //     temp = temp.next;
+//     // }
+
+//     // return false;
+
+//     // optimal
+
+//     let slow = head, fast = head
+//     while (fast !== null && fast.next !== null) {
+//         fast = fast.next.next
+//         slow = slow.next
+//         if (fast === slow) return true
+//     }
+//     return false
+// };
+
+// let head = createLinkedList([3, 2, 0, -4]);
+
+// let secondNode = head.next.next;
+
+// let temp = head;
+
+// while (temp.next !== null) {
+//     temp = temp.next;
+// }
+// temp.next = secondNode;
+
+// console.log(hasCycle(head));
