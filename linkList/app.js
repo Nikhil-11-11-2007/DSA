@@ -478,14 +478,35 @@ class Node {
  * @param {ListNode} head
  * @return {ListNode}
  */
-var detectCycle = function(head) {
-    let slow = head, fast = head
+// var detectCycle = function (head) {
+//     let slow = head, fast = head
 
-    while(fast !== null && fast.next !== null){
-        fast = fast.next.next
-        slow = slow.next
-        if(fast === slow) break;
-    }
+//     while (fast !== null && fast.next !== null) {
+//         fast = fast.next.next
+//         slow = slow.next
+//         if (fast === slow) break;
+//     }
 
-    if(fast === null && fast.next === null) return -1
-};
+//     if (fast === null || fast.next === null) return null
+//     slow = head;
+
+//     while (slow !== fast) {
+//         slow = slow.next;
+//         fast = fast.next;
+//     }
+
+//     return slow;
+// };
+
+// let head = createLinkedList([3, 2, 0, -4]);
+
+// let secondNode = head.next;
+
+// let temp = head;
+
+// while (temp.next !== null) {
+//     temp = temp.next;
+// }
+// temp.next = secondNode;
+
+// console.log(detectCycle(head));
