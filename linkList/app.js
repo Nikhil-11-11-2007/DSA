@@ -147,7 +147,7 @@ const { createLinkedList, ListNode, printList } = require("./LL-template");
 
 // };
 
-// /** 
+// /**
 //  * @param {number} index
 //  * @return {number}
 //  */
@@ -161,7 +161,7 @@ const { createLinkedList, ListNode, printList } = require("./LL-template");
 //     return temp.data
 // };
 
-// /** 
+// /**
 //  * @param {number} val
 //  * @return {void}
 //  */
@@ -172,7 +172,7 @@ const { createLinkedList, ListNode, printList } = require("./LL-template");
 //     this.size++
 // };
 
-// /** 
+// /**
 //  * @param {number} val
 //  * @return {void}
 //  */
@@ -193,8 +193,8 @@ const { createLinkedList, ListNode, printList } = require("./LL-template");
 //     this.size++;
 // };
 
-// /** 
-//  * @param {number} index 
+// /**
+//  * @param {number} index
 //  * @param {number} val
 //  * @return {void}
 //  */
@@ -216,7 +216,7 @@ const { createLinkedList, ListNode, printList } = require("./LL-template");
 //     this.size++;
 // };
 
-// /** 
+// /**
 //  * @param {number} index
 //  * @return {void}
 //  */
@@ -340,7 +340,7 @@ class Node {
 
 //     // return temp
 
-//     // optimal 
+//     // optimal
 //     // let slow = head, fast = head
 
 //     // while (fast !== null && fast.next !== null) {
@@ -510,3 +510,44 @@ class Node {
 // temp.next = secondNode;
 
 // console.log(detectCycle(head));
+
+// que 7 leetcode -> 206
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+// var reverseList = function (head) {
+
+// TC = O(n), SC = O(1)
+//     let curr = head, prev = null
+//     while (curr !== null) {
+//         let temp = curr.next
+//         curr.next = prev
+//         prev = curr
+//         curr = temp
+//     }
+
+//     return prev
+
+// TC = O(n), SC = O(n)
+//     // function reverse(curr, prev) {
+//     //     if(curr === null) return prev
+//     //     let temp = curr.next
+//     //     curr.next = prev
+//     //     prev = curr
+//     //     curr = temp
+//     //     return reverse(curr,prev)
+//     // }
+
+//     // return reverse(curr,prev)
+// };
+
+// printList(reverseList(createLinkedList([1, 2, 3, 4, 5])))
