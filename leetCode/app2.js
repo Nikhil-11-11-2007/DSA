@@ -668,18 +668,50 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
  * @param {ListNode} head
  * @return {ListNode}
  */
-var deleteDuplicates = function (head) {
-    let curr = head;
+// var deleteDuplicates = function (head) {
+//     if (head === null || head.next === null) return head
+//     let temp = head
+//     while (temp !== null && temp.next !== null) {
+//         if (temp.val === temp.next.val) temp.next = temp.next.next
+//         else temp = temp.next
+//     }
 
-    while (curr !== null && curr.next !== null) {
-        if (curr.val === curr.next.val) {
-            curr.next = curr.next.next;
-        } else {
-            curr = curr.next;
-        }
-    }
+//     return head
+// };
 
-    return head;
-};
+// printList(deleteDuplicates(createLinkedList([1, 1, 2, 3, 3])))
 
-printList(deleteDuplicates(createLinkedList([1, 1, 2, 3, 3])))
+// que 86 leetcode -> 82
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+// var deleteDuplicates = function (head) {
+
+//     if (head === null || head.next === null) return head
+//     let curr = head.next, dummy = new ListNode(-1)
+//     dummy.next = head
+//     let prev = dummy
+//     while (curr !== null) {
+//         let flag = false
+//         while (curr !== null && prev.next.val === curr.val) {
+//             flag = true
+//             curr = curr.next
+//         }
+//         if (flag) prev.next = curr
+//         else prev = prev.next
+//         if (curr !== null) curr = curr.next
+//     }
+
+//     return dummy.next
+// };
+
+// printList(deleteDuplicates(createLinkedList([1, 2, 3, 3, 4, 4, 5])))
