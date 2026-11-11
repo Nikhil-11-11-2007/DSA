@@ -526,8 +526,9 @@ class Node {
  */
 // var reverseList = function (head) {
 
-// TC = O(n), SC = O(1)
+//     // TC = O(n), SC = O(1)
 //     let curr = head, prev = null
+
 //     while (curr !== null) {
 //         let temp = curr.next
 //         curr.next = prev
@@ -537,7 +538,9 @@ class Node {
 
 //     return prev
 
-// TC = O(n), SC = O(n)
+//     // TC = O(n), SC = O(n)
+//     // let curr = head, prev = null
+
 //     // function reverse(curr, prev) {
 //     //     if(curr === null) return prev
 //     //     let temp = curr.next
@@ -615,3 +618,43 @@ class Node {
 // };
 
 // printList(deleteDuplicates(createLinkedList([1, 2, 3, 3, 4, 4, 5])))
+
+// que 10 leetcode -> 25 (hard)
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {ListNode}
+ */
+var reverseKGroup = function (head, k) {
+
+    if (k === 1 || head === null || head.next === null) return head
+
+    let start = head, end = head, i = 0
+    while (i < k) {
+        if (end === null) return head;
+        end = end.next;
+        i++;
+    }
+
+    let prev = null
+
+    while(start !== end){
+        let temp = start.next
+        start.next = prev
+        prev = start
+        start = temp
+    }
+
+    return prev
+
+};
+
+printList(reverseKGroup(createLinkedList([1, 2, 3, 4, 5])))
