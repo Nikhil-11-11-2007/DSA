@@ -635,26 +635,40 @@ class Node {
  */
 var reverseKGroup = function (head, k) {
 
-    if (k === 1 || head === null || head.next === null) return head
+    if (k <= 1 || head === null || head.next === null) return head
 
-    let start = head, end = head, i = 0
-    while (i < k) {
-        if (end === null) return head;
-        end = end.next;
-        i++;
+    let dummy = new ListNode(0)
+    dummy.next = head
+
+    let groupPrev = dummy
+
+    while (true) {
+        let kth = groupPrev, i = 0
+        while (i < k && kth !== null) {
+            kth = kth.next;
+            i++;
+        }
+
+        // If less than k nodes remain
+        if (kth === null) break;
+        let groupNext = kth.next
+
+        let curr = groupPrev.next
+        let prev = groupNext
+        while (curr !== groupNext) {
+            let temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+        }
+
+        let temp = groupPrev.next
+        groupPrev.next = kth
+        groupPrev = temp
     }
+    return dummy.next
 
-    let prev = null
-
-    while(start !== end){
-        let temp = start.next
-        start.next = prev
-        prev = start
-        start = temp
-    }
-
-    return prev
 
 };
 
-printList(reverseKGroup(createLinkedList([1, 2, 3, 4, 5])))
+printList(reverseKGroup(createLinkedList([1, 2, 3, 4, 5]), 2))
