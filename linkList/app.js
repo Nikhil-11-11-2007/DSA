@@ -633,42 +633,103 @@ class Node {
  * @param {number} k
  * @return {ListNode}
  */
-var reverseKGroup = function (head, k) {
 
-    if (k <= 1 || head === null || head.next === null) return head
+// function reveseLL(start, end) {
+//     let curr = start, prev = null
+//     while (curr !== end) {
+//         let temp = curr.next
+//         curr.next = prev
+//         prev = curr
+//         curr = temp
+//     }
+//     return prev
+// }
+// var reverseKGroup = function (head, k) {
 
-    let dummy = new ListNode(0)
-    dummy.next = head
+//     // itrative way TC = O(n), SC = O(1)
+//     // if (k <= 1 || head === null || head.next === null) return head
 
-    let groupPrev = dummy
+//     // let dummy = new ListNode(0)
+//     // dummy.next = head
+//     // let groupPrev = dummy
 
-    while (true) {
-        let kth = groupPrev, i = 0
-        while (i < k && kth !== null) {
-            kth = kth.next;
-            i++;
-        }
+//     // while (true) {
+//     //     let kth = groupPrev
+//     //     for (let i = 0; i < k && kth !== null; i++) {
+//     //         kth = kth.next
+//     //     }
 
-        // If less than k nodes remain
-        if (kth === null) break;
-        let groupNext = kth.next
+//     //     if (kth === null) break
+//     //     let groupNext = kth.next
+//     //     let curr = groupPrev.next, prev = groupNext
+//     //     while (curr !== groupNext) {
+//     //         let temp = curr.next
+//     //         curr.next = prev
+//     //         prev = curr
+//     //         curr = temp
+//     //     }
 
-        let curr = groupPrev.next
-        let prev = groupNext
-        while (curr !== groupNext) {
-            let temp = curr.next
-            curr.next = prev
-            prev = curr
-            curr = temp
-        }
+//     //     let temp = groupPrev.next
+//     //     groupPrev.next = kth
+//     //     groupPrev = temp
+//     // }
 
-        let temp = groupPrev.next
-        groupPrev.next = kth
-        groupPrev = temp
-    }
-    return dummy.next
+//     // return dummy.next
 
+//     // recursive way TC = O(n), SC = O(n/k)
 
-};
+//     // if (k <= 1 || head === null || head.next === null) return head
+//     // let start = head, end = head, i = 0
+//     // while (i < k) {
+//     //     if (end === null) return head
+//     //     end = end.next
+//     //     i++;
+//     // }
 
-printList(reverseKGroup(createLinkedList([1, 2, 3, 4, 5]), 2))
+//     // let newNode = reveseLL(start, end)
+//     // start.next = reverseKGroup(end, k)
+//     // return newNode
+
+// };
+
+// printList(reverseKGroup(createLinkedList([1, 2, 3, 4, 5, 6]), 3))
+
+// que 11 leetcode -> 2
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+// var addTwoNumbers = function (l1, l2) {
+//     let dummy = new ListNode(-1), temp = dummy
+//     let carry = 0
+//     while (l1 !== null || l2 !== null) {
+//         let v1 = (l1 != null) ? l1.val : 0
+//         let v2 = (l2 != null) ? l2.val : 0
+//         let data = v1 + v2 + carry
+//         carry = Math.floor(data / 10)
+//         temp.next = new ListNode(data % 10)
+//         temp = temp.next
+//         if (l1 !== null) l1 = l1.next
+//         if (l2 !== null) l2 = l2.next
+//     }
+//     if (carry > 0) {
+//         temp.next = new ListNode(carry);
+//     }
+//     return dummy.next
+// };
+
+// TC = O(n), SC = O(n)
+
+// let list1 = createLinkedList([9, 9, 9, 9, 9, 9, 9])
+// let list2 = createLinkedList([9, 9, 9, 9])
+// let addNum = addTwoNumbers(list1,list2)
+// printList(addNum)
