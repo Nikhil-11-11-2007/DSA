@@ -18,23 +18,23 @@ let prompt = require("prompt-sync")()
 
 // que 2
 
-// var lengthOfLongestSubstring = function (s) {
+var lengthOfLongestSubstring = function (s) {
 
-//     let str = ""
-//     let count = 0
-//     for (let i = 0; i < s.length; i++) {
-//         let ch = s[i]
-//         if (str.includes(ch)) {
-//             str = str.substring(str.indexOf(ch) + 1) + ch
-//         } else {
-//             str += ch
-//         }
-//         count = Math.max(count, str.length)
-//     }
+    let str = ""
+    let count = 0
+    for (let i = 0; i < s.length; i++) {
+        let ch = s[i]
+        if (str.includes(ch)) {
+            str = str.substring(str.indexOf(ch) + 1) + ch
+        } else {
+            str += ch
+        }
+        count = Math.max(count, str.length)
+    }
 
-//     return count
+    return count
 
-// };
+};
 
 // console.log(lengthOfLongestSubstring("pwwkew"))
 
