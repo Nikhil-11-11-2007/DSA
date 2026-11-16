@@ -87,3 +87,61 @@
 // console.log(q.arr)
 // q.dQueue()
 // console.log(q.arr)
+
+// circular array method to implement Queue
+
+class Queue {
+    constructor(size) {
+        this.arr = new Array(size)
+        this.size = size
+        this.front = -1
+        this.rear = -1
+    }
+
+    enQueue(val) {
+        if ((this.rear + 1) % this.size === this.front) {
+            console.log("full queue")
+            return
+        }
+        if (this.front === -1) this.front = 0
+        this.rear = (this.rear + 1) % this.size
+        this.arr[this.rear] = val
+    }
+
+    // TC = O(1)
+
+    dQueue() {
+        if (this.front === -1) {
+            console.log("empty Queue")
+            return
+        }
+
+        let deleteEle = this.arr[this.front]
+        if (this.front === this.rear) this.front = this.rear = -1
+        else this.front = (this.front + 1) % this.size
+        return deleteEle
+    }
+
+    printQueue() {
+        if (this.front === -1) {
+            console.log("empty Queue")
+            return
+        }
+        let i = this.front
+        while (true) {
+            process.stdout.write(this.arr[i] + " -> ");
+            if (i === this.rear) break;
+            i = (i + 1) % this.size;
+        }
+        console.log();
+    }
+}
+
+let q = new Queue(4)
+q.enQueue(10)
+q.enQueue(20)
+q.enQueue(30)
+q.enQueue(40)
+q.printQueue()
+q.dQueue()
+q.printQueue()
