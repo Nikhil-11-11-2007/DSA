@@ -98,6 +98,7 @@ class Queue {
         this.rear = -1
     }
 
+    // TC = O(1)
     enQueue(val) {
         if ((this.rear + 1) % this.size === this.front) {
             console.log("full queue")
@@ -108,8 +109,29 @@ class Queue {
         this.arr[this.rear] = val
     }
 
-    // TC = O(1)
+    insertFront(val) {
+        if ((this.rear + 1) % this.size === this.front) {
+            console.log("Queue is full")
+            return
+        }
+        if (this.front === -1) this.front = this.rear = 0
+        else this.front = (this.front - 1 + this.size) % this.size
+        this.arr[this.front] = val
+    }
 
+    deleteRear() {
+        if (this.front === -1) {
+            console.log("queue is empty")
+            return
+        }
+        let deleteEl = this.arr[this.rear]
+        if (this.rear === this.front) this.front = this.rear = -1
+        else this.rear = (this.rear - 1 + this.size) % this.size
+        return deleteEl
+
+    }
+
+    // TC = O(1)
     dQueue() {
         if (this.front === -1) {
             console.log("empty Queue")
@@ -137,11 +159,18 @@ class Queue {
     }
 }
 
-let q = new Queue(4)
-q.enQueue(10)
-q.enQueue(20)
-q.enQueue(30)
-q.enQueue(40)
+let q = new Queue(8)
+q.enQueue(-10)
+q.enQueue(-20)
+q.enQueue(-30)
+q.enQueue(-40)
+q.printQueue()
+q.insertFront(10)
+q.insertFront(20)
+q.insertFront(30)
+q.insertFront(40)
 q.printQueue()
 q.dQueue()
+q.printQueue()
+q.deleteRear()
 q.printQueue()
