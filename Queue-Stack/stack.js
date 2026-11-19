@@ -96,35 +96,61 @@ class Node {
  * @param {number[]} st
  * @returns {void}
  */
+// class Solution {
+//     insertAtBottom(st, a) {
+//         if(st.length === 0){
+//             st.push(a)
+//             return
+//         }
+//         let x = st.pop()
+//         this.insertAtBottom(st,a)
+//         st.push(x)
+//     }
+//     reverseStack(st) {
+//         // code here
+//         if(st.length === 0) return
+//         let a = st.pop()
+//         this.reverseStack(st)
+//         this.insertAtBottom(st,a)
+//         return st
+//         // itrative approch
+//         // let q = []
+//         // while(st.length !== 0){
+//         //     q.push(st.pop())
+//         // }
+//         // while(q.length !== 0){
+//         //     st.push(q.shift())
+//         // }
+//     }
+// }
+
+// let sol = new Solution()
+// console.log(sol.reverseStack([1, 2, 3, 4]))
+
+// que 2 gfg
+
 class Solution {
-    insertAtBottom(st, a) {
-        if (st.length === 0) {
-            st.push(a)
-            return
-        }
-
-        let x = st.pop()
-        this.insertAtBottom(st, a)
-        st.push(x)
-    }
-    reverseStack(st) {
+    reverseQueue(q) {
         // code here
-        if (st.length === 0) return
-        let a = st.pop()
-        this.reverseStack(st)
-        this.insertAtBottom(st, a)
-        return st
 
-        // itrative approch
-        // let q = []
-        // while(st.length !== 0){
-        //     q.push(st.pop())
+        if(q.length === 0) return
+        let a = q.shift()
+        this.reverseQueue(q)
+        q.push(a)
+        return q
+
+        // itrative
+        // let st = []
+        // while (q.length !== 0) {
+        //     st.push(q.pop())
         // }
-        // while(q.length !== 0){
-        //     st.push(q.shift())
+        // while (st.length !== 0) {
+        //     q.push(st.shift())
         // }
+        // return q
+
     }
 }
 
 let sol = new Solution()
-console.log(sol.reverseStack([1, 2, 3, 4]))
+console.log(sol.reverseQueue([1, 2, 3, 4]))
