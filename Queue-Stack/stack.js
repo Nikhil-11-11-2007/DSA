@@ -129,28 +129,56 @@ class Node {
 
 // que 2 gfg
 
-class Solution {
-    reverseQueue(q) {
-        // code here
+// class Solution {
+//     reverseQueue(q) {
+//         // code here
 
-        if(q.length === 0) return
-        let a = q.shift()
-        this.reverseQueue(q)
-        q.push(a)
-        return q
+//         if(q.length === 0) return
+//         let a = q.shift()
+//         this.reverseQueue(q)
+//         q.push(a)
+//         return q
 
-        // itrative
-        // let st = []
-        // while (q.length !== 0) {
-        //     st.push(q.pop())
-        // }
-        // while (st.length !== 0) {
-        //     q.push(st.shift())
-        // }
-        // return q
+//         // itrative
+//         // let st = []
+//         // while (q.length !== 0) {
+//         //     st.push(q.pop())
+//         // }
+//         // while (st.length !== 0) {
+//         //     q.push(st.shift())
+//         // }
+//         // return q
 
-    }
-}
+//     }
+// }
 
-let sol = new Solution()
-console.log(sol.reverseQueue([1, 2, 3, 4]))
+// let sol = new Solution()
+// console.log(sol.reverseQueue([1, 2, 3, 4]))
+
+// que 3 leetcode -> 20
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+// var isValid = function (s) {
+//     let st = []
+//     for (let i = 0; i < s.length; i++) {
+//         let ch = s[i]
+//         if (ch == "(" || ch == "{" || ch == "[") {
+//             st.push(ch)
+//             continue
+//         }
+
+//         if (st.length === 0) return false
+//         if (ch == ")" && st[st.length - 1] === "(") st.pop()
+//         else if (ch == "]" && st[st.length - 1] === "[") st.pop()
+//         else if (ch == "}" && st[st.length - 1] === "{") st.pop()
+//         else return false
+//     }
+//     if (st.length > 0) return false
+//     return true
+
+// };
+// // TC = O(n), SC = O(n)
+// console.log(isValid("([{}])"))

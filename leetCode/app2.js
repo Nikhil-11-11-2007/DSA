@@ -830,3 +830,31 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
 // let list2 = createLinkedList([9, 9, 9, 9])
 // let addNum = addTwoNumbers(list1,list2)
 // printList(addNum)
+
+// que 89 leetcode -> 20
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+// var isValid = function (s) {
+//     let st = []
+//     for (let i = 0; i < s.length; i++) {
+//         let ch = s[i]
+//         if (ch == "(" || ch == "{" || ch == "[") {
+//             st.push(ch)
+//             continue
+//         }
+
+//         if (st.length === 0) return false
+//         if (ch == ")" && st[st.length - 1] === "(") st.pop()
+//         else if (ch == "]" && st[st.length - 1] === "[") st.pop()
+//         else if (ch == "}" && st[st.length - 1] === "{") st.pop()
+//         else return false
+//     }
+//     if (st.length > 0) return false
+//     return true
+
+// };
+// // TC = O(n), SC = O(n)
+// console.log(isValid("([{}])"))
