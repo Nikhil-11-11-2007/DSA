@@ -182,3 +182,103 @@ class Node {
 // };
 // // TC = O(n), SC = O(n)
 // console.log(isValid("([{}])"))
+
+// que 4 leetcode -> 232
+
+// var MyQueue = function () {
+//     this.inSt = []
+//     this.revSt = []
+
+// };
+
+// /** 
+//  * @param {number} x
+//  * @return {void}
+//  */
+// MyQueue.prototype.push = function (x) {
+//     this.inSt.push(x)
+// }; //TC = O(1), SC = O(n)
+
+// /**
+//  * @return {number}
+//  */
+// MyQueue.prototype.pop = function () {
+//     this.peek()
+//     return this.revSt.pop()
+// }; //TC = O(n), SC = O(n)
+
+// /**
+//  * @return {number}
+//  */
+// MyQueue.prototype.peek = function () {
+//     if (this.revSt.length === 0) {
+//         while (this.inSt.length !== 0) {
+//             this.revSt.push(this.inSt.pop())
+//         }
+//     }
+//     return this.revSt[this.revSt.length - 1]
+// }; //TC = O(n), SC = O(n)
+
+// /**
+//  * @return {boolean}
+//  */
+// MyQueue.prototype.empty = function () {
+//     return (this.inSt.length === 0 && this.revSt.length === 0)
+// }; //TC = O(1), SC = O(n)
+
+// let que = new MyQueue()
+// que.push(10)
+// que.push(20)
+// que.push(30)
+// console.log(que.pop())
+// console.log(que.peek())
+// console.log(que.empty())
+
+// que 5 leetcode -> 225
+
+// var MyStack = function() {
+//     this.q = []
+// };
+
+// /** 
+//  * @param {number} x
+//  * @return {void}
+//  */
+// MyStack.prototype.push = function(x) {
+//     this.q.push(x)
+//     let size = this.q.length
+//     while(size > 1){
+//         this.q.push(this.q.shift())
+//         size--;
+//     }
+// }; // TC = O(n), SC = O(n)
+
+// /**
+//  * @return {number}
+//  */
+// MyStack.prototype.pop = function() {
+//     return this.q.shift()
+// }; // TC = O(n), SC = O(n)
+
+// /**
+//  * @return {number}
+//  */
+// MyStack.prototype.top = function() {
+//     return this.q[0]
+// }; // TC = O(1), SC = O(n)
+
+// /**
+//  * @return {boolean}
+//  */
+// MyStack.prototype.empty = function() {
+//     return this.q.length === 0
+// }; // TC = O(1), SC = O(n)
+
+// let stack = new MyStack()
+
+// stack.push(10)
+// stack.push(20)
+// stack.push(30)
+// console.log(stack.top())
+// console.log(stack.pop())
+// console.log(stack.empty())
