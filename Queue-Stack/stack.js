@@ -282,3 +282,84 @@ class Node {
 // console.log(stack.top())
 // console.log(stack.pop())
 // console.log(stack.empty())
+
+// que 6 gfg
+
+/**
+* @param {number[]} arr
+* @return s {number[]}
+*/
+
+// class Solution {
+//     nextLargerElement(arr) {
+//         // code here
+//         let ans = new Array(arr.length), st = []
+//         for (let i = arr.length - 1; i >= 0; i--) {
+//             while (st.length !== 0 && (st[st.length - 1]) <= arr[i]) {
+//                 st.pop()
+//             }
+//             if (st.length === 0) ans[i] = -1
+//             else ans[i] = st[st.length - 1]
+//             st.push(arr[i])
+//         }
+//         return ans
+
+//     }
+// } // TC = O(n), SC = O(n)
+
+// let sol = new Solution()
+// console.log(sol.nextLargerElement([1, 3, 2, 4]))
+
+// que 7 leetcode -> 496
+
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+// var nextGreaterElement = function (nums1, nums2) {
+//     let st = [], ans = new Array(nums1.length)
+//     let map = new Map()
+//     for (let i = 0; i < nums1.length; i++) {
+//         map.set(nums1[i], i)
+//     }
+//     for (let i = nums2.length - 1; i >= 0; i--) {
+//         while (st.length !== 0 && st[st.length - 1] <= nums2[i]) {
+//             st.pop()
+//         }
+//         if (map.has(nums2[i])) {
+//             if (st.length === 0) ans[map.get(nums2[i])] = -1
+//             else if (map.has(nums2[i])) ans[map.get(nums2[i])] = st[st.length - 1]
+//         }
+//         st.push(nums2[i])
+//     }
+
+//     return ans
+// }; // TC = O(n), SC = O(n)
+
+// console.log(nextGreaterElement([4, 1, 2], [1, 3, 4, 2]))
+
+// que 8 gfg Previous Smaller Element
+
+/**
+* @param {number[]} arr
+* @return s {number[]}
+*/
+
+class Solution {
+    prevSmaller(arr) {
+        // code here
+        let st = [], ans = new Array(arr.length)
+        for (let i = 0; i < arr.length; i++) {
+            while (st.length !== 0 && st[st.length - 1] >= arr[i]) {
+                st.pop()
+            }
+            if (st.length === 0) ans[i] = -1
+            else ans[i] = st[st.length - 1]
+            st.push(arr[i])
+        }
+        return ans
+    }
+}
+let sol = new Solution()
+console.log(sol.prevSmaller([1, 6, 2]))
