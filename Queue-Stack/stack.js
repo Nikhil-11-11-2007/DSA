@@ -346,20 +346,65 @@ class Node {
 * @return s {number[]}
 */
 
-class Solution {
-    prevSmaller(arr) {
-        // code here
-        let st = [], ans = new Array(arr.length)
-        for (let i = 0; i < arr.length; i++) {
-            while (st.length !== 0 && st[st.length - 1] >= arr[i]) {
-                st.pop()
-            }
-            if (st.length === 0) ans[i] = -1
-            else ans[i] = st[st.length - 1]
-            st.push(arr[i])
-        }
-        return ans
+// class Solution {
+//     prevSmaller(arr) {
+//         // code here
+//         let st = [], ans = new Array(arr.length)
+//         for (let i = 0; i < arr.length; i++) {
+//             while (st.length !== 0 && st[st.length - 1] >= arr[i]) {
+//                 st.pop()
+//             }
+//             if (st.length === 0) ans[i] = -1
+//             else ans[i] = st[st.length - 1]
+//             st.push(arr[i])
+//         }
+//         return ans
+//     }
+// } // TC = O(n), SC = O(n)
+// let sol = new Solution()
+// console.log(sol.prevSmaller([1, 6, 2]))
+
+// que 9 gfg Stock Span Problem
+
+/**
+ * @param {number[]} arr
+ * @returns {number[]}
+ */
+
+// class Solution {
+//     calculateSpan(arr) {
+//         // code here
+//         let ans = [], st = []
+//         for (let i = 0; i < arr.length; i++) {
+//             while (st.length !== 0 && arr[st[st.length - 1]] <= arr[i]) {
+//                 st.pop()
+//             }
+//             if (st.length === 0) ans[i] = i + 1
+//             else ans[i] = i - st[st.length - 1]
+//             st.push(i)
+//         }
+//         return ans
+//     }
+// }
+
+// let sol = new Solution()
+// console.log(sol.calculateSpan([10, 4, 5, 90, 120, 80]))
+
+// que 10 leetcode 901
+
+var StockSpanner = function () {
+    this.st = []
+};
+
+/** 
+ * @param {number} price
+ * @return {number}
+ */
+StockSpanner.prototype.next = function (price) {
+    let span = 1
+    while (this.st.length !== 0 && this.st[this.st.length - 1][0] <= price) {
+        span += this.st.pop()[1];
     }
-}
-let sol = new Solution()
-console.log(sol.prevSmaller([1, 6, 2]))
+    this.st.push([price, span]);
+    return span
+};

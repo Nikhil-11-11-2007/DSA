@@ -294,7 +294,7 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
 
 // };
 
-// /** 
+// /**
 //  * @param {number} index
 //  * @return {number}
 //  */
@@ -308,7 +308,7 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
 //     return temp.data
 // };
 
-// /** 
+// /**
 //  * @param {number} val
 //  * @return {void}
 //  */
@@ -319,7 +319,7 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
 //     this.size++
 // };
 
-// /** 
+// /**
 //  * @param {number} val
 //  * @return {void}
 //  */
@@ -340,8 +340,8 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
 //     this.size++;
 // };
 
-// /** 
-//  * @param {number} index 
+// /**
+//  * @param {number} index
 //  * @param {number} val
 //  * @return {void}
 //  */
@@ -363,7 +363,7 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
 //     this.size++;
 // };
 
-// /** 
+// /**
 //  * @param {number} index
 //  * @return {void}
 //  */
@@ -443,7 +443,7 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
 
 //     // return temp
 
-//     // optimal 
+//     // optimal
 //     let slow = head, fast = head
 
 //     while (fast !== null && fast.next !== null) {
@@ -867,7 +867,7 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
 
 // };
 
-// /** 
+// /**
 //  * @param {number} x
 //  * @return {void}
 //  */
@@ -916,7 +916,7 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
 //     this.q = []
 // };
 
-// /** 
+// /**
 //  * @param {number} x
 //  * @return {void}
 //  */
@@ -1015,3 +1015,47 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
 // }; // TC = O(n), SC = O(n)
 
 // console.log(nextGreaterElement([4, 1, 2], [1, 3, 4, 2]))
+
+// que 94 gfg Previous Smaller Element
+
+/**
+* @param {number[]} arr
+* @return s {number[]}
+*/
+
+// class Solution {
+//     prevSmaller(arr) {
+//         // code here
+//         let st = [], ans = new Array(arr.length)
+//         for (let i = 0; i < arr.length; i++) {
+//             while (st.length !== 0 && st[st.length - 1] >= arr[i]) {
+//                 st.pop()
+//             }
+//             if (st.length === 0) ans[i] = -1
+//             else ans[i] = st[st.length - 1]
+//             st.push(arr[i])
+//         }
+//         return ans
+//     }
+// } // TC = O(n), SC = O(n)
+// let sol = new Solution()
+// console.log(sol.prevSmaller([1, 6, 2]))
+
+// que 95 leetcode 901
+
+var StockSpanner = function () {
+    this.st = []
+};
+
+/** 
+ * @param {number} price
+ * @return {number}
+ */
+StockSpanner.prototype.next = function (price) {
+    let span = 1
+    while (this.st.length !== 0 && this.st[this.st.length - 1][0] <= price) {
+        span += this.st.pop()[1];
+    }
+    this.st.push([price, span]);
+    return span
+};
