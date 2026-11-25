@@ -1066,33 +1066,33 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
  * @param {number[]} heights
  * @return {number}
  */
-// var largestRectangleArea = function (heights) {
-//     let st1 = [], left = []
-//     for (let i = 0; i < heights.length; i++) {
-//         while (st1.length !== 0 && heights[st1[st1.length - 1]] >= heights[i]) {
-//             st1.pop()
-//         }
-//         if (st1.length === 0) left[i] = -1
-//         else left[i] = st1[st1.length - 1]
-//         st1.push(i)
-//     }
+var largestRectangleArea = function (heights) {
+    let st1 = [], left = []
+    for (let i = 0; i < heights.length; i++) {
+        while (st1.length !== 0 && heights[st1[st1.length - 1]] >= heights[i]) {
+            st1.pop()
+        }
+        if (st1.length === 0) left[i] = -1
+        else left[i] = st1[st1.length - 1]
+        st1.push(i)
+    }
 
-//     let st2 = [], right = []
-//     for (let i = heights.length - 1; i >= 0; i--) {
-//         while (st2.length !== 0 && heights[st2[st2.length - 1]] >= heights[i]) {
-//             st2.pop()
-//         }
-//         if (st2.length === 0) right[i] = heights.length
-//         else right[i] = st2[st2.length - 1]
-//         st2.push(i)
-//     }
-//     let maxArea = 0
-//     for (let i = 0; i < heights.length; i++) {
-//         let height = heights[i]
-//         let width = right[i] - left[i] - 1
-//         maxArea = Math.max(maxArea, height * width)
-//     }
-//     return maxArea
-// };
+    let st2 = [], right = []
+    for (let i = heights.length - 1; i >= 0; i--) {
+        while (st2.length !== 0 && heights[st2[st2.length - 1]] >= heights[i]) {
+            st2.pop()
+        }
+        if (st2.length === 0) right[i] = heights.length
+        else right[i] = st2[st2.length - 1]
+        st2.push(i)
+    }
+    let maxArea = 0
+    for (let i = 0; i < heights.length; i++) {
+        let height = heights[i]
+        let width = right[i] - left[i] - 1
+        maxArea = Math.max(maxArea, height * width)
+    }
+    return maxArea
+};
 
-// console.log(largestRectangleArea([2, 1, 5, 6, 2, 3]))
+console.log(largestRectangleArea([2, 1, 5, 6, 2, 3]))
