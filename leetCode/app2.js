@@ -1066,33 +1066,118 @@ const { createLinkedList, printList, ListNode } = require("../linkList/LL-templa
  * @param {number[]} heights
  * @return {number}
  */
-var largestRectangleArea = function (heights) {
-    let st1 = [], left = []
-    for (let i = 0; i < heights.length; i++) {
-        while (st1.length !== 0 && heights[st1[st1.length - 1]] >= heights[i]) {
-            st1.pop()
-        }
-        if (st1.length === 0) left[i] = -1
-        else left[i] = st1[st1.length - 1]
-        st1.push(i)
-    }
+// var largestRectangleArea = function (heights) {
+//     let st1 = [], left = []
+//     for (let i = 0; i < heights.length; i++) {
+//         while (st1.length !== 0 && heights[st1[st1.length - 1]] >= heights[i]) {
+//             st1.pop()
+//         }
+//         if (st1.length === 0) left[i] = -1
+//         else left[i] = st1[st1.length - 1]
+//         st1.push(i)
+//     }
 
-    let st2 = [], right = []
-    for (let i = heights.length - 1; i >= 0; i--) {
-        while (st2.length !== 0 && heights[st2[st2.length - 1]] >= heights[i]) {
-            st2.pop()
-        }
-        if (st2.length === 0) right[i] = heights.length
-        else right[i] = st2[st2.length - 1]
-        st2.push(i)
-    }
-    let maxArea = 0
-    for (let i = 0; i < heights.length; i++) {
-        let height = heights[i]
-        let width = right[i] - left[i] - 1
-        maxArea = Math.max(maxArea, height * width)
-    }
-    return maxArea
-};
+//     let st2 = [], right = []
+//     for (let i = heights.length - 1; i >= 0; i--) {
+//         while (st2.length !== 0 && heights[st2[st2.length - 1]] >= heights[i]) {
+//             st2.pop()
+//         }
+//         if (st2.length === 0) right[i] = heights.length
+//         else right[i] = st2[st2.length - 1]
+//         st2.push(i)
+//     }
+//     let maxArea = 0
+//     for (let i = 0; i < heights.length; i++) {
+//         let height = heights[i]
+//         let width = right[i] - left[i] - 1
+//         maxArea = Math.max(maxArea, height * width)
+//     }
+//     return maxArea
+// };
 
-console.log(largestRectangleArea([2, 1, 5, 6, 2, 3]))
+// console.log(largestRectangleArea([2, 1, 5, 6, 2, 3]))
+
+// que 97 leetcode -> 85
+
+/**
+ * @param {character[][]} matrix
+ * @return {number}
+ */
+
+// var maxRectange = function (rectangle) {
+//     let st1 = [], left = []
+//     for (let i = 0; i < rectangle.length; i++) {
+//         while (st1.length !== 0 && rectangle[st1[st1.length - 1]] >= rectangle[i]) {
+//             st1.pop()
+//         }
+//         if (st1.length === 0) left[i] = -1
+//         else left[i] = st1[st1.length - 1]
+//         st1.push(i)
+//     }
+
+//     let st2 = [], right = []
+//     for (let i = rectangle.length - 1; i >= 0; i--) {
+//         while (st2.length !== 0 && rectangle[st2[st2.length - 1]] >= rectangle[i]) {
+//             st2.pop()
+//         }
+//         if (st2.length === 0) right[i] = rectangle.length
+//         else right[i] = st2[st2.length - 1]
+//         st2.push(i)
+//     }
+//     let maxArea = 0
+//     for (let i = 0; i < rectangle.length; i++) {
+//         let height = rectangle[i]
+//         let width = right[i] - left[i] - 1
+//         maxArea = Math.max(maxArea, height * width)
+//     }
+//     return maxArea
+// }
+// var maximalRectangle = function (matrix) {
+//     if (matrix.length === 0) return 0;
+//     let max = 0, copy = new Array(matrix[0].length).fill(0)
+//     for (let i = 0; i < matrix.length; i++) {
+//         for (let j = 0; j < copy.length; j++) {
+//             if (matrix[i][j] == "1") copy[j] += 1
+//             else copy[j] = 0
+//         }
+//         max = Math.max(maxRectange(copy), max)
+//     }
+//     return max
+// }; // TC = O(m*n) where m = rows, n = cols, SC = O(n)
+
+// console.log(maximalRectangle([
+//     ["1", "0", "1", "0", "0"],
+//     ["1", "0", "1", "1", "1"],
+//     ["1", "1", "1", "1", "1"],
+//     ["1", "0", "0", "1", "0"]
+// ]))
+
+// que 98 leetcode -> 844
+
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+// var backspaceCompare = function (s, t) {
+//     let st1 = []
+//     for (let i = 0; i < s.length; i++) {
+//         if (s[i] === "#") st1.pop()
+//         else st1.push(s[i])
+//     }
+
+//     let st2 = []
+//     for (let i = 0; i < t.length; i++) {
+//         if (t[i] === "#") st2.pop()
+//         else st2.push(t[i])
+//     }
+
+//     if (st1.length !== st2.length) return false;
+
+//     for (let i = 0; i < st1.length; i++) {
+//         if (st1[i] !== st2[i]) return false;
+//     }
+//     return true;
+// }; // TC = O(n), SC = O(n)
+
+// console.log(backspaceCompare("ab#c", "ad#c"))
