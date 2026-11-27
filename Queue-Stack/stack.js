@@ -530,3 +530,61 @@ class Node {
 // }; // TC = O(n), SC = O(n)
 
 // console.log(backspaceCompare("ab#c", "ad#c"))
+
+// implementg stack using 2 ques 
+
+/**
+ * Class to implement Stack using two Queues
+ */
+class MyStack {
+    constructor() {
+        // initialize queues here
+        this.q1 = []
+        this.q2 = []
+    }
+
+    /**
+     * Push element x onto stack.
+     * @param {number} x
+     */
+    push(x) {
+        // Implement push logic
+        this.q2.push(x)
+
+        while (this.q1.length > 0) {
+            this.q2.push(this.q1.shift())
+        }
+        [this.q2, this.q1] = [this.q1, this.q2]
+    }
+
+    /**
+     * Removes the element on the top of the stack and returns it.
+     * @return {number}
+     */
+    pop() {
+        // Implement pop logic
+        if (this.q1.length === 0) return -1;
+        return this.q1.shift();
+    }
+
+    /**
+     * Get the top element.
+     * @return {number}
+     */
+    top() {
+        // Implement top logic
+        if (this.q1.length === 0) return -1;
+        return this.q1[0];
+    }
+
+    /**
+     * Returns whether the stack is empty.
+     * @return {boolean}
+     */
+    empty() {
+        // Implement empty logic
+        return this.q1.length === 0;
+    }
+}
+
+module.exports = { MyStack };
