@@ -464,15 +464,15 @@ class Node {
 //         st1.push(i)
 //     }
 
-//     let st2 = [], right = []
-//     for (let i = rectangle.length - 1; i >= 0; i--) {
-//         while (st2.length !== 0 && rectangle[st2[st2.length - 1]] >= rectangle[i]) {
-//             st2.pop()
-//         }
-//         if (st2.length === 0) right[i] = rectangle.length
-//         else right[i] = st2[st2.length - 1]
-//         st2.push(i)
-//     }
+    // let st2 = [], right = []
+    // for (let i = rectangle.length - 1; i >= 0; i--) {
+    //     while (st2.length !== 0 && rectangle[st2[st2.length - 1]] >= rectangle[i]) {
+    //         st2.pop()
+    //     }
+    //     if (st2.length === 0) right[i] = rectangle.length
+    //     else right[i] = st2[st2.length - 1]
+    //     st2.push(i)
+    // }
 //     let maxArea = 0
 //     for (let i = 0; i < rectangle.length; i++) {
 //         let height = rectangle[i]
@@ -536,55 +536,96 @@ class Node {
 /**
  * Class to implement Stack using two Queues
  */
-class MyStack {
+// class MyStack {
+//     constructor() {
+//         // initialize queues here
+//         this.q1 = []
+//         this.q2 = []
+//     }
+
+//     /**
+//      * Push element x onto stack.
+//      * @param {number} x
+//      */
+//     push(x) {
+//         // Implement push logic
+//         this.q2.push(x)
+
+//         while (this.q1.length > 0) {
+//             this.q2.push(this.q1.shift())
+//         }
+//         [this.q2, this.q1] = [this.q1, this.q2]
+//     }
+
+//     /**
+//      * Removes the element on the top of the stack and returns it.
+//      * @return {number}
+//      */
+//     pop() {
+//         // Implement pop logic
+//         if (this.q1.length === 0) return -1;
+//         return this.q1.shift();
+//     }
+
+//     /**
+//      * Get the top element.
+//      * @return {number}
+//      */
+//     top() {
+//         // Implement top logic
+//         if (this.q1.length === 0) return -1;
+//         return this.q1[0];
+//     }
+
+//     /**
+//      * Returns whether the stack is empty.
+//      * @return {boolean}
+//      */
+//     empty() {
+//         // Implement empty logic
+//         return this.q1.length === 0;
+//     }
+// }
+
+class MyQueue {
     constructor() {
-        // initialize queues here
-        this.q1 = []
-        this.q2 = []
+        // Initialize your stacks here
+        this.st1 = []
+        this.st2 = []
     }
 
-    /**
-     * Push element x onto stack.
-     * @param {number} x
-     */
     push(x) {
-        // Implement push logic
-        this.q2.push(x)
-
-        while (this.q1.length > 0) {
-            this.q2.push(this.q1.shift())
-        }
-        [this.q2, this.q1] = [this.q1, this.q2]
+        // Implement push using stacks
+        this.st1.push(x)
     }
 
-    /**
-     * Removes the element on the top of the stack and returns it.
-     * @return {number}
-     */
     pop() {
-        // Implement pop logic
-        if (this.q1.length === 0) return -1;
-        return this.q1.shift();
+        // Implement pop using stacks
+        this.peek()
+        return this.st2.pop()
+
     }
 
-    /**
-     * Get the top element.
-     * @return {number}
-     */
-    top() {
-        // Implement top logic
-        if (this.q1.length === 0) return -1;
-        return this.q1[0];
+    peek() {
+        // Implement peek using stacks
+        if (this.st2.length === 0) {
+            while (this.st1.length > 0) {
+                this.st2.push(this.st1.pop())
+            }
+        }
+        return this.st2[this.st2.length - 1]
     }
 
-    /**
-     * Returns whether the stack is empty.
-     * @return {boolean}
-     */
     empty() {
-        // Implement empty logic
-        return this.q1.length === 0;
+        // Implement empty using stacks
+        if ((this.st1.length === 0) && (this.st2.length === 0)) return true
+        else return false
     }
 }
 
-module.exports = { MyStack };
+let q = new MyQueue()
+q.push(10)
+q.push(20)
+q.push(30)
+
+console.log(q.peek())
